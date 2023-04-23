@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
+## Important!!! bosooo please
+run this command in angular cli
+
+`ng add @angular/material`
+This will install the Angular Material package and add it to your project's dependencies. Additionally, the command will make some changes to your project's configuration files to enable the use of Angular Material components and styles.
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
