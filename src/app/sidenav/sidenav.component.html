@@ -1,0 +1,19 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <!-- Add your navigation links here -->
+      <div><a mat-button routerLink="/" routerLinkActive="active-link">Home</a></div><br>
+      <div><a mat-button routerLink="/about" routerLinkActive="active-link">About</a></div><br>
+      <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a></div><br>
+      <mat-menu #menu="matMenu" class="menuu">
+       <div> <a mat-menu-item routerLink="/">Home</a></div>
+       <div> <a mat-menu-item routerLink="/about">About</a></div>
+        <div><a mat-menu-item routerLink="/contact">Contact</a></div>
+      </mat-menu>
+      <div ><button id="menu" mat-button [matMenuTriggerFor]="menu">Menu</button></div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- Add your page content here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
