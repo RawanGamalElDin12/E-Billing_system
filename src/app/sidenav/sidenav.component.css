@@ -4,7 +4,7 @@
   
   .mat-sidenav-content {
     height: 100%;
-    background-color: blue;
+    background-color: grey;
   }
   .mat-sidenav {
     width: 300px;
@@ -18,7 +18,7 @@
     width: 100%;
   }
   .active-link {
-    background-color: red; /* set the background color for the active link */
+    background-color: blue; /* set the background color for the active link */
   }
   .menuu
   {

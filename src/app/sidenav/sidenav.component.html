@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" opened>
       <!-- Add your navigation links here -->
-      <div><a mat-button routerLink="/" routerLinkActive="active-link">Home</a></div><br>
+      <div><a mat-button routerLink="/"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >Home</a></div><br>
       <div><a mat-button routerLink="/about" routerLinkActive="active-link">About</a></div><br>
       <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a></div><br>
       <mat-menu #menu="matMenu" class="menuu">
@@ -14,6 +14,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <!-- Add your page content here -->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
   

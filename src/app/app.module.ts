@@ -11,6 +11,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+const routes: Routes = [
+  { path: '', component: FooterComponent },
+  { path: 'about', component: HeaderComponent },
+  { path: 'contact', component: FooterComponent },
+];
 
 @NgModule({
   declarations: [
@@ -26,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   exports:
@@ -34,6 +40,7 @@ import { FooterComponent } from './footer/footer.component';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
+    RouterModule
 
   ],
   bootstrap: [AppComponent]
