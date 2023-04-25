@@ -8,13 +8,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { CommonModule } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { UsersDataService } from './Services/users-data.service';
 const routes: Routes = [
-  { path: '', component: FooterComponent },
-  { path: 'about', component: HeaderComponent },
-  { path: 'contact', component: FooterComponent },
+  { path: '', component: HomepageComponent },
+  { path: 'about', component: HomepageComponent },
+  { path: 'contact', component: HomepageComponent },
 ];
 
 @NgModule({
@@ -22,7 +27,8 @@ const routes: Routes = [
     AppComponent,
     SidenavComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +38,12 @@ const routes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatExpansionModule,
+    MatListModule,
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [UsersDataService],
   exports:
   [
     MatSidenavModule,

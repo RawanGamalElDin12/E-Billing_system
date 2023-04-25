@@ -2,19 +2,52 @@
     <mat-sidenav #sidenav mode="side" opened>
       <!-- Add your navigation links here -->
       <div><a mat-button routerLink="/"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >Home</a></div><br>
-      <div><a mat-button routerLink="/about" routerLinkActive="active-link">About</a></div><br>
-      <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a></div><br>
-      <mat-menu #menu="matMenu" class="menuu">
-       <div> <a mat-menu-item routerLink="/">Home</a></div>
-       <div> <a mat-menu-item routerLink="/about">About</a></div>
-        <div><a mat-menu-item routerLink="/contact">Contact</a></div>
-      </mat-menu>
-      <div ><button id="menu" mat-button [matMenuTriggerFor]="menu">Menu</button></div>
+      <div><a mat-button routerLink="/about" routerLinkActive="active-link">Electricity</a></div><br>
+      <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Water</a></div><br>
+      <div><a mat-button  routerLinkActive="active-link">Telephone</a></div><br>
 
+      
+  
     </mat-sidenav>
     <mat-sidenav-content>
       <!-- Add your page content here -->
       <router-outlet></router-outlet>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+  </mat-sidenav-container> 
+
+  <!--<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <div><a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></div><br>
+      <mat-expansion-panel #submenu>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Electricity</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div><a mat-menu-item routerLink="/electricity/billing">Billing</a></div>
+        <div><a mat-menu-item routerLink="/electricity/payments">Payments</a></div>
+      </mat-expansion-panel>
+      <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Water</a></div><br>
+      <mat-menu #menu="matMenu" class="menuu">
+        <div><a mat-menu-item routerLink="/">Home</a></div>
+        <div><a mat-menu-item routerLink="/about">About</a></div>
+        <div><a mat-menu-item routerLink="/contact">Contact</a></div>
+      </mat-menu>
+      <div><button id="menu" mat-button [matMenuTriggerFor]="menu">Telephone</button></div>
+      <mat-menu #menu="matMenu" class="menuu">
+        <div> <a mat-menu-item routerLink="/">Home</a></div>
+        <div> <a mat-menu-item routerLink="/about">About</a></div>
+         <div><a mat-menu-item routerLink="/contact">Contact</a></div>
+       </mat-menu>
+       <div ><button id="menu" mat-button [matMenuTriggerFor]="menu">Telephone</button></div>
+       <div>
+        <button mat-button [matMenuTriggerFor]="submenu">Electricity</button>
+        <mat-menu #submenu="matMenu">
+          <a mat-menu-item routerLink="/electricity/billing">Billing</a>
+          <a mat-menu-item routerLink="/electricity/payments">Payments</a>
+        </mat-menu>
+      </div><br>
+    </mat-sidenav>
+    <mat-sidenav-content>
   
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
