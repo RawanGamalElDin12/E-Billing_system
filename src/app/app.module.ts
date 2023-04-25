@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', component: FooterComponent },
   { path: 'about', component: HeaderComponent },
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     SidenavComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,17 +35,12 @@ const routes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  exports:
-  [
-    MatSidenavModule,
-    MatIconModule,
-    MatButtonModule,
-    RouterModule
-
-  ],
-  bootstrap: [AppComponent]
+  exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
