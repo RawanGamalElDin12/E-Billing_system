@@ -1,0 +1,43 @@
+<div id="home">
+    <p class="bold"> Due Bills</p>
+ 
+    <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bill of bills">
+            <td>{{ bill.Service }}</td>
+            <td>{{ bill.amount }}</td>
+            <td>{{ bill.date }}</td>
+            <td id="btnDiv"><button >Pay</button></td>
+          </tr>
+        </tbody>
+      </table>
+  <br> <br>
+    <p class="bold" >Recent Payment</p>
+    <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of recentPayment">
+            <td>{{ payment.Service }}</td>
+            <td>{{ payment.amount }}</td>
+            <td>{{ payment.date }}</td>
+            <td>{{payment.PaymentType}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
