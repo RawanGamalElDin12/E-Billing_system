@@ -13,6 +13,7 @@ export class AuthService {
     if (email === 'admin@g' && password === '123') {
       this.isLoggedIn = true;
       console.log('logged in!!!!!!!!!!');
+      alert("Welcome Back!");
     } else {
       this.isLoggedIn = false;
       alert('Invalid credentials');

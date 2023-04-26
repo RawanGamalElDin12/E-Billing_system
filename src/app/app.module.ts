@@ -1,3 +1,6 @@
+import { HttpServiceService } from './Services/http-service.service';
+import { HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,9 +21,13 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UsersDataService } from './Services/users-data.service';
+import { ElectricityComponent } from './electricity/electricity.component';
+import { User } from './user';
+
+
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'about', component: HomepageComponent },
+  { path: 'electricity', component: ElectricityComponent },
   { path: 'contact', component: HomepageComponent },
 ];
 
@@ -30,6 +37,10 @@ const routes: Routes = [
     SidenavComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    HomepageComponent,
+    ElectricityComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -39,9 +50,14 @@ const routes: Routes = [
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule
+
+    
   ],
-  providers: [],
+  providers: [UsersDataService,HttpServiceService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
   bootstrap: [AppComponent],
 })

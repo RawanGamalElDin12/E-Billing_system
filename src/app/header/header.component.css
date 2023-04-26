@@ -1,0 +1,17 @@
+h1{
+    font-weight: 900;
+
+}
+.bill-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .bill-header img {
+    margin-right: 10px;
+  }
+  
+  .bill-header h1 {
+    margin: 0;
+  }
+  
