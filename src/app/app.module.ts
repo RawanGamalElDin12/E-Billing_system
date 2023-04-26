@@ -30,6 +30,8 @@ const routes: Routes = [
     SidenavComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,8 @@ const routes: Routes = [
     MatToolbarModule,
     MatMenuModule,
     RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
