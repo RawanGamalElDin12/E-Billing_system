@@ -1,0 +1,154 @@
+.current-bill {
+  width: 250px;
+  height: 32px;
+  padding: 7px 2px 2px 7px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #404a53;
+  text-align: left;
+  display:inline-block;
+  margin-left: 50px;
+  margin-right: 680px;
+  
+}
+.header1 {
+margin-bottom: 20px;
+margin-top: 20px;
+}
+.view-all-bills {
+  width: 159px;
+  height: 44px;
+  border-radius: 5px;
+  background-color: #3f4a54;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+  
+  display:inline-block;
+}
+.rectangle {
+  width: 1058px;
+  height: 300px;
+  margin-left: 80px;
+  border-radius: 7px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.water-bill {
+  width: 189px;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: left;
+  line-height: normal;
+  padding-left: 30px;
+  padding-top: 17px;
+}
+.unit-price {
+  width: 800px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #333333;
+  text-align: left;
+  line-height: normal;
+  padding-left: 435px;
+  padding-top: 8px;
+}
+.due-date {
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: center;
+  line-height: normal;
+  padding-left: 798px;
+}
+
+.total-cubic-meters {
+  width: 277px;
+  height: 22px;
+  padding: 7px 2px 0px 2px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: left;
+  line-height: normal;
+  display:inline-block;
+margin-left: 90px;
+  margin-top: 10px;
+}
+.rectangle2 {
+  width: 205px;
+  height: 30px;
+  padding: 2px 2px 2px 2px;
+  margin-top: 10px;
+  border-radius: 7px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  display:inline-block;
+  margin-left: 50px;
+}
+.calculate-bill {
+  width: 159px;
+  height: 44px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px;
+  background-color: #3f4a54;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+  display:inline-block;
+  margin-left: 20px;
+}
+.header2 {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+table{
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 1000px;
+    
+    }
+    td,th{
+      border: 1px solid #ddd;
+      padding: 8px;
+    
+    }
+    td{
+      background-color: white;
+    }
+    .button1{
+      font-weight: 900;
+      background-color: #3F4A54;
+      color: white;
+      cursor: pointer;
+      border-radius: 3px;
+      width: 100px;
+      font-family: Arial, Helvetica, sans-serif;
+     
+      
+    }
+    .table{
+      margin-left: 20px;
+    }

@@ -1,0 +1,37 @@
+<div class="header1">
+  <p class="current-bill">Current Bill</p>
+  <button class="view-all-bills">View All Bills</button>
+</div>
+<div class="rectangle">
+  <p class="water-bill">Water Bill-may 2023</p>
+  <p class="due-date">Due Date: 30-5-2023</p>
+  <p class="unit-price">Unit Price:1.65 EGP/ M3</p>
+  <div class="centers">
+    <p class="total-cubic-meters">Total Cubic Meters Consumed</p>
+    <input class="rectangle2" [(ngModel)]="value" />
+    <button (click)="onClick()" class="calculate-bill">calculate bill</button>
+    <div class="table" *ngIf="disabled">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Payment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Water Bill-may 2023</td>
+            <td>{{calculatedValue}}</td>
+            <td> 30-5-2023</td>
+            <td> <button  class="button1"> Pay </button>  </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="header2">
+  <p class="current-bill">Recent bill</p>
+</div>
