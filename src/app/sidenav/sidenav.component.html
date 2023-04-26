@@ -1,21 +1,36 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened>
-      <!-- Add your navigation links here -->
-      <div><a mat-button routerLink="/"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >Home</a></div><br>
-      <div><a mat-button routerLink="/about" routerLinkActive="active-link">Electricity</a></div><br>
-      <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Water</a></div><br>
-      <div><a mat-button  routerLinkActive="active-link">Telephone</a></div><br>
+  <mat-sidenav #sidenav mode="side" opened>
+    <!-- Add your navigation links here -->
+    <div>
+      <a
+        mat-button
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </div>
+    <br />
+    <div>
+      <a mat-button routerLink="/about" routerLinkActive="active-link"
+        >Electricity</a
+      >
+    </div>
+    <br />
+    <div>
+      <a mat-button routerLink="/water" routerLinkActive="active-link">Water</a>
+    </div>
+    <br />
+    <div><a mat-button routerLinkActive="active-link">Telephone</a></div>
+    <br />
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Add your page content here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-      
-  
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <!-- Add your page content here -->
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container> 
-
-  <!--<mat-sidenav-container class="sidenav-container">
+<!--<mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" opened>
       <div><a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></div><br>
       <mat-expansion-panel #submenu>
@@ -47,7 +62,7 @@
       </div><br>
     </mat-sidenav>
     <mat-sidenav-content>
-  
+
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container> -->

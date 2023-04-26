@@ -10,14 +10,13 @@
   font-weight: 700;
   color: #404a53;
   text-align: left;
-  display:inline-block;
+  display: inline-block;
   margin-left: 50px;
   margin-right: 680px;
-  
 }
 .header1 {
-margin-bottom: 20px;
-margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .view-all-bills {
   width: 159px;
@@ -30,8 +29,8 @@ margin-top: 20px;
   color: #ffffff;
   text-align: center;
   line-height: normal;
-  
-  display:inline-block;
+
+  display: inline-block;
 }
 .rectangle {
   width: 1058px;
@@ -90,8 +89,8 @@ margin-top: 20px;
   color: #555555;
   text-align: left;
   line-height: normal;
-  display:inline-block;
-margin-left: 90px;
+  display: inline-block;
+  margin-left: 90px;
   margin-top: 10px;
 }
 .rectangle2 {
@@ -102,7 +101,7 @@ margin-left: 90px;
   border-radius: 7px;
   background-color: #ffffff;
   box-sizing: border-box;
-  display:inline-block;
+  display: inline-block;
   margin-left: 50px;
 }
 .calculate-bill {
@@ -117,38 +116,35 @@ margin-left: 90px;
   color: #ffffff;
   text-align: center;
   line-height: normal;
-  display:inline-block;
+  display: inline-block;
   margin-left: 20px;
 }
 .header2 {
   padding-left: 30px;
   padding-top: 30px;
 }
-table{
-      font-family: Arial, Helvetica, sans-serif;
-      border-collapse: collapse;
-      width: 1000px;
-    
-    }
-    td,th{
-      border: 1px solid #ddd;
-      padding: 8px;
-    
-    }
-    td{
-      background-color: white;
-    }
-    .button1{
-      font-weight: 900;
-      background-color: #3F4A54;
-      color: white;
-      cursor: pointer;
-      border-radius: 3px;
-      width: 100px;
-      font-family: Arial, Helvetica, sans-serif;
-     
-      
-    }
-    .table{
-      margin-left: 20px;
-    }
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 1000px;
+}
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+td {
+  background-color: white;
+}
+.button1 {
+  font-weight: 900;
+  background-color: #3f4a54;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.table {
+  margin-left: 20px;
+}

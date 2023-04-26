@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { WaterComponent } from './water-component/water-component.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -19,7 +21,7 @@ import { UsersDataService } from './Services/users-data.service';
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'about', component: HomepageComponent },
-  { path: 'contact', component: HomepageComponent },
+  { path: 'water', component: WaterComponent },
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const routes: Routes = [
     SidenavComponent,
     HeaderComponent,
     FooterComponent,
-    HomepageComponent
+    HomepageComponent,
+    WaterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,17 +44,11 @@ const routes: Routes = [
     MatExpansionModule,
     MatListModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
   ],
   providers: [UsersDataService],
-  exports:
-  [
-    MatSidenavModule,
-    MatIconModule,
-    MatButtonModule,
-    RouterModule
-
-  ],
-  bootstrap: [AppComponent]
+  exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
