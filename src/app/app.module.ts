@@ -1,3 +1,4 @@
+import { AuthService } from './Services/authservice.service';
 import { AuthGuard } from './Services/auth-guard.service';
 import { HttpServiceService } from './Services/http-service.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,6 +25,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { UsersDataService } from './Services/users-data.service';
 import { ElectricityComponent } from './electricity/electricity.component';
 import { User } from './user';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -35,7 +37,7 @@ const routes: Routes = [
       { path: 'home', component: HomepageComponent, canActivate: [AuthGuard] },
     ],
   },
-
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
 ];
 
@@ -48,6 +50,7 @@ const routes: Routes = [
     LoginComponent,
     HomepageComponent,
     ElectricityComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
   ],
-  providers: [UsersDataService, HttpServiceService],
+  providers: [UsersDataService, HttpServiceService, AuthService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
   bootstrap: [AppComponent],
 })

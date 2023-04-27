@@ -28,12 +28,8 @@ export class HttpServiceService {
     const url = `${this.baseurl}/users.json`;
     return this.http.get<User[]>(url);
   }
-  createUserWithId(user: User, id: number): Observable<User> {
+  createUserWithId(user: User, id: string): Observable<User> {
     const url = `${this.baseurl}/users/${id}.json`;
-    return this.http.put<User>(url,JSON.stringify(user),this.httpOptions);
+    return this.http.put<User>(url, JSON.stringify(user), this.httpOptions);
   }
-  
-
-
-
 }
