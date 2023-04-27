@@ -25,13 +25,16 @@ import { ElectricityComponent } from './electricity/electricity.component';
 import { User } from './user';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent, canActivate: [AuthGuard] },
   {
-    path: 'electricity',
-    component: ElectricityComponent,
-    canActivate: [AuthGuard],
+    path: '',
+    component: SidenavComponent,
+    children: [
+      { path: 'electricity', component: ElectricityComponent },
+      { path: 'contact', component: HomepageComponent },
+      { path: 'home', component: HomepageComponent },
+    ],
   },
-  { path: 'contact', component: HomepageComponent },
+
   { path: 'login', component: LoginComponent },
 ];
 
