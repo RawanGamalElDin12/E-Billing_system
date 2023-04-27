@@ -36,14 +36,12 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-  onLogin(form: FormGroup, nationalId: string) {
-    const controlValue = form.get(nationalId)?.value;
-    console.log(`${nationalId}: ${controlValue}`);
+  onLogin(form: FormGroup, nationalId: string, password: string) {
+    const nationaID = form.get(nationalId)?.value;
 
-    // nationalId = this.loginForm.get('nationalid')?.value;
-    // console.log('in onlogin-------');
-    // console.log(nationalId);
-    this.authservice.login(controlValue);
+    const Password = form.get(password)?.value;
+
+    this.authservice.login(nationaID, Password);
   }
   register() {
     this.router.navigate(['/register']);
