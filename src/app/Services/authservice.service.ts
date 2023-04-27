@@ -16,16 +16,24 @@ export class AuthService {
     lastName: '',
     nationalId: '',
   };
-  login(nationalId: string): void {
+  login(nationalId: string, password:string): void {
     console.log(nationalId);
+    console.log(password);
     this.http.getUser(nationalId).subscribe(
       (data: User) => {
-        if (data != null) {
-          console.log(data);
-          console.log(data.email);
-        } else {
-          console.log('no user with this id');
-        }
+        if (data != null && data.password == password) {
+        
+         alert("Welcome Back!");
+         this.router.navigate(['/home']);
+        
+      }
+
+        else {
+         
+          
+          console.log('Wrong ID or Password');
+        } 
+        
       },
       (error) => {
         console.log(error);

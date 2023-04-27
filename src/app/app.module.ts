@@ -34,7 +34,7 @@ const routes: Routes = [
     children: [
       { path: 'electricity', component: ElectricityComponent },
       { path: 'contact', component: HomepageComponent },
-      { path: 'home', component: HomepageComponent, canActivate: [AuthGuard] },
+      { path: 'home', component: HomepageComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },

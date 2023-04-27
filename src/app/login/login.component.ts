@@ -25,18 +25,17 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
-      nationalId: ['', [Validators.required, Validators.maxLength(14)]],
+      nationalId: ['', [Validators.required,Validators.maxLength(14),Validators.minLength(14)]],
       password: ['', Validators.required],
     });
   }
-  onLogin(form: FormGroup, nationalId: string) {
-    const controlValue = form.get(nationalId)?.value;
-    console.log(`${nationalId}: ${controlValue}`);
+  onLogin(form: FormGroup, nationalId: string, password:string) {
+    const nationaID = form.get(nationalId)?.value;
+    
+    const Password = form.get(password)?.value;
+   
 
-    // nationalId = this.loginForm.get('nationalid')?.value;
-    // console.log('in onlogin-------');
-    // console.log(nationalId);
-    this.authservice.login(controlValue);
+    this.authservice.login(nationaID,Password);
   }
   register() {
     this.router.navigate(['/register']);
