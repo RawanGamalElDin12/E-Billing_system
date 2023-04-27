@@ -1,6 +1,5 @@
-import { AuthService } from './../authservice.service';
+import { AuthService } from '../Services/authservice.service';
 import { Component, Input, NgModule } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -21,11 +20,8 @@ export class LoginComponent {
     });
   }
   onLogin() {
-    console.log('in onlogin method-------------------');
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
-    console.log('after email and pass');
     this.authservice.login(email, password);
-    console.log('after .AuthService.login');
   }
 }
