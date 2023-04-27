@@ -1,6 +1,6 @@
+import { AuthGuard } from './Services/auth-guard.service';
 import { HttpServiceService } from './Services/http-service.service';
 import { HttpClientModule } from '@angular/common/http';
-
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -24,11 +24,15 @@ import { UsersDataService } from './Services/users-data.service';
 import { ElectricityComponent } from './electricity/electricity.component';
 import { User } from './user';
 
-
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  { path: 'electricity', component: ElectricityComponent },
+  { path: '', component: HomepageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'electricity',
+    component: ElectricityComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'contact', component: HomepageComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -40,7 +44,6 @@ const routes: Routes = [
     LoginComponent,
     HomepageComponent,
     ElectricityComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -53,11 +56,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
-
-    
+    HttpClientModule,
   ],
-  providers: [UsersDataService,HttpServiceService],
+  providers: [UsersDataService, HttpServiceService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
   bootstrap: [AppComponent],
 })
