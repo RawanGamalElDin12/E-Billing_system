@@ -25,7 +25,14 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
-      nationalId: ['', [Validators.required, Validators.maxLength(14)]],
+      nationalId: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(14),
+          Validators.minLength(14),
+        ],
+      ],
       password: ['', Validators.required],
     });
   }

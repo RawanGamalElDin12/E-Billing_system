@@ -23,9 +23,18 @@
       <input formControlName="nationalId" [(ngModel)]="user.nationalId" />
       <div
         *ngIf="
-          loginForm.get('password')?.invalid && loginForm.get('password')?.dirty
+          loginForm.get('nationalId')?.invalid &&
+          (loginForm.get('nationalId')?.dirty ||
+            loginForm.get('nationalId')?.touched)
         "
-      ></div>
+      >
+        <div *ngIf="loginForm.get('nationalId')?.errors">
+          National ID is required
+        </div>
+        <div *ngIf="loginForm.get('nationalId')?.errors">
+          National ID should be 14 digits
+        </div>
+      </div>
     </div>
     <div>
       <label>Password</label>
