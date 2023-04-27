@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UsersDataService } from '../Services/users-data.service';
-
+import { UserdataService } from '../Services/userdata.service';
+import { User } from '../user';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -11,11 +12,20 @@ export class HomepageComponent {
   bills: any[]=[];
   recentPayment: any[] = [];
 
-  constructor( private userService: UsersDataService) {  }
+  user: User = {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    nationalId: '',
+  }
+  constructor( private userService: UsersDataService, private userDataService: UserdataService) {  }
 
   ngOnInit() {
     this.bills = this.userService.getUserBills(this.userId);
     this.recentPayment = this.userService.getRecentPayment(this.userId);
+    this.user = this.userDataService.user;
+    console.log(this.user.nationalId);
   }
 
 }

@@ -2,12 +2,12 @@ import { User } from './../user';
 import { HttpServiceService } from './http-service.service';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { UserdataService } from './userdata.service';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private http: HttpServiceService) {}
+  constructor(private router: Router, private http: HttpServiceService,private userDataSerive: UserdataService) {}
   isLoggedIn = false;
   user: User = {
     email: '',
@@ -20,9 +20,10 @@ export class AuthService {
     console.log(nationalId);
     console.log(password);
     this.http.getUser(nationalId).subscribe(
-      (data: User) => {
-        if (data != null && data.password == password) {
+      (user: User) => {
+        if (user != null && user.password == password) {
         
+        this.userDataSerive.user = user;
          alert("Welcome Back!");
          this.router.navigate(['/home']);
         
