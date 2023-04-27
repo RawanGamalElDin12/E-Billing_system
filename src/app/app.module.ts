@@ -26,9 +26,14 @@ import { User } from './user';
 
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  { path: 'electricity', component: ElectricityComponent },
-  { path: 'contact', component: HomepageComponent },
+  { path: '', component: SidenavComponent, children: [
+    { path: 'electricity', component: ElectricityComponent },
+    { path: 'contact', component: HomepageComponent },
+    {path:'home', component:HomepageComponent}
+  ]},
+
+   { path:'login',component:LoginComponent},
+  
 ];
 
 @NgModule({

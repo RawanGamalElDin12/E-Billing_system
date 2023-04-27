@@ -21,5 +21,20 @@ export class HeaderComponent {
         console.log(error);
       }
     );
+    this.httpService.getUser('4').subscribe(
+      (data: User) => {
+        if(data != null)
+        {
+          console.log(data);
+        console.log(data.email);
+        }
+        else{
+          console.log("no user with this id");
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

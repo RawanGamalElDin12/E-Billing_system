@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  constructor(private router: Router){}
   isLoggedIn = false;
 
   login(email: string, password: string): void {
@@ -14,6 +16,8 @@ export class AuthService {
       this.isLoggedIn = true;
       console.log('logged in!!!!!!!!!!');
       alert("Welcome Back!");
+      this.router.navigate(['/home']);
+
     } else {
       this.isLoggedIn = false;
       alert('Invalid credentials');
