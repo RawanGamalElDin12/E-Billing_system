@@ -26,8 +26,18 @@ export class HttpServiceService {
   }
   getUser(id: string): Observable<User> {
     const url = `${this.baseurl}/users/${id}.json`;
-    return this.http.get<User>(url, { withCredentials: true });
+    return this.http.get<User>(url);
   }
+  getAllUsers(): Observable<User[]> {
+    const url = `${this.baseurl}/users.json`;
+    return this.http.get<User[]>(url);
+  }
+  createUserWithId(user: User, id: number): Observable<User> {
+    const url = `${this.baseurl}/users/${id}.json`;
+    return this.http.put<User>(url,JSON.stringify(user),this.httpOptions);
+  }
+  
+
 
 
 }

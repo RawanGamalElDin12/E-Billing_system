@@ -7,10 +7,42 @@ import { User } from '../user';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private httpService: HttpServiceService) {
-    this.getUserData();
-  }
+  users: User[] =[] ;
+  user1: User = new User("rrrr@gmail.com",3,"rania",123);
 
+  constructor(private httpService: HttpServiceService) {
+    
+    }
+    ngOnInit() {
+      this.getUserData();
+      this.httpService.getAllUsers().subscribe(users => {
+        this.users = users;
+         console.log(users);
+         for (let user of this.users) {
+          if(user !== null)
+          {
+            console.log(user.email);
+            console.log(user.password);
+          }
+        }
+     this.createUser();
+
+      });
+      this.httpService.createUserWithId(this.user1,3);
+    }
+    createUser() {
+     
+      this.httpService.createUserWithId(this.user1, 3).subscribe(
+        (result) => {
+          console.log(`User created successfully: ${result}`);
+        },
+        (error) => {
+          console.log(`Error creating user: ${error}`);
+        }
+      );
+    }
+  
+  
   getUserData() {
     this.httpService.getUser('1').subscribe(
       (data: User) => {
@@ -21,6 +53,8 @@ export class HeaderComponent {
         console.log(error);
       }
     );
+    
+   
     this.httpService.getUser('4').subscribe(
       (data: User) => {
         if(data != null)
