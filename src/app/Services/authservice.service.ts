@@ -1,6 +1,5 @@
 import { User } from './../user';
 import { HttpServiceService } from './http-service.service';
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 

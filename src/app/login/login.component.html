@@ -1,6 +1,6 @@
 <div>
   <h2>Login</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <form [formGroup]="loginForm" #f="ngForm" (ngSubmit)="onLogin()">
     <div>
       <label>Email</label>
       <input type="email" formControlName="email" />

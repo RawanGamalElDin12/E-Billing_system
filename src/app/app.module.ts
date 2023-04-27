@@ -1,6 +1,7 @@
 import { AuthGuard } from './Services/auth-guard.service';
 import { HttpServiceService } from './Services/http-service.service';
 import { HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -31,7 +32,7 @@ const routes: Routes = [
     children: [
       { path: 'electricity', component: ElectricityComponent },
       { path: 'contact', component: HomepageComponent },
-      { path: 'home', component: HomepageComponent },
+      { path: 'home', component: HomepageComponent, canActivate: [AuthGuard] },
     ],
   },
 
