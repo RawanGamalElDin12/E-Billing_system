@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../user';
+import { User } from '../classes/user';
 import {
   HttpClient,
   HttpRequest,
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HttpServiceService {
+  users: User[]= [];
   baseurl = 'https://billing-system-d30dd-default-rtdb.firebaseio.com/';
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -28,6 +29,8 @@ export class HttpServiceService {
     const url = `${this.baseurl}/users.json`;
     return this.http.get<User[]>(url);
   }
+ 
+  
   createUserWithId(user: User, id: string): Observable<User> {
     const url = `${this.baseurl}/users/${id}.json`;
     return this.http.put<User>(url, JSON.stringify(user), this.httpOptions);

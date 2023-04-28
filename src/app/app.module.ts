@@ -24,9 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UsersDataService } from './Services/users-data.service';
 import { ElectricityComponent } from './electricity/electricity.component';
-import { User } from './user';
+import { User } from './classes/user'; 
 import { RegisterComponent } from './register/register.component';
-
 const routes: Routes = [
   {
     path: '',
