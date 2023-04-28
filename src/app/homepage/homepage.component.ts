@@ -4,6 +4,7 @@ import { UserdataService } from '../Services/userdata.service';
 import { CompletedBills } from '../classes/CompletedBills';
 import { User } from '../classes/user';
 import { DueBills } from '../classes/DueBills';
+import { HttpServiceService } from '../Services/http-service.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -38,7 +39,7 @@ export class HomepageComponent {
       type: '',
       billid: ''}]
   }
-  constructor( private userService: UsersDataService, private userDataService: UserdataService) {  }
+  constructor( private userService: UsersDataService, private userDataService: UserdataService, private httpservice:HttpServiceService) {  }
 
   ngOnInit() {
     
@@ -62,7 +63,6 @@ export class HomepageComponent {
 
       }
     });
-
 
   
   }
