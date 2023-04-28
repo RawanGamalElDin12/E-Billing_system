@@ -1,7 +1,7 @@
 export class CompletedBills {
   billid : string;
   amount: number;
-  PaymentDate: string;
+  paymentDate: string;
   service: string;
   type:string;
   paymentType: string;
@@ -15,7 +15,7 @@ export class CompletedBills {
   ) {
     this.billid = billid;
     this.amount = amount;
-    this.PaymentDate = paymentDate;
+    this.paymentDate = paymentDate;
     this.service = service;
     this.type = type;
     this.paymentType = paymentType;

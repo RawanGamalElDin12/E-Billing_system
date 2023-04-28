@@ -3,34 +3,16 @@ import { HttpServiceService } from './http-service.service';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserdataService } from './userdata.service';
+import { JsonPipe } from '@angular/common';
+import { CompletedBills } from '../classes/CompletedBills';
+import { DueBills } from '../classes/DueBills';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private router: Router, private http: HttpServiceService,private userDataSerive: UserdataService) {}
   isLoggedIn = false;
-  user: User = {
-    email: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    nationalId: '',
-    completedBills: [
-      {billid: '',
-      amount: 0,
-      PaymentDate: new Date().toDateString(),
-      service: '',
-      type: '',
-      paymentType: ''
-  }],
-    dueBills: [
-      
-    {  amount: 0,
-      duedate: new Date().toDateString(),
-      service: '',
-      type: '',
-      billid: ''}]
-  }
+  
   login(nationalId: string, password:string): void {
     console.log(nationalId);
     console.log(password);
@@ -38,10 +20,10 @@ export class AuthService {
       (user: User) => {
         if (user != null && user.password == password) {
         console.log(user);
+        console.log(JSON.parse(user.nationalId));
         this.userDataSerive.user = user;
          alert("Welcome Back!");
          this.router.navigate(['/home']);
-        
       }
 
         else {

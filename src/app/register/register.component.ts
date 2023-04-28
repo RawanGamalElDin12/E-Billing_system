@@ -16,18 +16,18 @@ export class RegisterComponent {
     firstName: '',
     lastName: '',
     nationalId: '',
-    completedBills: [
+    CompletedBills: [
       {billid: '',
       amount: 0,
-      PaymentDate: new Date().toDateString(),
+      paymentDate: new Date().toDateString(),
       service: '',
       type: '',
       paymentType: ''
   }],
-    dueBills: [
+    DueBills: [
       
     {  amount: 0,
-      duedate: new Date().toDateString(),
+      DueDate: new Date().toDateString(),
       service: '',
       type: '',
       billid: ''}]
