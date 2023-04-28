@@ -1,0 +1,211 @@
+/* Style for the header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .header h1 {
+    font-size: 32px;
+    margin: 0;
+  }
+  
+
+  
+  .header button {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .current-bill {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    
+  }
+  
+  .current-bill h2 {
+    font-size: 24px;
+  }
+  
+  .water-usage {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .water-usage label {
+    font-size: 18px;
+  }
+  
+  .water-usage input {
+    font-size: 18px;
+    padding: 10px;
+  
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  .water-usage button {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  .bill-amount {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bill-amount p {
+    margin: 0;
+  }
+  
+  .bill-amount span {
+    font-weight: bold;
+  }
+  
+  .current-bill button {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .bills {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .bills-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+  }
+  
+  .bills-header h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .bills-table {
+   width:90%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin:20px;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+    
+  }
+  
+  .bills-table th{
+    padding: 10px;
+    /* border: 1px solid #a09b9b ; */
+  }
+
+  
+  .bills-table td {
+    padding: 10px;
+    border: 1px solid #a09b9b ;
+   
+  }
+  
+  .bills-table th {
+    background-color: #0077cc;
+    color: #fff;
+  }
+  
+  .bills-table tr:hover {
+    background-color: #f2f2f2;
+  }
+  .submitbtn
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-two
+  {
+    
+    font-size: 18px;
+    margin-left: 10px;
+    padding: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .header-div-two
+  {
+     max-width: 200px;
+    margin: 0 ;
+   
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    color: #000000;
+    border-radius: 5px; 
+    display: flex;
+    padding: 10px;
+    justify-content:  flex-start;
+    align-items: center;
+ 
+  }
+  .table-div
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .water-icon{
+   
+   width: 50px;
+  }
+  .pay-btn
+  {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .table-btn
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+   
+
+  }
+  .water-icon-header
+  {
+    width: 30px;
+  }
