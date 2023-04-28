@@ -26,13 +26,14 @@ import { UsersDataService } from './Services/users-data.service';
 import { ElectricityComponent } from './electricity/electricity.component';
 import { User } from './classes/user'; 
 import { RegisterComponent } from './register/register.component';
+import { WaterComponent } from './Water/water/water.component';
 const routes: Routes = [
   {
     path: '',
     component: SidenavComponent,
     children: [
       { path: 'electricity', component: ElectricityComponent },
-      { path: 'contact', component: HomepageComponent },
+      { path: 'water', component: WaterComponent },
       { path: 'home', component: HomepageComponent },
     ],
   },
@@ -50,6 +51,7 @@ const routes: Routes = [
     HomepageComponent,
     ElectricityComponent,
     RegisterComponent,
+    WaterComponent,
   ],
   imports: [
     BrowserModule,
