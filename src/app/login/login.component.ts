@@ -2,7 +2,7 @@ import { AuthService } from '../Services/authservice.service';
 import { Component, Input, NgModule } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../user';
+import { User } from '../classes/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +15,22 @@ export class LoginComponent {
     firstName: '',
     lastName: '',
     nationalId: '',
-  };
+    completedBills: [
+      {billid: '',
+      amount: 0,
+      PaymentDate: new Date().toDateString(),
+      service: '',
+      type: '',
+      paymentType: ''
+  }],
+    dueBills: [
+      
+    {  amount: 0,
+      duedate: new Date().toDateString(),
+      service: '',
+      type: '',
+      billid: ''}]
+  }
   loginForm: FormGroup;
   AuthService: any;
 

@@ -1,4 +1,4 @@
-import { User } from './../user';
+import { User } from '../classes/user';
 import { HttpServiceService } from './../Services/http-service.service';
 import { UsersDataService } from './../Services/users-data.service';
 import { Component } from '@angular/core';
@@ -16,7 +16,22 @@ export class RegisterComponent {
     firstName: '',
     lastName: '',
     nationalId: '',
-  };
+    completedBills: [
+      {billid: '',
+      amount: 0,
+      PaymentDate: new Date().toDateString(),
+      service: '',
+      type: '',
+      paymentType: ''
+  }],
+    dueBills: [
+      
+    {  amount: 0,
+      duedate: new Date().toDateString(),
+      service: '',
+      type: '',
+      billid: ''}]
+  }
   constructor(
     private httpService: HttpServiceService,
     private router: Router,
