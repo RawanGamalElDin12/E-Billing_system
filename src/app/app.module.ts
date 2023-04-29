@@ -16,6 +16,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UsersDataService } from './Services/users-data.service';
+import { PaymentComponent } from './payment/payment.component';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'about', component: HomepageComponent },
@@ -28,7 +30,8 @@ const routes: Routes = [
     SidenavComponent,
     HeaderComponent,
     FooterComponent,
-    HomepageComponent
+    HomepageComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ const routes: Routes = [
     MatToolbarModule,
     MatMenuModule,
     MatExpansionModule,
+    FormsModule,
     MatListModule,
     CommonModule,
     RouterModule.forRoot(routes)
