@@ -42,7 +42,7 @@ export class RegisterComponent {
     this.httpService.createUserWithId(user, user.nationalId).subscribe(
       (result) => {
         console.log(`User created successfully: ${result}`);
-        this.router.navigate(['/home']);
+        this.router.navigate(['main/home']);
       },
       (error) => {
         console.log(`Error creating user: ${error}`);

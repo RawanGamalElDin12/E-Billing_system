@@ -1,0 +1,17 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <!-- Add your navigation links here -->
+      <div><a mat-button routerLink="/AdminMain/Dashboard"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
+        Dashboard
+      </a></div><br>
+      <div><a mat-button routerLink="/AdminMain/ViewUsers" routerLinkActive="active-link">View Users</a></div><br>
+      <div><a mat-button routerLink="/AdminMain/AddUser" routerLinkActive="active-link">Add User</a></div><br>
+
+      
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- Add your page content here -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> 

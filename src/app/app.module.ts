@@ -27,14 +27,27 @@ import { ElectricityComponent } from './electricity/electricity.component';
 import { User } from './classes/user'; 
 import { RegisterComponent } from './register/register.component';
 import { WaterComponent } from './Water/water/water.component';
+import { SidenavAdminComponent } from './sidenav-admin/sidenav-admin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
+import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component';
 const routes: Routes = [
   {
-    path: '',
+    path: 'main',
     component: SidenavComponent,
     children: [
       { path: 'electricity', component: ElectricityComponent },
       { path: 'water', component: WaterComponent },
       { path: 'home', component: HomepageComponent },
+    ],
+  },
+  {
+    path: 'AdminMain',
+    component: SidenavAdminComponent,
+    children: [
+      { path: 'Dashboard', component: AdminDashboardComponent },
+      { path: 'ViewUsers', component: ViewAllUsersComponent },
+      { path: 'AddUser', component: AdminAddUserComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },
@@ -52,6 +65,9 @@ const routes: Routes = [
     ElectricityComponent,
     RegisterComponent,
     WaterComponent,
+    SidenavAdminComponent,
+    AdminDashboardComponent,
+    ViewAllUsersComponent,
   ],
   imports: [
     BrowserModule,

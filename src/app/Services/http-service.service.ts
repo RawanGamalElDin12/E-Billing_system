@@ -43,5 +43,14 @@ export class HttpServiceService {
     const url = `${this.baseurl}/UnitCosts/water.json`;
     return this.http.get<number>(url);
   }
+  updateWaterUnitPrice(wUnit:number): Observable<number> {
+    const url = `${this.baseurl}/UnitCosts/water.json`;
+    return this.http.put<number>(url, JSON.stringify(wUnit), this.httpOptions);
+  }
+  updateElectricityUnitPrice(eUnit:number): Observable<number> {
+    const url = `${this.baseurl}/UnitCosts/electricity.json`;
+    return this.http.put<number>(url, JSON.stringify(eUnit), this.httpOptions);
+  }
+
 
 }

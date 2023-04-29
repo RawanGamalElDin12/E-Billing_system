@@ -6,7 +6,7 @@ import { HttpServiceService } from './http-service.service';
 export class BillingServiceService {
 
   constructor(private http:HttpServiceService) {
-    
+    this.billingServiceInitialization();
    }
    
   private electricityPrice: number = 0;
@@ -17,7 +17,6 @@ export class BillingServiceService {
     this.http.getElectricityUnitCost().subscribe(
       (cost: number) => {
         this.setElectricityPrice(cost);
-        
       },
       (error) => {
         console.log(error);
@@ -37,6 +36,33 @@ export class BillingServiceService {
     );
 
   }
+  updateEunit(price:number)
+  {
+    this.http.updateElectricityUnitPrice(price).subscribe(
+      (result) => {
+        console.log(`updated successfully: ${result}`);
+        alert("Electricity Price Updated Successfully");
+        this.setElectricityPrice(price);
+      },
+      (error) => {
+        console.log(`Error updating : ${error}`);
+      }
+    );
+  }
+  updateWunit(price:number)
+  {
+    this.http.updateWaterUnitPrice(price).subscribe(
+      (result) => {
+        console.log(`updated successfully: ${result}`);
+        alert("Water Price Updated Successfully");
+        this.setWaterPrice(price);
+      },
+      (error) => {
+        console.log(`Error updating : ${error}`);
+      }
+    );
+  }
+
   setElectricityPrice(price: number): void {
     this.electricityPrice = price;
   }

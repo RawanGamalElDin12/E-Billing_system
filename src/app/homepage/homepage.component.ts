@@ -47,7 +47,7 @@ export class HomepageComponent {
     
   
     this.user.DueBills.forEach((bill: DueBills) => {
-      if(bill != null)
+      if(bill != null && bill.service != "")
       {
         this.DueBills.push(bill);
 
@@ -56,7 +56,7 @@ export class HomepageComponent {
     });
 
     this.user.CompletedBills.forEach((bill: CompletedBills) => {
-      if(bill != null)
+      if(bill != null && bill.service != "")
       {
         this.CompletedBills.push(bill);
 
