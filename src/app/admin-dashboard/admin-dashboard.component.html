@@ -1,0 +1,46 @@
+<div id="main">
+    <div id="shortcuts">
+      <h1>Shortcuts</h1>
+      <div class="button-container">
+        <button class="card" (click)="showElectricityDiv()">
+          <img src="../assets/Icons/icons8-electricity-64-blue.png">
+          <br>
+          Electricity Unit Cost
+        </button>
+        <button class="card" (click)="showWaterDiv()">
+          <img src="../assets/Icons/icons8-water-64.png">
+          <br>
+          Water Unit Cost
+        </button>
+        <button class="card" (click)="showUsersDiv()">
+          <img src="../assets/Icons/icons8-male-user-64.png">
+          <br>
+          View All Users
+        </button>
+      </div>
+      <div *ngIf="showElectricity">
+        <!-- Content for the electricity div -->
+        <img src="../assets/Icons/icons8-electricity-64-blue.png">
+        <h1 >Electricity Unit Cost</h1>
+        <h2 style="display: inline-block; margin-left: 10px;">Unit Cost:</h2>
+        <input type="number" [(ngModel)]="eUnitCost"  style="display: inline-block; margin-left: 10px;">
+        <h2 style="display: inline-block; margin-left: 10px;">EGP / KW (Kilo Watt)</h2> 
+          <button class="insideBtn" (click)="updateEprice(eUnitCost)">Change</button>
+
+      </div>
+      <div *ngIf="showWater">
+        <!-- Content for the water div -->
+        <img src="../assets/Icons/icons8-water-64.png">
+        <h1 >Water Unit Cost</h1>
+        <h2 style="display: inline-block; margin-left: 10px;">Unit Cost:</h2>
+        <input type="number" [(ngModel)]="wUnitCost" style="display: inline-block; margin-left: 10px;">
+        <h2 style="display: inline-block; margin-left: 10px;">EGP / Cubic Meter
+        </h2> 
+          <button class="insideBtn" (click)="updateWprice(wUnitCost)">Change</button>
+
+      </div>
+      <div *ngIf="showUsers">
+       
+      </div>
+    </div>
+  </div>

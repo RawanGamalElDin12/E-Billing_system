@@ -1,46 +1,70 @@
 import { Component } from '@angular/core';
 import { UsersDataService } from '../Services/users-data.service';
 import { UserdataService } from '../Services/userdata.service';
+import { CompletedBills } from '../classes/CompletedBills';
 import { User } from '../classes/user';
+import { DueBills } from '../classes/DueBills';
+import { HttpServiceService } from '../Services/http-service.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  userId = 1;
-  bills: any[]=[];
-  recentPayment: any[] = [];
 
+
+  DueBills: any[]=[];
+  
+  CompletedBills: any[] = [];
+  user1: any;
   user: User = {
     email: '',
     password: '',
     firstName: '',
     lastName: '',
     nationalId: '',
-    completedBills: [
+    CompletedBills: [
       {billid: '',
       amount: 0,
-      PaymentDate: new Date().toDateString(),
+      paymentDate: '',
       service: '',
       type: '',
       paymentType: ''
   }],
-    dueBills: [
+    DueBills: [
       
     {  amount: 0,
-      duedate: new Date().toDateString(),
+      DueDate: '',
       service: '',
       type: '',
       billid: ''}]
   }
-  constructor( private userService: UsersDataService, private userDataService: UserdataService) {  }
+  constructor( private userService: UsersDataService, private userDataService: UserdataService, private httpservice:HttpServiceService) {  }
 
   ngOnInit() {
-    this.bills = this.userService.getUserBills(this.userId);
-    this.recentPayment = this.userService.getRecentPayment(this.userId);
+    
     this.user = this.userDataService.user;
-    console.log(this.user.nationalId);
+    
+  
+    this.user.DueBills.forEach((bill: DueBills) => {
+      if(bill != null && bill.service != "")
+      {
+        this.DueBills.push(bill);
+
+
+      }
+    });
+
+    this.user.CompletedBills.forEach((bill: CompletedBills) => {
+      if(bill != null && bill.service != "")
+      {
+        this.CompletedBills.push(bill);
+
+
+      }
+    });
+
+  
   }
 
 }

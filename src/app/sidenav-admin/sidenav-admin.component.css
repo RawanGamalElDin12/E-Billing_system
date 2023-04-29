@@ -1,0 +1,31 @@
+.sidenav-container {
+    height: 100vh;
+  }
+  
+  .mat-sidenav-content {
+    height: 100%;
+    background-color: #F5F7FB;
+  }
+  .mat-sidenav {
+    width: 300px;
+  }
+  .mat-sidenav {
+    font-size: 18px; /* set the font size for the sidenav */
+  }
+  
+  .mat-sidenav a, #menu {
+    font-size: 20px; /* set the font size for the links */
+    width: 100%;
+  }
+  .active-link {
+    color: white !important;
+    background-color: #3F4A54; /* set the background color for the active link */
+    
+  }
+  .menuu
+  {
+    float: right;
+    
+
+  }
+  

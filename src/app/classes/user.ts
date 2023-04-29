@@ -7,23 +7,23 @@ export class User {
   firstName: string;
   lastName: string;
   nationalId: string;
-  dueBills: DueBills[] =[];
-  completedBills: CompletedBills[];
+  DueBills: DueBills[] =[];
+  CompletedBills: CompletedBills[];
   constructor(
     email: string,
     password: string,
     firstName: string,
     lastName: string,
     nationalId: string,
-    dueBills: DueBills[] ,
-    completedBills: CompletedBills[] 
+    DueBills: DueBills[] ,
+    CompletedBills: CompletedBills[] 
   ) {
     this.email = email;
     this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
     this.nationalId = nationalId;
-    this.dueBills = dueBills;
-    this.completedBills = completedBills;
+    this.DueBills = DueBills;
+    this.CompletedBills = CompletedBills;
   }
 }

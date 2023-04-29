@@ -16,18 +16,18 @@ export class RegisterComponent {
     firstName: '',
     lastName: '',
     nationalId: '',
-    completedBills: [
+    CompletedBills: [
       {billid: '',
       amount: 0,
-      PaymentDate: new Date().toDateString(),
+      paymentDate: new Date().toDateString(),
       service: '',
       type: '',
       paymentType: ''
   }],
-    dueBills: [
+    DueBills: [
       
     {  amount: 0,
-      duedate: new Date().toDateString(),
+      DueDate: new Date().toDateString(),
       service: '',
       type: '',
       billid: ''}]
@@ -42,7 +42,7 @@ export class RegisterComponent {
     this.httpService.createUserWithId(user, user.nationalId).subscribe(
       (result) => {
         console.log(`User created successfully: ${result}`);
-        this.router.navigate(['/home']);
+        this.router.navigate(['main/home']);
       },
       (error) => {
         console.log(`Error creating user: ${error}`);

@@ -6,15 +6,16 @@
           <tr>
             <th>Service</th>
             <th>Amount</th>
-            <th>Date</th>
+            <th>Due Date</th>
             <th>Payment</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let bill of bills">
-            <td>{{ bill.Service }}</td>
+          <tr *ngFor="let bill of DueBills">
+            <td>{{ bill.service }}</td>
             <td>{{ bill.amount }}</td>
-            <td>{{ bill.date }}</td>
+            <td>{{ bill.DueDate }}</td>
+      
             <td id="btnDiv"><button >Pay</button></td>
           </tr>
         </tbody>
@@ -26,16 +27,19 @@
           <tr>
             <th>Service</th>
             <th>Amount</th>
-            <th>Date</th>
-            <th>Payment</th>
+            <th>Payment Date</th>
+            <th>Payment Type</th>
+            <th>View Invoice</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let payment of recentPayment">
-            <td>{{ payment.Service }}</td>
+          <tr *ngFor="let payment of CompletedBills">
+            <td>{{ payment.service }}</td>
             <td>{{ payment.amount }}</td>
-            <td>{{ payment.date }}</td>
-            <td>{{payment.PaymentType}}</td>
+            <td>{{ payment.paymentDate }}</td>
+            <td>{{payment.paymentType}}</td>
+            <td id="btnDiv"><button >View</button></td>
+
           </tr>
         </tbody>
       </table>

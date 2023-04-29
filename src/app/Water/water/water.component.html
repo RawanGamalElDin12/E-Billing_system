@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Water Bill</title>
+    <link rel="stylesheet" href="water.component.css">
+  </head>
+  <body>
+    <div class="header-div-two"> 
+        <img class="water-icon-header" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image">
+        <h2 class="header-two">Current Bill</h2></div>
+   
+    <div class="current-bill">
+     
+      <div class="water-usage">
+        <label for="water-usage-input">Enter Amount of Water Used:</label>
+        <input type="number" id="water-usage-input">
+        <button id="calculate-bill-btn">Calculate Bill</button>
+      </div>
+      <div class="bill-amount">
+        <p>Your Bill Amount:</p>
+        <span id="bill-amount-display"></span>
+      </div>
+      <div class="submitbtn">
+      <button id="submit-bill-btn">Submit Bill</button>
+    </div>
+    </div>
+    
+      <div class="header-div-two">
+        <img class="water-icon-header" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image">
+
+        <h2 class="header-two">Due Bills</h2>
+      </div>
+      <div class="table-div">
+      <table class="bills-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Bill Date</th>
+            <th>Amount Due</th>
+            <th>Payment Method</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img class="water-icon" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"></td>
+            <td>March 2023</td>
+            <td>$50</td>
+            <td>Cash</td>
+            <td> <div class="table-btn"> <button class="pay-btn">Submit Bill</button></div></td>
+          </tr>
+          <tr>
+            <td><img class="water-icon" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"></td>
+            <td>April 2023</td>
+            <td>$60</td>
+            <td>Card</td>
+            <td>  <button class="pay-btn">Submit Bill</button></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="header-div-two">
+        <img class="water-icon-header" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image">
+
+        <h2 class="header-two">Recent Bills Paid</h2>
+      </div>
+      <div class="table-div">
+      <table class="bills-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Bill Date</th>
+            <th>Amount Paid</th>
+            <th>Payment</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img class="water-icon" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"></td>
+            <td>February 2023</td>
+            <td>$45</td>
+            <td>  <button class="pay-btn">Submit Bill</button></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+   
+  </body>
+</html>
