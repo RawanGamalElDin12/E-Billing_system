@@ -8,11 +8,13 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { customer } from '../classes/customer';
 @Injectable({
   providedIn: 'root',
 })
 export class HttpServiceService {
   users: User[]= [];
+  baseurl2="https://billing-sys2-default-rtdb.firebaseio.com/";
   baseurl = 'https://billing-system-d30dd-default-rtdb.firebaseio.com/';
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -21,8 +23,12 @@ export class HttpServiceService {
       'Access-Control-Allow-Origin': '*',
     }),
   };
-  getUser(id: string): Observable<User> {
-    const url = `${this.baseurl}/users/${id}.json`;
+  getUser(id: string): Observable<customer> {
+    const url = `${this.baseurl2}/users/${id}.json`;
+    return this.http.get<customer>(url);
+  }
+  getUserNew(id: string): Observable<User> {
+    const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.get<User>(url);
   }
   getAllUsers(): Observable<User[]> {

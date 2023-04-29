@@ -8,6 +8,7 @@ import { CompletedBills } from '../classes/CompletedBills';
 import { DueBills } from '../classes/DueBills';
 import { BillingServiceService } from './billing-service.service';
 import { UsersDataService } from './users-data.service';
+import { customer } from '../classes/customer';
 @Injectable({
   providedIn: 'root',
 })
@@ -41,11 +42,10 @@ export class AuthService {
     else
     {
     this.http.getUser(nationalId).subscribe(
-      (user: User) => {
+      (user: customer) => {
         if (user != null && user.password == password) {
         console.log(user);
-        console.log(JSON.parse(user.nationalId));
-        this.userDataSerive.user = user;
+        console.log(JSON.parse(user.nationalid));
          alert("Welcome Back!");
          this.router.navigate(['main/home']);
       }
