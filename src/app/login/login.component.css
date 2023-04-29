@@ -2,16 +2,18 @@
   width: 100%;
   height: 100vh;
   width: 547px;
-  height: 550px;
+  height: 500px;
   /* padding: 2px 2px 2px 2px; */
   border-radius: 8px;
   background-color: #ffffff;
   box-sizing: border-box;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.35);
-  /* justify-content: center; */
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
 }
 #welcome-back {
-  width: 100px;
+  width: 107px;
   height: 50px;
   background-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
@@ -61,7 +63,7 @@
 }
 .input-div {
   width: 250px;
-  height: 100px;
+  /* height: 100px; */
   margin-bottom: 10px;
 }
 .login-btn {
