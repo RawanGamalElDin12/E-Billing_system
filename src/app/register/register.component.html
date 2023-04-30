@@ -50,6 +50,7 @@
             class="login-input"
             type="password"
             formControlName="confirmPassword"
+            onmouseleave="passwordMatchValidator(regForm.get('password'),regForm.get('confirmPassword'))"
             required
           />
           <div
@@ -108,6 +109,47 @@
           >
             <span class="warning" *ngIf="regForm.get('lastName')?.errors">
               Last name is required
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Address:</label>
+          <input
+            class="login-input"
+            type="text"
+            formControlName="address"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('address')?.invalid &&
+              (regForm.get('address')?.dirty || regForm.get('address')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('address')?.errors">
+              Address is required
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Date of Birth:</label>
+          <input
+            class="login-input"
+            type="date"
+            [(ngModel)]="user.email"
+            formControlName="DOB"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('DOB')?.invalid &&
+              (regForm.get('DOB')?.dirty || regForm.get('DOB')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('DOB')?.errors">
+              Date of Birth is required
             </span>
           </div>
         </div>

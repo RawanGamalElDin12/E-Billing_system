@@ -12,6 +12,7 @@ import { customer } from '../classes/customer';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  confirmPass: any;
   user: customer = {
     email: '',
     password: '',
@@ -61,8 +62,24 @@ export class RegisterComponent {
   ) {
     this.regForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+          ),
+        ],
+      ],
+      confirmPassword: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+          ),
+        ],
+      ],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       nationalId: [
@@ -73,6 +90,7 @@ export class RegisterComponent {
           Validators.minLength(14),
         ],
       ],
+      DOB: ['', Validators.required],
     });
   }
 
@@ -92,6 +110,12 @@ export class RegisterComponent {
         }
       );
     }
+  }
+  passwordMatchValidator(pass: string, confirmedPass: string) {
+    if (pass == confirmedPass) {
+      return true;
+    }
+    return false;
   }
   login() {
     this.router.navigate(['/login']);
