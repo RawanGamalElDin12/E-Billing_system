@@ -13,8 +13,8 @@ import { customer } from '../classes/customer';
   providedIn: 'root',
 })
 export class HttpServiceService {
-  users: User[]= [];
-  baseurl2="https://billing-sys2-default-rtdb.firebaseio.com/";
+  users: User[] = [];
+  baseurl2 = 'https://billing-sys2-default-rtdb.firebaseio.com/';
   baseurl = 'https://billing-system-d30dd-default-rtdb.firebaseio.com/';
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -38,9 +38,9 @@ export class HttpServiceService {
   
   
   
-  createUserWithId(user: User, id: string): Observable<User> {
+  createUserWithId(user: customer, id: string): Observable<customer> {
     const url = `${this.baseurl}/users/${id}.json`;
-    return this.http.put<User>(url, JSON.stringify(user), this.httpOptions);
+    return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
   getElectricityUnitCost(): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/electricity.json`;
@@ -51,11 +51,11 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/UnitCosts/water.json`;
     return this.http.get<number>(url);
   }
-  updateWaterUnitPrice(wUnit:number): Observable<number> {
+  updateWaterUnitPrice(wUnit: number): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/water.json`;
     return this.http.put<number>(url, JSON.stringify(wUnit), this.httpOptions);
   }
-  updateElectricityUnitPrice(eUnit:number): Observable<number> {
+  updateElectricityUnitPrice(eUnit: number): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.put<number>(url, JSON.stringify(eUnit), this.httpOptions);
   }

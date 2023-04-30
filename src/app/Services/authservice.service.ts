@@ -3,7 +3,6 @@ import { HttpServiceService } from './http-service.service';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserdataService } from './userdata.service';
-import { JsonPipe } from '@angular/common';
 import { CompletedBills } from '../classes/CompletedBills';
 import { DueBills } from '../classes/DueBills';
 import { BillingServiceService } from './billing-service.service';
@@ -13,56 +12,51 @@ import { customer } from '../classes/customer';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private http: HttpServiceService,private userDataSerive: UserdataService,
-    private billingService: BillingServiceService, private UsersData:UsersDataService) {}
+  constructor(
+    private router: Router,
+    private http: HttpServiceService,
+    private userDataSerive: UserdataService,
+    private billingService: BillingServiceService,
+    private UsersData: UsersDataService
+  ) {}
   isLoggedIn = false;
-  
-  login(nationalId: string, password:string): void {
+
+  login(nationalId: string, password: string): void {
     console.log(nationalId);
     console.log(password);
 
-    if(nationalId == "12345678901235" && password=="12")
-    {
-
+    if (nationalId == '12345678901235' && password == '12') {
       console.log(this.billingService.getElectricityPrice());
       this.router.navigate(['AdminMain/Dashboard']);
       this.http.getAllUsers().subscribe(
         (users: customer[]) => {
-          
           console.log(users);
-           this.UsersData.setUsers(users);
-           console.log(this.UsersData.getUsers());
+          this.UsersData.setUsers(users);
+          console.log(this.UsersData.getUsers());
         },
         (error: any) => {
           console.error('Error occurred while fetching users:', error);
         }
       );
+    } else {
+      this.http.getUser(nationalId).subscribe(
+        (user: customer) => {
+          if (user != null && user.password == password) {
+            console.log(user);
+            this.userDataSerive.user = user;
+            console.log(this.userDataSerive.user);
 
-    }
-    else
-    {
-    this.http.getUser(nationalId).subscribe(
-      (user: customer) => {
-        if (user != null && user.password == password) {
-        console.log(user);
-        this.userDataSerive.user = user;
-        console.log(this.userDataSerive.user);
-        
-         alert("Welcome Back!");
-         this.router.navigate(['main/home']);
-      }
-
-        else {
-         
-          alert("Wrong National ID or Password");
-          console.log('Wrong ID or Password');
-        } 
-        
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+            alert('Welcome Back!');
+            this.router.navigate(['main/home']);
+          } else {
+            alert('Wrong National ID or Password');
+            console.log('Wrong ID or Password');
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
     // if (email === 'admin@g' && password === '123') {
     //   this.isLoggedIn = true;
@@ -74,8 +68,23 @@ export class AuthService {
     //   alert('Invalid credentials');
     // }
   }
-
   logout(): void {
     this.isLoggedIn = false;
+  }
+  register(email: string): void {
+    //eb2y 8ayary getUser de le create user
+    this.http.getUser(email).subscribe((user: customer) => {
+      if (user != null) {
+        console.log(user);
+        this.userDataSerive.user = user;
+        console.log(this.userDataSerive.user);
+        console.log(JSON.parse(user.nationalid));
+        alert('Welcome Back!');
+        this.router.navigate(['main/home']);
+      } else {
+        alert('Wrong National ID or Password');
+        console.log('Wrong ID or Password');
+      }
+    });
   }
 }

@@ -1,7 +1,7 @@
 <div class="bg">
   <div id="register" class="center">
     <h2 id="welcome-back" class="center">Register</h2>
-    <form (ngSubmit)="register(user)">
+    <form [formGroup]="regForm" (ngSubmit)="register(regForm, user)">
       <div class="center">
         <div class="input-div">
           <label class="login-label">Email:</label>
@@ -9,9 +9,19 @@
             class="login-input"
             type="email"
             [(ngModel)]="user.email"
-            name="email"
+            formControlName="email"
             required
           />
+          <div
+            *ngIf="
+              regForm.get('email')?.invalid &&
+              (regForm.get('email')?.dirty || regForm.get('email')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('email')?.errors">
+              Email is required
+            </span>
+          </div>
         </div>
         <div class="input-div">
           <label class="login-label">Password:</label>
@@ -19,43 +29,117 @@
             class="login-input"
             type="password"
             [(ngModel)]="user.password"
-            name="password"
+            formControlName="password"
             required
           />
+          <div
+            *ngIf="
+              regForm.get('password')?.invalid &&
+              (regForm.get('password')?.dirty ||
+                regForm.get('password')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('password')?.errors">
+              Password is required
+            </span>
+          </div>
         </div>
+        <div class="input-div">
+          <label class="login-label">Confirm Password:</label>
+          <input
+            class="login-input"
+            type="password"
+            formControlName="confirmPassword"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('confirmPassword')?.invalid &&
+              (regForm.get('confirmPassword')?.dirty ||
+                regForm.get('confirmPassword')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('confirmPassword')?.errors"
+            >
+              Passwords must match
+            </span>
+          </div>
+        </div>
+
         <div class="input-div">
           <label class="login-label">First Name:</label>
           <input
             class="login-input"
             type="text"
-            [(ngModel)]="user.firstName"
-            name="firstName"
+            [(ngModel)]="user.firstname"
+            formControlName="firstName"
             required
           />
+          <div
+            *ngIf="
+              regForm.get('firstName')?.invalid &&
+              (regForm.get('firstName')?.dirty ||
+                regForm.get('firstName')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('firstName')?.errors">
+              First name is required
+            </span>
+          </div>
         </div>
+
         <div class="input-div">
           <label class="login-label">Last Name:</label>
           <input
             class="login-input"
             type="text"
-            [(ngModel)]="user.lastName"
-            name="lastName"
+            [(ngModel)]="user.lastname"
+            formControlName="lastName"
             required
           />
+          <div
+            *ngIf="
+              regForm.get('lastName')?.invalid &&
+              (regForm.get('lastName')?.dirty ||
+                regForm.get('lastName')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('lastName')?.errors">
+              Last name is required
+            </span>
+          </div>
         </div>
+
         <div class="input-div">
           <label class="login-label">National ID:</label>
           <input
             class="login-input"
-            [(ngModel)]="user.nationalId"
-            name="nationalId"
+            [(ngModel)]="user.nationalid"
+            formControlName="nationalId"
             required
           />
+          <div
+            *ngIf="
+              regForm.get('nationalId')?.invalid &&
+              (regForm.get('nationalId')?.dirty ||
+                regForm.get('nationalId')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('nationalId')?.errors">
+              National ID is required and should be 14 digits
+            </span>
+          </div>
         </div>
       </div>
       <div class="center">
         <button class="login-btn" type="submit">Register</button>
       </div>
     </form>
+    <div class="register center">
+      <label class="">Have an account? </label>
+      <button class="register-btn" (click)="login()">Login Here</button>
+    </div>
   </div>
 </div>

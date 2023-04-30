@@ -38,7 +38,8 @@
           <div
             *ngIf="
               loginForm.get('password')?.invalid &&
-              loginForm.get('password')?.dirty
+              (loginForm.get('password')?.dirty ||
+                loginForm.get('password')?.touched)
             "
           >
             <span class="warning" *ngIf="loginForm.get('password')?.errors">

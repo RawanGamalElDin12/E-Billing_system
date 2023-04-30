@@ -16,21 +16,25 @@ export class LoginComponent {
     lastName: '',
     nationalId: '',
     CompletedBills: [
-      {billid: '',
-      amount: 0,
-      paymentDate: new Date().toDateString(),
-      service: '',
-      type: '',
-      paymentType: ''
-  }],
+      {
+        billid: '',
+        amount: 0,
+        paymentDate: new Date().toDateString(),
+        service: '',
+        type: '',
+        paymentType: '',
+      },
+    ],
     DueBills: [
-      
-    {  amount: 0,
-      DueDate: new Date().toDateString(),
-      service: '',
-      type: '',
-      billid: ''}]
-  }
+      {
+        amount: 0,
+        DueDate: new Date().toDateString(),
+        service: '',
+        type: '',
+        billid: '',
+      },
+    ],
+  };
   loginForm: FormGroup;
   AuthService: any;
 
