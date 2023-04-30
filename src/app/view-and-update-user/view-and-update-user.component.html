@@ -1,24 +1,40 @@
+
+<div class="header">
+    <img src="../assets/Icons/icons8-male-user-64.png">
+    <h1>User Info</h1>
+  </div>
+  <div id="main">
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <label>
       First Name:
       <input type="text" formControlName="firstname">
     </label>
+    <br>
     <label>
         Last Name:
         <input type="text" formControlName="lastname">
       </label>
+      <bR>
     <label>
       Email:
       <input type="email" formControlName="email">
     </label>
+    <br>
     <label>
       National ID:
       <input type="text" formControlName="nationalid" readonly>
     </label>
+    <br>
     <label>
       Date of Birth:
       <input type="text" formControlName="DOB">
     </label>
+    <br>
+    <label>
+       Address:
+        <input type="text" formControlName="address">
+      </label>
+      <br>
     <button type="submit">Save changes</button>
   </form>
-  
+  </div>
