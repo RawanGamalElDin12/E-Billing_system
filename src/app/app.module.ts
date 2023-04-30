@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UsersDataService } from './Services/users-data.service';
 import { ElectricityComponent } from './electricity/electricity.component';
-import { User } from './classes/user'; 
+import { User } from './classes/user';
 import { RegisterComponent } from './register/register.component';
 import { WaterComponent } from './Water/water/water.component';
 import { SidenavAdminComponent } from './sidenav-admin/sidenav-admin.component';
@@ -54,7 +54,7 @@ const routes: Routes = [
       { path: 'Dashboard', component: AdminDashboardComponent },
       { path: 'ViewUsers', component: ViewAllUsersComponent },
       { path: 'AddUser', component: AdminAddUserComponent },
-      {path:'view-user/:id', component:ViewAndUpdateUserComponent}
+      { path: 'view-user/:id', component: ViewAndUpdateUserComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },
@@ -77,6 +77,7 @@ const routes: Routes = [
     ViewAllUsersComponent,
     ViewAndUpdateUserComponent,
     PopupDialogComponent,
+    AdminAddUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +94,6 @@ const routes: Routes = [
     MatDialogModule,
     MatTableModule,
     MatCheckboxModule,
-
   ],
   providers: [UsersDataService, HttpServiceService, AuthService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],

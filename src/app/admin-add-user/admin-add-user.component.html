@@ -1,1 +1,238 @@
-<p>admin-add-user works!</p>
+<div class="bg">
+  <div id="register" class="center">
+    <h2 id="welcome-back" class="center">Add New User</h2>
+    <form [formGroup]="regForm" (ngSubmit)="register(regForm, user)">
+      <div class="center">
+        <div class="input-div">
+          <label class="login-label">National ID:</label>
+          <input
+            class="login-input"
+            [(ngModel)]="user.nationalid"
+            formControlName="nationalId"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('nationalId')?.invalid &&
+              (regForm.get('nationalId')?.dirty ||
+                regForm.get('nationalId')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('nationalId')?.errors?.['required']"
+            >
+              National ID is required
+            </span>
+            <span
+              class="warning"
+              *ngIf="regForm.get('nationalId')?.errors?.['pattern']"
+            >
+              National ID should be 14 digits
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Email:</label>
+          <input
+            class="login-input"
+            type="email"
+            [(ngModel)]="user.email"
+            formControlName="email"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('email')?.invalid &&
+              (regForm.get('email')?.dirty || regForm.get('email')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('email')?.errors?.['email']"
+            >
+              Enter a valid Email Format
+            </span>
+            <span
+              class="warning"
+              *ngIf="regForm.get('email')?.errors?.['required']"
+            >
+              Email is required
+            </span>
+          </div>
+        </div>
+        <div class="input-div">
+          <label class="login-label">Password:</label>
+          <input
+            class="login-input"
+            type="password"
+            [(ngModel)]="user.password"
+            formControlName="password"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('password')?.invalid &&
+              (regForm.get('password')?.dirty ||
+                regForm.get('password')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('password')?.errors?.['required']"
+            >
+              Password is required
+            </span>
+            <div
+              class="warning"
+              *ngIf="regForm.get('password')?.errors?.['pattern']"
+            >
+              Password must be at least 8 characters and contain at least 1
+              number and special character
+            </div>
+          </div>
+        </div>
+        <div class="input-div">
+          <label class="login-label">Confirm Password:</label>
+          <input
+            class="login-input"
+            type="password"
+            formControlName="confirmPassword"
+            onmouseleave="passwordMatchValidator(regForm.get('password'),regForm.get('confirmPassword'))"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('confirmPassword')?.invalid &&
+              (regForm.get('confirmPassword')?.dirty ||
+                regForm.get('confirmPassword')?.touched)
+            "
+          >
+            <div
+              class="warning"
+              *ngIf="regForm.get('confirmPassword')?.errors?.['pattern']"
+            >
+              Passwords must match
+            </div>
+            <div
+              class="warning"
+              *ngIf="regForm.get('confirmPassword')?.errors?.['required']"
+            >
+              Confirming your password is required
+            </div>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">First Name:</label>
+          <input
+            class="login-input"
+            type="text"
+            [(ngModel)]="user.firstname"
+            formControlName="firstName"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('firstName')?.invalid &&
+              (regForm.get('firstName')?.dirty ||
+                regForm.get('firstName')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('firstName')?.errors?.['required']"
+            >
+              First name is required
+            </span>
+            <span
+              class="warning"
+              *ngIf="regForm.get('firstName')?.errors?.['pattern']"
+            >
+              Please enter a valid first name
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Last Name:</label>
+          <input
+            class="login-input"
+            type="text"
+            [(ngModel)]="user.lastname"
+            formControlName="lastName"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('lastName')?.invalid &&
+              (regForm.get('lastName')?.dirty ||
+                regForm.get('lastName')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('lastName')?.errors?.['required']"
+            >
+              Last name is required
+            </span>
+            <span
+              class="warning"
+              *ngIf="regForm.get('lastName')?.errors?.['pattern']"
+            >
+              Please enter a valid last name
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Address:</label>
+          <input
+            class="login-input"
+            type="text"
+            formControlName="address"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('address')?.invalid &&
+              (regForm.get('address')?.dirty || regForm.get('address')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('address')?.errors?.['required']"
+            >
+              Address is required
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Date of Birth:</label>
+          <input
+            class="login-input"
+            type="date"
+            [(ngModel)]="user.DOB"
+            formControlName="DOB"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('DOB')?.invalid &&
+              (regForm.get('DOB')?.dirty || regForm.get('DOB')?.touched)
+            "
+          >
+            <span class="warning" *ngIf="regForm.get('DOB')?.errors">
+              Date of Birth is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <button class="login-btn" type="submit">Add User</button>
+      </div>
+    </form>
+  </div>
+</div>
