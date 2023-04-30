@@ -27,7 +27,7 @@ export class AuthService {
       console.log(this.billingService.getElectricityPrice());
       this.router.navigate(['AdminMain/Dashboard']);
       this.http.getAllUsers().subscribe(
-        (users: User[]) => {
+        (users: customer[]) => {
           
           console.log(users);
            this.UsersData.setUsers(users);
