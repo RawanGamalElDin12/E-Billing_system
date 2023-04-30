@@ -43,9 +43,12 @@
         <td>{{ bill.paymentType }}</td>
         <td>
           <div class="table-btn">
-            <button class="pay-btn" (click)="payBill(i)">Submit Bill</button>
+            <button class="pay-btn" (click)="payBill(i)">Pay</button>
           </div>
         </td>
+      </tr>
+      <tr *ngIf="DueNone">
+        <td colspan="4">No Bills Paid</td>
       </tr>
     </tbody>
   </table>
@@ -74,6 +77,9 @@
         <td>
           <button class="pay-btn" (click)="viewReceipt(bill)">View Receipt</button>
         </td>
+      </tr>
+      <tr *ngIf="paidNone">
+        <td colspan="4">No Bills Paid</td>
       </tr>
     </tbody>
   </table>

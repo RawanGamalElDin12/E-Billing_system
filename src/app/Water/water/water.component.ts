@@ -21,6 +21,8 @@ export class WaterComponent {
   dueBills: waterBill[] = [];
   paidBills: waterBill[] = [];
   flag = true;
+  paidNone=false;
+  DueNone=false;
 
   ngOnInit() {
     this.waterUnitPrice = this.billingservice.getWaterPrice();
@@ -53,7 +55,15 @@ export class WaterComponent {
         this.dueBills.push(bill);
       }
     }
+
+    if (this.paidBills.length == 0) {
+      this.paidNone=true;
+    }
+    if (this.dueBills.length == 0) {
+      this.DueNone=true;
+    }
   }
+
 
   calculateBill(): void {
     // Calculate bill based on water usage
