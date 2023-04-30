@@ -107,10 +107,10 @@ export class RegisterComponent {
     const password = form.get(user.password)?.value;
     const national_id = form.get(user.nationalid)?.value;
 
+    console.log("dfcjjjjjjjjjjjjjjjjjjj");
     // this.authService.register(email);
-    if (user == null) {
-      alert('please enter the required fields');
-    } else if (user != null && national_id != null) {
+    console.log(user);
+    if (user != null ) {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);
