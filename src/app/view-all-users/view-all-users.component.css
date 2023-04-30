@@ -46,6 +46,12 @@
     width: 120px;
     font-family: Arial, Helvetica, sans-serif;
   }
+   .delete
+  {
+    float: right;
+    margin-right: 125px;
+
+  }
   #Btndiv{
     
       text-align: center;

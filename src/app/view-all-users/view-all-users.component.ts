@@ -24,13 +24,20 @@ export class ViewAllUsersComponent implements OnInit {
   ngOnInit() {
     
     this.users = Object.values( this.usersData.getUsers()); 
+   
+    this.usersData.usersChanged.subscribe(
+      (users) => {
+        this.users = users;
+      }
+    );
 
+    
     
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(PopupDialogComponent, {
-      width: '800px'
+      width: '1000px;'
     });
   }
 

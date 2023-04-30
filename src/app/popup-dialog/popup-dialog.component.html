@@ -15,18 +15,32 @@
             </mat-checkbox>
           </td>
         </ng-container>
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>ID</th>
+        <ng-container matColumnDef="National ID">
+          <th mat-header-cell *matHeaderCellDef>National ID</th>
           <td mat-cell *matCellDef="let user">{{ user.nationalid }}</td>
         </ng-container>
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Name</th>
+        <ng-container matColumnDef="First Name">
+          <th mat-header-cell *matHeaderCellDef>First Name</th>
           <td mat-cell *matCellDef="let user">{{ user.firstname }}</td>
         </ng-container>
-        <ng-container matColumnDef="email">
+        <ng-container matColumnDef="Last Name">
+            <th mat-header-cell *matHeaderCellDef>Last Name</th>
+            <td mat-cell *matCellDef="let user">{{ user.lastname }}</td>
+          </ng-container>
+  
+        <ng-container matColumnDef="Email">
           <th mat-header-cell *matHeaderCellDef>Email</th>
           <td mat-cell *matCellDef="let user">{{ user.email }}</td>
         </ng-container>
+        <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let user">{{ user.address }}</td>
+          </ng-container>
+          <ng-container matColumnDef="DOB">
+            <th mat-header-cell *matHeaderCellDef>DOB</th>
+            <td mat-cell *matCellDef="let user">{{ user.DOB }}</td>
+          </ng-container>
+  
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>

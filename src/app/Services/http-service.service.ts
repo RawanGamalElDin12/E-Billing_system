@@ -15,7 +15,6 @@ import { customer } from '../classes/customer';
 export class HttpServiceService {
   users: User[] = [];
   baseurl2 = 'https://billing-sys2-default-rtdb.firebaseio.com/';
-  baseurl = 'https://billing-system-d30dd-default-rtdb.firebaseio.com/';
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
@@ -40,6 +39,12 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
+  deleteUserById(id: string): Observable<void> {
+    const url = `${this.baseurl2}/users/${id}.json`;
+    return this.http.delete<void>(url, this.httpOptions);
+  }
+  
+  
   getElectricityUnitCost(): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.get<number>(url);

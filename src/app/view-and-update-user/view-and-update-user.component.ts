@@ -20,6 +20,7 @@ export class ViewAndUpdateUserComponent {
 
       const userId = params.get('id');
        this.user = history.state.user;
+
       console.log(userId);
       console.log(this.user.email);
       console.log(this.user.firstname);

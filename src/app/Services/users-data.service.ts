@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable , EventEmitter} from '@angular/core';
 import { User } from '../classes/user';
 import { customer } from '../classes/customer';
+
 @Injectable({
   providedIn: 'root',
 })
 export class UsersDataService {
   private users: customer[] = [];
   constructor() {}
-  private userrr: any;
+  usersChanged = new EventEmitter<customer[]>();
+
 
   getUsers() {
     console.log(JSON.stringify(this.users));
@@ -16,6 +18,7 @@ export class UsersDataService {
 
   setUsers(users: customer[]) {
     this.users = users;
+    console.log(this.users);
   }
   updateUserByNationalId(nationalid: number, updatedUser: customer) {
     const index = nationalid;
@@ -27,4 +30,14 @@ export class UsersDataService {
     this.users[index].DOB = updatedUser.DOB;
     this.users[index].address = updatedUser.address;
   }
+  deleteUserByNationalId(nationalId: string): void {
+    if (this.users.hasOwnProperty(nationalId)) {
+      delete this.users[parseInt(nationalId)];
+      console.log(this.users);
+      this.usersChanged.emit(Object.values(this.users));
+
+    }
+  }
+  
 }
+

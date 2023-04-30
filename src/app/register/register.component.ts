@@ -113,10 +113,13 @@ export class RegisterComponent {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);
+          alert("Registered Successfully");
+          console.log(user.address);
           this.router.navigate(['main/home']);
         },
         (error) => {
           console.log(`Error creating user: ${error}`);
+          alert("Error in Registeration");
         }
       );
     }
