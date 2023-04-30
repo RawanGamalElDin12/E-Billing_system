@@ -10,16 +10,18 @@ import { HttpServiceService } from 'src/app/Services/http-service.service';
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
-  styleUrls: ['./water.component.css']
+  styleUrls: ['./water.component.css'],
 })
 export class WaterComponent {
-
-  constructor(private billingservice: BillingServiceService, private waterBillService: WaterBillInfoService,
-    private userdataService: UserdataService, private http: HttpServiceService) {
-    this.user=  this.userdataService.user;
-
+  constructor(
+    private billingservice: BillingServiceService,
+    private waterBillService: WaterBillInfoService,
+    private userdataService: UserdataService,
+    private http: HttpServiceService
+  ) {
+    this.user = this.userdataService.user;
   }
-  user: customer ;
+  user: customer;
   bills: waterBill[] = [];
   waterUnitPrice = 0;
   waterUsage = 0;
@@ -27,60 +29,64 @@ export class WaterComponent {
   dueBills: waterBill[] = [];
   paidBills: waterBill[] = [];
   flag = true;
-  paidNone=false;
-  DueNone=false;
+  paidNone = false;
+  DueNone = false;
 
   ngOnInit() {
     this.waterUnitPrice = this.billingservice.getWaterPrice();
     console.log(this.waterUnitPrice);
 
     if (this.bills.length == 0) {
-      this.flag=true;
+      this.flag = true;
     }
-    
+
     this.view();
   }
 
   view() {
     this.dueBills = [];
     this.paidBills = [];
-    this.flag=false;
-    this.bills = this.user.waterBills.filter(bill => bill!==null)
+    this.flag = false;
+    this.bills = this.user.waterBills.filter((bill) => bill !== null);
 
     for (let bill of this.bills) {
-      
-      if (bill.status == "Paid") {
+      if (bill.status == 'Paid') {
         this.paidBills.push(bill);
-   }
-      else {
+      } else {
         this.dueBills.push(bill);
       }
     }
 
     if (this.paidBills.length == 0) {
-      this.paidNone=true;
+      this.paidNone = true;
     }
     if (this.dueBills.length == 0) {
-      this.DueNone=true;
+      this.DueNone = true;
     }
   }
-
 
   calculateBill(): void {
     this.billAmount = this.waterUsage * this.waterUnitPrice;
   }
 
   submitBill(): void {
-    const newBillID = this.user.waterBills[this.user.waterBills.length -1].billid+1;
+    const newBillID =
+      this.user.waterBills[this.user.waterBills.length - 1].billid + 1;
     const today = new Date();
     const futureDate = new Date();
     futureDate.setDate(today.getDate() + 15);
-    const water = new waterBill(this.billAmount,newBillID,this.waterUsage,futureDate.toDateString(),0,"","Due");
-   this.user.waterBills.push(water);
-   this.http.updateUser(this.user).subscribe();
-   this.dueBills.push(water);
-   
-
+    const water = new waterBill(
+      this.billAmount,
+      newBillID,
+      this.waterUsage,
+      futureDate.toDateString(),
+      0,
+      '',
+      'Due'
+    );
+    this.user.waterBills.push(water);
+    this.http.updateUser(this.user).subscribe();
+    this.dueBills.push(water);
   }
 
   payBill(index: number): void {

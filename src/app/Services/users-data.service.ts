@@ -2,22 +2,17 @@ import { Injectable } from '@angular/core';
 import { User } from '../classes/user';
 import { customer } from '../classes/customer';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersDataService {
- 
-     private users : customer[] = [];
-  constructor() { }
- 
+  private users: customer[] = [];
+  constructor() {}
 
-  getUsers()
-  {
+  getUsers() {
     return this.users;
   }
 
-  setUsers(users: customer[])
-  {
+  setUsers(users: customer[]) {
     this.users = users;
   }
-
 }

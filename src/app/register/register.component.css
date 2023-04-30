@@ -1,6 +1,6 @@
 #register {
   width: 55%;
-  height: 100vh;
+  height: 100%;
   width: 547px;
   /*height: 550px; */
   /* padding: 2px 2px 2px 2px; */
@@ -100,5 +100,6 @@
 }
 .register {
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
+  width: 200px;
 }
