@@ -93,9 +93,7 @@ export class AdminAddUserComponent {
           Validators.required,
           Validators.maxLength(14),
           Validators.minLength(14),
-          Validators.pattern(
-            /^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/
-          ),
+          Validators.pattern(/^[0-9]+$/),
         ],
       ],
       DOB: ['', Validators.required],
