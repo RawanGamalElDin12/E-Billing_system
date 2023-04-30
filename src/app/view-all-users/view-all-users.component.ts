@@ -3,6 +3,8 @@ import { User } from '../classes/user';
 import { HttpServiceService } from '../Services/http-service.service';
 import { UsersDataService } from '../Services/users-data.service';
 import { JsonPipe } from '@angular/common';
+import { customer } from '../classes/customer';
+import { Router ,NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-view-all-users',
   templateUrl: './view-all-users.component.html',
@@ -11,13 +13,25 @@ import { JsonPipe } from '@angular/common';
 export class ViewAllUsersComponent implements OnInit {
 
  
-  users: User[] =[];
+  users: customer[] =[];
 
   searchTerm: string = '';
   
-  constructor(private http: HttpServiceService, private usersData:UsersDataService){}
+  constructor(private http: HttpServiceService, private usersData:UsersDataService,private router: Router){}
   ngOnInit() {
+    
     this.users = Object.values( this.usersData.getUsers()); 
+
+    
+  }
+  
+  viewUser(user: customer) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        user: user
+      }
+    };
+    this.router.navigate(['AdminMain/view-user', user.nationalid],navigationExtras);
   }
   
   get filteredUsers() {

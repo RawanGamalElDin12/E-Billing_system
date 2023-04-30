@@ -18,11 +18,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of filteredUsers">
-        <td>{{ user.nationalId }}</td>
-      <td>{{ user.firstName }}</td>
-      <td>{{ user.lastName }}</td>
+        <td>{{ user.nationalid }}</td>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
       <td>{{ user.email }}</td>
-      <td id="Btndiv"><button>View</button></td>
+      <td id="Btndiv" (click)="viewUser(user)"><button>View</button></td>
     </tr>
   </tbody>
 </table>

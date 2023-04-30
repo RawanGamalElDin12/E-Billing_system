@@ -31,6 +31,7 @@ import { SidenavAdminComponent } from './sidenav-admin/sidenav-admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component';
+import { ViewAndUpdateUserComponent } from './view-and-update-user/view-and-update-user.component';
 const routes: Routes = [
   {
     path: 'main',
@@ -48,6 +49,7 @@ const routes: Routes = [
       { path: 'Dashboard', component: AdminDashboardComponent },
       { path: 'ViewUsers', component: ViewAllUsersComponent },
       { path: 'AddUser', component: AdminAddUserComponent },
+      {path:'view-user/:id', component:ViewAndUpdateUserComponent}
     ],
   },
   { path: 'register', component: RegisterComponent },
@@ -68,6 +70,7 @@ const routes: Routes = [
     SidenavAdminComponent,
     AdminDashboardComponent,
     ViewAllUsersComponent,
+    ViewAndUpdateUserComponent,
   ],
   imports: [
     BrowserModule,
