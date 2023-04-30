@@ -35,10 +35,7 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users.json`;
     return this.http.get<customer[]>(url);
   }
-  updateUser(user: customer): Observable<customer> {
-    const url = `${this.baseurl2}/users/${user.nationalid}.json`;
-    return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
-  }
+  
   
   
   createUserWithId(user: User, id: string): Observable<User> {
@@ -66,6 +63,5 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${user.nationalid}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
-
 
 }

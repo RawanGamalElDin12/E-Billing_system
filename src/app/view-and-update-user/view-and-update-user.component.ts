@@ -46,6 +46,7 @@ export class ViewAndUpdateUserComponent {
     this.user.address= this.userForm.get('address').value;
 
     this.usersData.updateUserByNationalId(this.user.nationalid, this.user);
+    
     console.log(this.user);
     console.log(Object.values( this.usersData.getUsers()));
 
