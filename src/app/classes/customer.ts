@@ -10,8 +10,8 @@ export class customer
   nationalid: string;
     address:string;
     DOB:string;
-  waterbills: waterBill[] ;
-  electricitybills: electricityBill[] ;
+  waterBills: waterBill[] ;
+  electricityBills: electricityBill[] ;
   telephoneAccounts : telephoneAccount[];
   
 
@@ -35,8 +35,8 @@ export class customer
         this.nationalid = nationalid;
         this.address=address;
         this.DOB=DOB;
-        this.waterbills = waterbills;
-        this.electricitybills = electricitybills;
+        this.waterBills = waterbills;
+        this.electricityBills = electricitybills;
         this.telephoneAccounts = telephoneAccounts;
     }
 

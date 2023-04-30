@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { BillingServiceService } from 'src/app/Services/billing-service.service';
 import { waterBill } from 'src/app/classes/bill';
 import { WaterBillInfoService } from 'src/app/Services/water-bill-info.service';
-
+import { UserdataService } from 'src/app/Services/userdata.service';
+import { User } from 'src/app/classes/user';
+import { UsersDataService } from 'src/app/Services/users-data.service';
+import { customer } from 'src/app/classes/customer';
+import { HttpServiceService } from 'src/app/Services/http-service.service';
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
@@ -10,10 +14,12 @@ import { WaterBillInfoService } from 'src/app/Services/water-bill-info.service';
 })
 export class WaterComponent {
 
-  constructor(private billingservice: BillingServiceService, private waterBillService: WaterBillInfoService) {
-    this.load();
-  }
+  constructor(private billingservice: BillingServiceService, private waterBillService: WaterBillInfoService,
+    private userdataService: UserdataService, private http: HttpServiceService) {
+    this.user=  this.userdataService.user;
 
+  }
+  user: customer ;
   bills: waterBill[] = [];
   waterUnitPrice = 0;
   waterUsage = 0;
@@ -27,27 +33,22 @@ export class WaterComponent {
   ngOnInit() {
     this.waterUnitPrice = this.billingservice.getWaterPrice();
     console.log(this.waterUnitPrice);
+
     if (this.bills.length == 0) {
       this.flag=true;
     }
-  
-  }
-
-  async load() {
-    await this.waterBillService.getWaterBillsForUser("12345678901234")
-      .subscribe((bills) => {
-        this.bills = bills;
-        console.log(bills);
-        this.view();
-      });
+    
+    this.view();
   }
 
   view() {
     this.dueBills = [];
     this.paidBills = [];
     this.flag=false;
+    this.bills = this.user.waterBills.filter(bill => bill!==null)
 
     for (let bill of this.bills) {
+      
       if (bill.status == "Paid") {
         this.paidBills.push(bill);
    }
@@ -66,12 +67,20 @@ export class WaterComponent {
 
 
   calculateBill(): void {
-    // Calculate bill based on water usage
     this.billAmount = this.waterUsage * this.waterUnitPrice;
   }
 
   submitBill(): void {
-    // Submit the bill to the database
+    const newBillID = this.user.waterBills[this.user.waterBills.length -1].billid+1;
+    const today = new Date();
+    const futureDate = new Date();
+    futureDate.setDate(today.getDate() + 15);
+    const water = new waterBill(this.billAmount,newBillID,this.waterUsage,futureDate.toDateString(),0,"","Due");
+   this.user.waterBills.push(water);
+   this.http.updateUser(this.user).subscribe();
+   this.dueBills.push(water);
+   
+
   }
 
   payBill(index: number): void {

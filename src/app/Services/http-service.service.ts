@@ -41,20 +41,24 @@ export class HttpServiceService {
     return this.http.put<User>(url, JSON.stringify(user), this.httpOptions);
   }
   getElectricityUnitCost(): Observable<number> {
-    const url = `${this.baseurl}/UnitCosts/electricity.json`;
+    const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.get<number>(url);
   }
 
   getWaterUnitCost(): Observable<number> {
-    const url = `${this.baseurl}/UnitCosts/water.json`;
+    const url = `${this.baseurl2}/UnitCosts/water.json`;
     return this.http.get<number>(url);
   }
   updateWaterUnitPrice(wUnit: number): Observable<number> {
-    const url = `${this.baseurl}/UnitCosts/water.json`;
+    const url = `${this.baseurl2}/UnitCosts/water.json`;
     return this.http.put<number>(url, JSON.stringify(wUnit), this.httpOptions);
   }
   updateElectricityUnitPrice(eUnit: number): Observable<number> {
-    const url = `${this.baseurl}/UnitCosts/electricity.json`;
+    const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.put<number>(url, JSON.stringify(eUnit), this.httpOptions);
+  }
+  updateUser(user: customer): Observable<customer> {
+    const url = `${this.baseurl2}/users/${user.nationalid}.json`;
+    return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
 }
