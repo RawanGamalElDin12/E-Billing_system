@@ -28,7 +28,19 @@
               class="warning"
               *ngIf="regForm.get('nationalId')?.errors?.['pattern']"
             >
-              National ID should be 14 digits
+              National ID should be only numbers
+            </span>
+            <span
+              class="warning"
+              *ngIf="regForm.get('nationalId')?.errors?.['minlength']"
+            >
+              National ID should be exactly 14 digits
+            </span>
+            <span
+              class="warning"
+              *ngIf="regForm.get('nationalId')?.errors?.['maxlength']"
+            >
+              National ID should be exactly 14 digits
             </span>
           </div>
         </div>
@@ -99,7 +111,6 @@
             class="login-input"
             type="password"
             formControlName="confirmPassword"
-            onmouseleave="passwordMatchValidator(regForm.get('password'),regForm.get('confirmPassword'))"
             required
           />
           <div

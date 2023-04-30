@@ -94,9 +94,7 @@ export class RegisterComponent {
           Validators.required,
           Validators.maxLength(14),
           Validators.minLength(14),
-          Validators.pattern(
-            /^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/
-          ),
+          Validators.pattern(/^[0-9]+$/),
         ],
       ],
       DOB: ['', Validators.required],
@@ -107,9 +105,12 @@ export class RegisterComponent {
   register(form: FormGroup, user: customer) {
     // const email = form.get(user.email)?.value;
     const password = form.get(user.password)?.value;
+    const national_id = form.get(user.nationalid)?.value;
 
     // this.authService.register(email);
-    if (user != null) {
+    if (user == null) {
+      alert('please enter the required fields');
+    } else if (user != null && national_id != null) {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);

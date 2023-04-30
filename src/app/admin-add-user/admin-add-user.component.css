@@ -1,0 +1,106 @@
+#register {
+  width: 55%;
+  height: 100%;
+  width: 547px;
+  /*height: 550px; */
+  /* padding: 2px 2px 2px 2px; */
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.35);
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-back {
+  width: 250px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #333333;
+  line-height: normal;
+  display: block;
+  margin-bottom: 35px;
+  margin-top: 35px;
+  font-size: 30px;
+}
+
+.center {
+  margin: auto;
+  width: 65%;
+  padding: 10px;
+}
+.center-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.login-label {
+  width: 101px;
+  height: 17px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #3f4a54;
+  text-align: left;
+  line-height: normal;
+  font-size: 17px;
+}
+.login-input {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  border-width: 1.5px;
+  border-color: #767e86;
+  border-style: solid;
+  width: 100%;
+}
+.warning {
+  color: rgb(215, 6, 6);
+  width: 100%;
+}
+.input-div {
+  width: 315px;
+  /* height: 75px; */
+  margin-bottom: 10px;
+}
+.login-btn {
+  width: 115px;
+  height: 50px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px;
+  background-color: #343c44;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.35);
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+  margin-left: 30%;
+}
+.login-btn:hover {
+  box-shadow: none;
+}
+.bg {
+  background-color: aliceblue;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.register-btn {
+  background-color: #ffffff;
+  border: none;
+  text-decoration-line: underline;
+}
+.register-btn:hover {
+  color: cornflowerblue;
+}
+.register {
+  padding: 10px;
+  margin-top: 10px;
+  width: 200px;
+}
