@@ -45,6 +45,8 @@ export class AuthService {
       (user: customer) => {
         if (user != null && user.password == password) {
         console.log(user);
+        this.userDataSerive.user = user;
+        console.log(this.userDataSerive.user);
         console.log(JSON.parse(user.nationalid));
          alert("Welcome Back!");
          this.router.navigate(['main/home']);
