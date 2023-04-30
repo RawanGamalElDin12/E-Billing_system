@@ -27,6 +27,7 @@ export class ViewAndUpdateUserComponent {
         lastname: [this.user.lastname],
         email: [this.user.email],
         DOB: [this.user.DOB],
+        address: [this.user.address],
       });
     });
   
