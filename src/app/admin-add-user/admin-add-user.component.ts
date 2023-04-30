@@ -106,21 +106,18 @@ export class AdminAddUserComponent {
   register(form: FormGroup, user: customer) {
     // const email = form.get(user.email)?.value;
     const password = form.get(user.password)?.value;
-
+    const national_id = form.get(user.nationalid)?.value;
     // this.authService.register(email);
-    if (user != null) {
+    if (user != null && national_id != null) {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);
-          this.router.navigate(['main/home']);
+          this.router.navigate(['AdminMain/Dashboard']);
         },
         (error) => {
           console.log(`Error creating user: ${error}`);
         }
       );
     }
-  }
-  login() {
-    this.router.navigate(['/login']);
   }
 }
