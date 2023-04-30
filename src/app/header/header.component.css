@@ -1,17 +1,21 @@
-h1{
-    font-weight: 900;
-
+h1 {
+  font-weight: 900;
 }
 .bill-header {
-    display: flex;
-    align-items: center;
-  }
-  
-  .bill-header img {
-    margin-right: 10px;
-  }
-  
-  .bill-header h1 {
-    margin: 0;
-  }
-  
+  display: flex;
+  align-items: center;
+}
+
+.bill-header img {
+  margin-right: 10px;
+}
+
+.bill-header h1 {
+  margin: 0;
+  font-family: "Poppins SemiBold", "Poppins Regular", "Poppins", sans-serif;
+  font-weight: 600;
+  color: #333333;
+}
+div {
+  padding: 15px;
+}

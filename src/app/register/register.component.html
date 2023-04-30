@@ -1,29 +1,61 @@
-<h2>Register</h2>
-<form (ngSubmit)="register(user)">
-  <div>
-    <label>Email:</label>
-    <input type="email" [(ngModel)]="user.email" name="email" required />
+<div class="bg">
+  <div id="register" class="center">
+    <h2 id="welcome-back" class="center">Register</h2>
+    <form (ngSubmit)="register(user)">
+      <div class="center">
+        <div class="input-div">
+          <label class="login-label">Email:</label>
+          <input
+            class="login-input"
+            type="email"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="input-div">
+          <label class="login-label">Password:</label>
+          <input
+            class="login-input"
+            type="password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+          />
+        </div>
+        <div class="input-div">
+          <label class="login-label">First Name:</label>
+          <input
+            class="login-input"
+            type="text"
+            [(ngModel)]="user.firstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <div class="input-div">
+          <label class="login-label">Last Name:</label>
+          <input
+            class="login-input"
+            type="text"
+            [(ngModel)]="user.lastName"
+            name="lastName"
+            required
+          />
+        </div>
+        <div class="input-div">
+          <label class="login-label">National ID:</label>
+          <input
+            class="login-input"
+            [(ngModel)]="user.nationalId"
+            name="nationalId"
+            required
+          />
+        </div>
+      </div>
+      <div class="center">
+        <button class="login-btn" type="submit">Register</button>
+      </div>
+    </form>
   </div>
-  <div>
-    <label>Password:</label>
-    <input
-      type="password"
-      [(ngModel)]="user.password"
-      name="password"
-      required
-    />
-  </div>
-  <div>
-    <label>First Name:</label>
-    <input type="text" [(ngModel)]="user.firstName" name="firstName" required />
-  </div>
-  <div>
-    <label>Last Name:</label>
-    <input type="text" [(ngModel)]="user.lastName" name="lastName" required />
-  </div>
-  <div>
-    <label>National ID:</label>
-    <input [(ngModel)]="user.nationalId" name="nationalId" required />
-  </div>
-  <button type="submit">Register</button>
-</form>
+</div>

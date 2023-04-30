@@ -8,13 +8,11 @@ import { HttpServiceService } from '../Services/http-service.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent {
+  DueBills: any[] = [];
 
-
-  DueBills: any[]=[];
-  
   CompletedBills: any[] = [];
   user1: any;
   user: User = {
@@ -24,47 +22,36 @@ export class HomepageComponent {
     lastName: '',
     nationalId: '',
     CompletedBills: [
-      {billid: '',
-      amount: 0,
-      paymentDate: '',
-      service: '',
-      type: '',
-      paymentType: ''
-  }],
-    DueBills: [
-      
-    {  amount: 0,
-      DueDate: '',
-      service: '',
-      type: '',
-      billid: ''}]
-  }
-  constructor( private userService: UsersDataService, private userDataService: UserdataService, private httpservice:HttpServiceService) {  }
+      {
+        billid: '',
+        amount: 0,
+        paymentDate: '',
+        service: '',
+        type: '',
+        paymentType: '',
+      },
+    ],
+    DueBills: [{ amount: 0, DueDate: '', service: '', type: '', billid: '' }],
+  };
+  constructor(
+    private userService: UsersDataService,
+    private userDataService: UserdataService,
+    private httpservice: HttpServiceService
+  ) {}
 
   ngOnInit() {
-    
     this.user = this.userDataService.user;
-    
-  
+
     this.user.DueBills.forEach((bill: DueBills) => {
-      if(bill != null && bill.service != "")
-      {
+      if (bill != null && bill.service != '') {
         this.DueBills.push(bill);
-
-
       }
     });
 
     this.user.CompletedBills.forEach((bill: CompletedBills) => {
-      if(bill != null && bill.service != "")
-      {
+      if (bill != null && bill.service != '') {
         this.CompletedBills.push(bill);
-
-
       }
     });
-
-  
   }
-
 }
