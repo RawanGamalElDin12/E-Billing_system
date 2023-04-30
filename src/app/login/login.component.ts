@@ -50,9 +50,20 @@ export class LoginComponent {
           Validators.required,
           Validators.maxLength(14),
           Validators.minLength(14),
+          Validators.pattern(
+            /^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/
+          ),
         ],
       ],
-      password: ['', Validators.required],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+          ),
+        ],
+      ],
     });
   }
   onLogin(form: FormGroup, nationalId: string, password: string) {
