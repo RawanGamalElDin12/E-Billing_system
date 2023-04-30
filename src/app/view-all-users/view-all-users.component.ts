@@ -5,6 +5,9 @@ import { UsersDataService } from '../Services/users-data.service';
 import { JsonPipe } from '@angular/common';
 import { customer } from '../classes/customer';
 import { Router ,NavigationExtras } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+
+import { PopupDialogComponent } from '../popup-dialog/popup-dialog.component';
 @Component({
   selector: 'app-view-all-users',
   templateUrl: './view-all-users.component.html',
@@ -17,13 +20,20 @@ export class ViewAllUsersComponent implements OnInit {
 
   searchTerm: string = '';
   
-  constructor(private http: HttpServiceService, private usersData:UsersDataService,private router: Router){}
+  constructor(private http: HttpServiceService, private usersData:UsersDataService,private router: Router,private dialog: MatDialog){}
   ngOnInit() {
     
     this.users = Object.values( this.usersData.getUsers()); 
 
     
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(PopupDialogComponent, {
+      width: '800px'
+    });
+  }
+
   
   viewUser(user: customer) {
     const navigationExtras: NavigationExtras = {

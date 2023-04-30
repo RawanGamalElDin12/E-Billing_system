@@ -1,0 +1,35 @@
+.mat-column-select {
+    width: 50px;
+  }
+ 
+  .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #343c44 !important;
+  border-color: #009688 !important;
+  /* Change this to the color you want */
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: black !important;
+  }
+  ::ng-deep .mat-checkbox-ripple .mat-ripple-element {
+    background-color: black !important;
+  }
+  
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: black !important;
+  }
+  
+  ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: black !important;
+  }
+  
+  
+  .mat-dialog-content .mat-checkbox-checked .mat-checkbox-background {
+    background-color: #4caf50 !important;
+  }
+  
+  ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: #009688 !important;
+  }
+  

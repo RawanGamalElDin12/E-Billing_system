@@ -32,6 +32,11 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 import { AdminAddUserComponent } from './admin-add-user/admin-add-user.component';
 import { ViewAndUpdateUserComponent } from './view-and-update-user/view-and-update-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
+
 const routes: Routes = [
   {
     path: 'main',
@@ -71,6 +76,7 @@ const routes: Routes = [
     AdminDashboardComponent,
     ViewAllUsersComponent,
     ViewAndUpdateUserComponent,
+    PopupDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +90,10 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    MatDialogModule,
+    MatTableModule,
+    MatCheckboxModule,
+
   ],
   providers: [UsersDataService, HttpServiceService, AuthService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],
