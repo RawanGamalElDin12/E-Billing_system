@@ -80,17 +80,27 @@ export class RegisterComponent {
           ),
         ],
       ],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)],
+      ],
+      lastName: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-z ,.'-]+$/i)],
+      ],
       nationalId: [
         '',
         [
           Validators.required,
           Validators.maxLength(14),
           Validators.minLength(14),
+          Validators.pattern(
+            /^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/
+          ),
         ],
       ],
       DOB: ['', Validators.required],
+      address: ['', Validators.required],
     });
   }
 

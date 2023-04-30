@@ -21,8 +21,17 @@
                 loginForm.get('nationalId')?.touched)
             "
           >
-            <span class="warning" *ngIf="loginForm.get('nationalId')?.errors">
-              National ID is required and should be 14 digits
+            <span
+              class="warning"
+              *ngIf="loginForm.get('nationalId')?.errors?.['required']"
+            >
+              National ID is required
+            </span>
+            <span
+              class="warning"
+              *ngIf="loginForm.get('nationalId')?.errors?.['pattern']"
+            >
+              National ID should be 14 digits
             </span>
           </div>
         </div>
@@ -42,9 +51,19 @@
                 loginForm.get('password')?.touched)
             "
           >
-            <span class="warning" *ngIf="loginForm.get('password')?.errors">
+            <span
+              class="warning"
+              *ngIf="loginForm.get('password')?.errors?.['required']"
+            >
               Password is required
             </span>
+            <div
+              class="warning"
+              *ngIf="loginForm.get('password')?.errors?.['pattern']"
+            >
+              Password must be at least 8 characters and contain at least 1
+              number and special character
+            </div>
           </div>
         </div>
       </div>

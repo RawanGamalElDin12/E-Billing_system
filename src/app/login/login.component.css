@@ -1,5 +1,5 @@
 #login {
-  width: 100%;
+  width: 55%;
   height: 100vh;
   width: 547px;
   height: 500px;
@@ -13,7 +13,7 @@
   align-items: center;
 }
 #welcome-back {
-  width: 107px;
+  width: 120px;
   height: 50px;
   background-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
@@ -29,7 +29,7 @@
 
 .center {
   margin: auto;
-  width: 50%;
+  width: 65%;
   padding: 10px;
 }
 .center-horizontal {
@@ -60,9 +60,10 @@
 }
 .warning {
   color: rgb(215, 6, 6);
+  width: 100%;
 }
 .input-div {
-  width: 250px;
+  width: 315px;
   /* height: 100px; */
   margin-bottom: 10px;
 }
@@ -80,7 +81,7 @@
   color: #ffffff;
   text-align: center;
   line-height: normal;
-  margin-left: 25%;
+  margin-left: 30%;
 }
 .login-btn:hover {
   box-shadow: none;
@@ -101,4 +102,5 @@
 .register {
   padding: 10px;
   margin-top: 20px;
+  margin-left: 25%;
 }
