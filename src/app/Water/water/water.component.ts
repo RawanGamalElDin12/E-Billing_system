@@ -6,6 +6,7 @@ import { UserdataService } from 'src/app/Services/userdata.service';
 import { User } from 'src/app/classes/user';
 import { UsersDataService } from 'src/app/Services/users-data.service';
 import { customer } from 'src/app/classes/customer';
+import { HttpServiceService } from 'src/app/Services/http-service.service';
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
@@ -14,7 +15,7 @@ import { customer } from 'src/app/classes/customer';
 export class WaterComponent {
 
   constructor(private billingservice: BillingServiceService, private waterBillService: WaterBillInfoService,
-    private userdataService: UserdataService) {
+    private userdataService: UserdataService, private http: HttpServiceService) {
     this.user=  this.userdataService.user;
 
   }
@@ -37,17 +38,8 @@ export class WaterComponent {
       this.flag=true;
     }
     
-this.view();
+    this.view();
   }
-
-  // async load() {
-  //   await this.waterBillService.getWaterBillsForUser(this.user.nationalid)
-  //     .subscribe((bills) => {
-  //       this.bills = bills;
-  //       console.log(bills);
-  //       this.view();
-  //     });
-  // }
 
   view() {
     this.dueBills = [];
@@ -75,12 +67,20 @@ this.view();
 
 
   calculateBill(): void {
-    // Calculate bill based on water usage
     this.billAmount = this.waterUsage * this.waterUnitPrice;
   }
 
   submitBill(): void {
-    // Submit the bill to the database
+    const newBillID = this.user.waterBills[this.user.waterBills.length -1].billid+1;
+    const today = new Date();
+    const futureDate = new Date();
+    futureDate.setDate(today.getDate() + 15);
+    const water = new waterBill(this.billAmount,newBillID,this.waterUsage,futureDate.toDateString(),0,"","Due");
+   this.user.waterBills.push(water);
+   this.http.updateUser(this.user).subscribe();
+   this.dueBills.push(water);
+   
+
   }
 
   payBill(index: number): void {
