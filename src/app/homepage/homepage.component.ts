@@ -14,25 +14,8 @@ export class HomepageComponent {
   DueBills: any[] = [];
 
   CompletedBills: any[] = [];
-  user1: any;
-  user: User = {
-    email: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    nationalId: '',
-    CompletedBills: [
-      {
-        billid: '',
-        amount: 0,
-        paymentDate: '',
-        service: '',
-        type: '',
-        paymentType: '',
-      },
-    ],
-    DueBills: [{ amount: 0, DueDate: '', service: '', type: '', billid: '' }],
-  };
+  user12: any;
+  user1:any;
   constructor(
     private userService: UsersDataService,
     private userDataService: UserdataService,
@@ -40,18 +23,18 @@ export class HomepageComponent {
   ) {}
 
   ngOnInit() {
-    this.user = this.userDataService.user;
+    this.user1 = this.userDataService.user;
 
-    this.user.DueBills.forEach((bill: DueBills) => {
-      if (bill != null && bill.service != '') {
-        this.DueBills.push(bill);
-      }
-    });
+   // this.user1.DueBills.forEach((bill: DueBills) => {
+    //  if (bill != null && bill.service != '') {
+    //    this.DueBills.push(bill);
+    //  }
+    //});
 
-    this.user.CompletedBills.forEach((bill: CompletedBills) => {
-      if (bill != null && bill.service != '') {
-        this.CompletedBills.push(bill);
-      }
-    });
+    //this.user1.CompletedBills.forEach((bill: CompletedBills) => {
+     // if (bill != null && bill.service != '') {
+     //   this.CompletedBills.push(bill);
+     // }
+  //  });
   }
 }
