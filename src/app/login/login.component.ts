@@ -55,15 +55,7 @@ export class LoginComponent {
           ),
         ],
       ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
-          ),
-        ],
-      ],
+      password: ['', Validators.required],
     });
   }
   onLogin(form: FormGroup, nationalId: string, password: string) {
