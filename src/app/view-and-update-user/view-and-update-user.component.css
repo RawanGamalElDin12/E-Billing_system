@@ -23,6 +23,33 @@
     margin: 15px;
     padding: 20px;
     background-color: white;
-    width: 100%;
-    height: 500px;
+    width: 80%;
+    height: 220px;
+  }
+
+  label {
+    display: inline-block;
+    width: 100px; /* adjust the width as needed */
+    margin-right: 30px; /* adjust the margin as needed */
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"], input[type="date"] {
+    display: inline-block;
+    width: 200px; /* adjust the width as needed */
+    margin-bottom: 10px; /* adjust the margin as needed */
+    border: 1px solid  #7979794c;
+    border-radius: 3px;
+  }
+  #change {
+    width: 140px;
+    height: 40px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 5px;
+    background-color: #343c44;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    text-align: center;
+    line-height: normal;
+    float: right;
   }
