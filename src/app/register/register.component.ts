@@ -109,7 +109,7 @@ export class RegisterComponent {
     const password = form.get(user.password)?.value;
 
     // this.authService.register(email);
-    if (user != null && user.password != password) {
+    if (user != null) {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);
@@ -120,12 +120,6 @@ export class RegisterComponent {
         }
       );
     }
-  }
-  passwordMatchValidator(pass: string, confirmedPass: string) {
-    if (pass == confirmedPass) {
-      return true;
-    }
-    return false;
   }
   login() {
     this.router.navigate(['/login']);

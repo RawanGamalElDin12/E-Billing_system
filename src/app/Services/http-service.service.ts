@@ -35,11 +35,9 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users.json`;
     return this.http.get<customer[]>(url);
   }
-  
-  
-  
+
   createUserWithId(user: customer, id: string): Observable<customer> {
-    const url = `${this.baseurl}/users/${id}.json`;
+    const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
   getElectricityUnitCost(): Observable<number> {
@@ -59,9 +57,8 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.put<number>(url, JSON.stringify(eUnit), this.httpOptions);
   }
-  updateUser(user:customer): Observable<customer> {
+  updateUser(user: customer): Observable<customer> {
     const url = `${this.baseurl2}/users/${user.nationalid}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
-
 }
