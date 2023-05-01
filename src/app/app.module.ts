@@ -46,6 +46,7 @@ const routes: Routes = [
       { path: 'electricity', component: ElectricityComponent },
       { path: 'water', component: WaterComponent },
       { path: 'home', component: HomepageComponent },
+      { path: 'payment', component: PaymentComponent },
     ],
   },
   {
