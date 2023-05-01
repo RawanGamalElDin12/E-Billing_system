@@ -45,10 +45,12 @@ export class HomepageComponent {
     for (const eB of this.user1.electricityBills) {
       if (eB.amount !== 0 && eB !== null)
         this.Bills.push({ ...eB, service: 'Electricity' });
+        this.Dates.push(eB.date);
     }
     for (const tA of this.user1.telephoneBills) {
       if (tA.amount !== 0 && tA !== null)
         this.Bills.push({ ...tA, service: 'Telephone' });
+        this.Dates.push(tA.date);
     }
     console.log(this.Bills);
     this.filteredValues = this.incomeControl.valueChanges.pipe(
@@ -72,10 +74,10 @@ export class HomepageComponent {
       if (this.filterService && bill.service !== this.filterService) {
         return false; // filter out bills with different service
       }
-      if (this.filterStatus === 'Paid' && !bill.isDue) {
+      if (this.filterStatus == 'Paid' && bill.status !== 'Paid') {
         return false; // filter out bills that are not completed
       }
-      if (this.filterStatus === 'Due' && bill.isDue) {
+      if (this.filterStatus == 'Due' && bill.status !== 'Due') {
         return false; // filter out bills that are completed
       }
       return true; // keep bills that pass all filters
