@@ -1,27 +1,29 @@
 
 /* General styles */
 
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  scroll-behavior: smooth;
-}
-.container 
-{
-  height: 60%;
-}
 
 
 .header-div-two {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .header-two {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  width: 200px;
+  height: 32px;
+  padding: 7px 2px 2px 7px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #404a53;
+  text-align: left;
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 680px;
+  font-size: 16px;
 }
 
 .table-div {
@@ -67,11 +69,12 @@ body {
 /* Specific styles */
 
 .current-bill {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  border: 1px solid #ddd;
-  padding: 20px;
+  width: 1058px;
+  height: 300px;
+  margin-left: 80px;
+  border-radius: 7px;
+  background-color: #ffffff;
+  box-sizing: border-box;
 }
 
 .water-usage {
@@ -103,7 +106,9 @@ body {
 .water-usage button:hover {
   background-color: #3e8e41;
 }
-
+.bill-amount{
+  margin: 20px;
+}
 .bill-amount p {
   margin-bottom: 10px;
 }
@@ -111,10 +116,13 @@ body {
 .bill-amount span {
   font-size: 24px;
   font-weight: bold;
+  margin-left: 130px;
+  
 }
 
 .submitbtn {
   margin-top: 20px;
+  margin-left: 470px;
 }
 
 .submitbtn button {
@@ -151,3 +159,165 @@ body {
   }
 }
 
+.rectangle2 {
+  width: 205px;
+  height: 30px;
+  padding: 2px 2px 2px 2px;
+  margin-top: 10px;
+  border-radius: 7px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 50px;
+}
+.water-bill {
+  width: 189px;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: left;
+  line-height: normal;
+  padding-left: 30px;
+  padding-top: 17px;
+}
+.unit-price {
+  width: 800px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #333333;
+  text-align: left;
+  line-height: normal;
+  padding-left: 435px;
+  padding-top: 8px;
+}
+.due-date {
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: center;
+  line-height: normal;
+  padding-left: 798px;
+}
+
+
+/*/////////////////////// another css /////////////////// */
+/* .current-bill {
+  width: 250px;
+  height: 32px;
+  padding: 7px 2px 2px 7px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #404a53;
+  text-align: left;
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 680px;
+} */
+/* .header1 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+} */
+.view-all-bills {
+  width: 159px;
+  height: 44px;
+  border-radius: 5px;
+  background-color: #3f4a54;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+
+  display: inline-block;
+}
+
+.water-bill {
+  width: 189px;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: left;
+  line-height: normal;
+  padding-left: 30px;
+  padding-top: 17px;
+}
+
+
+
+.total-cubic-meters {
+  width: 277px;
+  height: 22px;
+  padding: 7px 2px 0px 2px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #555555;
+  text-align: left;
+  line-height: normal;
+  display: inline-block;
+  margin-left: 90px;
+  margin-top: 10px;
+}
+
+.calculate-bill {
+  width: 159px;
+  height: 44px;
+  padding: 2px 2px 2px 2px;
+  border-radius: 5px;
+  background-color: #3f4a54;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+  display: inline-block;
+  margin-left: 20px;
+}
+.header2 {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 800px;
+}
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+td {
+  background-color: white;
+}
+.button1 {
+  font-weight: 900;
+  background-color: #3f4a54;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.table {
+  margin-left: 20px;
+}
