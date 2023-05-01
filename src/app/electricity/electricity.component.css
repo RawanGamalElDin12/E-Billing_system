@@ -1,76 +1,114 @@
-#electricity {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
+
+/* General styles */
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+.container 
+{
+  height: 60%;
 }
 
-.bold {
-  font-weight: bold;
-}
-
-.right {
-  margin-left: auto;
-}
 
 .header-div-two {
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.electricity-icon-header {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  margin-top: 50px;
+  margin-left: 50px;
 }
 
 .header-two {
   font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
+.table-div {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.bills-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bills-table th,
+.bills-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.bills-table th {
+  background-color: #f1f1f1;
+}
+
+.electricity-icon,
+.electricity-icon-header {
+  width: 30px;
+  height: 30px;
+}
+
+.pay-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pay-btn:hover {
+  background-color: #3e8e41;
+}
+
+/* Specific styles */
+
 .current-bill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 20px;
 }
 
 .electricity-usage {
-  display: flex;
-  align-items: center;
+  margin-bottom: 20px;
+}
+
+.electricity-usage label {
+  display: block;
   margin-bottom: 10px;
 }
 
-label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-input {
-  width: 100px;
-  margin-right: 10px;
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.header button {
-  font-size: 18px;
+.electricity-usage input[type="number"] {
+  width: 200px;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #0077cc;
-  color: #fff;
-  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
-.bill-amount {
+
+.electricity-usage button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.electricity-usage button:hover {
+  background-color: #3e8e41;
+}
+
+.bill-amount p {
   margin-bottom: 10px;
 }
 
-#electricity-bill-amount-display {
+.bill-amount span {
   font-size: 24px;
   font-weight: bold;
 }
@@ -79,59 +117,37 @@ input {
   margin-top: 20px;
 }
 
-.bills-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-th {
-  font-weight: bold;
-  background-color: #f7f7f7;
-}
-
-.electricity-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.pay-btn {
-  font-size: 18px;
-  padding: 10px;
+.submitbtn button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  background-color: #0077cc;
-  color: #fff;
+  border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px;
 }
+
+.submitbtn button:hover {
+  background-color: #3e8e41;
+}
+
 .table-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+/* Responsive styles */
+
+@media screen and (max-width: 768px) {
+  .current-bill {
+    width: 80%;
+  }
 }
 
-tr:hover {
-  background-color: #ddd;
+@media screen and (max-width: 480px) {
+  .current-bill {
+    width: 100%;
+  }
 }
 
-tr:last-child {
-  background-color: #f7f7f7;
-}
-
-tr:last-child td {
-  font-weight: bold;
-}
-
-.paid-bills {
-  margin-top: 30px;
-}
