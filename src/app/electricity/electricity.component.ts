@@ -80,12 +80,5 @@ export class ElectricityComponent {
     this.dueBills.push(electricity);
   }
 
-  payBill(index: number): void {
-    const bill = this.dueBills[index];
-    // ...
-  }
 
-  viewReceipt(bill: electricityBill): void {
-    // ...
-  }
 }
