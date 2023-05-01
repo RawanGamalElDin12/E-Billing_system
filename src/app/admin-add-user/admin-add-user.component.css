@@ -58,6 +58,10 @@
   border-style: solid;
   width: 100%;
 }
+.login-btn:disabled {
+  color: #767e86;
+  box-shadow: none;
+}
 .warning {
   color: rgb(215, 6, 6);
   width: 100%;

@@ -243,7 +243,9 @@
         </div>
       </div>
       <div class="center">
-        <button class="login-btn" type="submit">Add User</button>
+        <button class="login-btn" type="submit" [disabled]="regForm.invalid">
+          Add User
+        </button>
       </div>
     </form>
   </div>
