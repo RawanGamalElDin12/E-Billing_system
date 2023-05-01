@@ -49,7 +49,7 @@
        
         <td>
           <div class="table-btn">
-            <button class="pay-btn" (click)="payBill(i)">Pay</button>
+            <button class="pay-btn" routerLink="/main/payment" (click)="payBill(i)">Pay</button>
           </div>
         </td>
       </tr>
@@ -81,7 +81,7 @@
         <td>{{ bill.date }}</td>
         <td>{{ bill.amount }}</td>
         <td>
-          <button class="pay-btn" (click)="viewReceipt(bill)">View Receipt</button>
+          <button class="pay-btn"  (click)="viewReceipt(bill)">View Receipt</button>
         </td>
       </tr>
       <tr *ngIf="paidNone">
