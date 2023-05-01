@@ -37,15 +37,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 const routes: Routes = [
   {
     path: 'main',
     component: SidenavComponent,
     children: [
-      { path: 'electricity', component: ElectricityComponent },
+      {
+        path: 'electricity',
+        component: ElectricityComponent,
+      },
       { path: 'water', component: WaterComponent },
       { path: 'home', component: HomepageComponent },
+      { path: 'receipt/:id/:userId', component: ReceiptComponent },
     ],
   },
   {

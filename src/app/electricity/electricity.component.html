@@ -1,91 +1,114 @@
 <!-- <div id="electricity">
     <span class="bold"> electricity Bills</span>
- 
+
     <button class="right">View All Bills</button>
 </div> -->
 
-<div class="header-div-two"> 
-    <h2 class="header-two">Current Electricity Bill</h2>
-  </div>
-  
-  <div class="current-bill">
-    <div class="electricity-usage">
-      <label for="electricity-usage-input">Enter Amount of Electricity Used:</label>
-      <input type="number" [(ngModel)]="electricityUsage" id="electricity-usage-input">
-      <button (click)="calculateBill()">Calculate Bill</button>
-    </div>
-    <div class="bill-amount">
-      <p>Your Electricity Bill Amount:</p>
-      <span id="electricity-bill-amount-display">{{ billAmount }}</span>
+<div class="header-div-two">
+  <h2 class="header-two">Current Electricity Bill</h2>
+</div>
 
-    </div>
-    <div class="submitbtn">
-      <button (click)="submitBill()">Submit Bill</button>
-      <p style="color: red; text-transform: capitalize;" *ngIf="emptyValue">You can not add an empty bill. Please Enter a valid input. and click on calculate Bill button</p>
+<div class="current-bill">
+  <div class="electricity-usage">
+    <label for="electricity-usage-input"
+      >Enter Amount of Electricity Used:</label
+    >
+    <input
+      type="number"
+      [(ngModel)]="electricityUsage"
+      id="electricity-usage-input"
+    />
+    <button (click)="calculateBill()">Calculate Bill</button>
+  </div>
+  <div class="bill-amount">
+    <p>Your Electricity Bill Amount:</p>
+    <span id="electricity-bill-amount-display">{{ billAmount }}</span>
+  </div>
+  <div class="submitbtn">
+    <button (click)="submitBill()">Submit Bill</button>
+    <p style="color: red; text-transform: capitalize" *ngIf="emptyValue">
+      You can not add an empty bill. Please Enter a valid input. and click on
+      calculate Bill button
+    </p>
+  </div>
+</div>
 
-    </div>
-  </div>
-  
-  <div class="header-div-two">
-    <h2 class="header-two">Due Electricity Bills</h2>
-  </div>
-  <p *ngIf="flag">Loading...</p>
-  
-  <div class="table-div">
-    <table class="bills-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Bill Date</th>
-          <th>Amount Due</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let bill of dueBills; let i = index">
-          <td><img class="electricity-icon" src="https://cdn-icons-png.flaticon.com/512/18/18405.png" alt="Electricity Image"></td>
-          <td>{{ bill.date }}</td>
-          <td>{{ bill.amount }}</td>
-          <td>
-            <div class="table-btn">
-              <button class="pay-btn" routerLink="/main/payment">Pay</button>
-            </div>
-          </td>
-        </tr>
-        <tr *ngIf="DueNone">
-          <td colspan="5">No Electricity Bills Due</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <div class="header-div-two">
-    <h2 class="header-two">Recent Electricity Bills Paid</h2>
-  </div>
-  
-  <div class="table-div">
-    <table class="bills-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Bill Date</th>
-          <th>Amount Paid</th>
-          <th>Payment</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let bill of paidBills">
-            <td>    <img class="electricity-icon-header" src="https://cdn-icons-png.flaticon.com/512/18/18405.png" alt="Electricity Image">
-            </td>
-          <td>{{ bill.date }}</td>
-          <td>{{ bill.amount }}</td>
-          <td>
-            <button class="pay-btn" routerLink="/main/Receipt">View Receipt</button>
-          </td>
-        </tr>
-        <tr *ngIf="paidNone">
-          <td colspan="4">No Electricity Bills Paid</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="header-div-two">
+  <h2 class="header-two">Due Electricity Bills</h2>
+</div>
+<p *ngIf="flag">Loading...</p>
+
+<div class="table-div">
+  <table class="bills-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Bill Date</th>
+        <th>Amount Due</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of dueBills; let i = index">
+        <td>
+          <img
+            class="electricity-icon"
+            src="https://cdn-icons-png.flaticon.com/512/18/18405.png"
+            alt="Electricity Image"
+          />
+        </td>
+        <td>{{ bill.date }}</td>
+        <td>{{ bill.amount }}</td>
+        <td>
+          <div class="table-btn">
+            <button class="pay-btn" routerLink="/main/payment">Pay</button>
+          </div>
+        </td>
+      </tr>
+      <tr *ngIf="DueNone">
+        <td colspan="5">No Electricity Bills Due</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="header-div-two">
+  <h2 class="header-two">Recent Electricity Bills Paid</h2>
+</div>
+
+<div class="table-div">
+  <table class="bills-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Bill Date</th>
+        <th>Amount Paid</th>
+        <th>Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of paidBills">
+        <td>
+          <img
+            class="electricity-icon-header"
+            src="https://cdn-icons-png.flaticon.com/512/18/18405.png"
+            alt="Electricity Image"
+          />
+        </td>
+        <td>{{ bill.date }}</td>
+        <td>{{ bill.amount }}</td>
+        <td>
+          <button
+            class="pay-btn"
+            (click)="viewReceipt(bill.billid, user.nationalid)"
+          >
+            View Receipt
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="paidNone">
+        <td colspan="4">No Electricity Bills Paid</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

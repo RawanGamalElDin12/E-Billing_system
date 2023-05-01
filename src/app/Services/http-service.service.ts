@@ -9,6 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { customer } from '../classes/customer';
+import { ElectricityBill } from '../classes/bill';
 @Injectable({
   providedIn: 'root',
 })
@@ -43,8 +44,7 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.delete<void>(url, this.httpOptions);
   }
-  
-  
+
   getElectricityUnitCost(): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.get<number>(url);
@@ -65,5 +65,9 @@ export class HttpServiceService {
   updateUser(user: customer): Observable<customer> {
     const url = `${this.baseurl2}/users/${user.nationalid}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
+  }
+  getBill(userid: string, billid: number) {
+    const url = `${this.baseurl2}/users/${userid}/electricityBills/${billid}.json`;
+    return this.http.get<ElectricityBill>(url);
   }
 }

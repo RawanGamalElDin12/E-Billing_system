@@ -4,8 +4,7 @@ import { BillingServiceService } from '../Services/billing-service.service';
 import { HttpServiceService } from '../Services/http-service.service';
 import { UserdataService } from '../Services/userdata.service';
 import { customer } from '../classes/customer';
-import { waterBill } from '../classes/bill';
-
+import { WaterBill } from '../classes/bill';
 
 @Component({
   selector: 'app-payment',
@@ -23,14 +22,15 @@ export class PaymentComponent {
   //   date: '10-4-2023',
   //   amount: 60,
   // };
-  constructor(private billingservice: BillingServiceService,
-      private userdataService: UserdataService, private http: HttpServiceService) {
-      this.user = this.userdataService.user;
-  
-    }
-    user: customer;
-    bill: waterBill[] = [];
-    
+  constructor(
+    private billingservice: BillingServiceService,
+    private userdataService: UserdataService,
+    private http: HttpServiceService
+  ) {
+    this.user = this.userdataService.user;
+  }
+  user: customer;
+  bill: WaterBill[] = [];
 
   onClick() {
     if (this.selectedOption === 'cash') {
