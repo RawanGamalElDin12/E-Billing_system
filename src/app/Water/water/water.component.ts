@@ -80,11 +80,7 @@ export class WaterComponent {
   }
 
   submitBill(): void {
-    if (this.billAmount == 0) {
-      this.emptyValue = true;
-
-    }
-    else {
+   
       this.emptyValue = false;
       const newBillID = this.user.waterBills[this.user.waterBills.length - 1].billid + 1;
       const today = new Date();
@@ -94,7 +90,7 @@ export class WaterComponent {
       this.user.waterBills.push(water);
       this.http.updateUser(this.user).subscribe();
       this.dueBills.push(water);
-    }
+      this.DueNone=false;
 
   }
 
