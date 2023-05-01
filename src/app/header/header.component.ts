@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpServiceService } from '../Services/http-service.service';
 import { User } from '../classes/user';
+import { Router } from '@angular/router';
+import { AuthService } from '../Services/authservice.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +11,10 @@ import { User } from '../classes/user';
 export class HeaderComponent {
   // users: User[] = [];
   // // user1: User = new User("rrrr@gmail.com",3,"rania",123);
-  constructor(private httpService: HttpServiceService) {}
+  constructor(private httpService: HttpServiceService, private router: Router, private auth: AuthService) {}
+ 
+ 
+
  
   // ngOnInit() {
   //   this.getUserData();
