@@ -54,7 +54,7 @@
 }
 
 .pay-btn {
-  background-color: #4CAF50;
+  background-color: #3f4a54;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -63,7 +63,7 @@
 }
 
 .pay-btn:hover {
-  background-color: #3e8e41;
+  background-color: #3f4a54;
 }
 
 /* Specific styles */
@@ -94,7 +94,7 @@
 }
 
 .water-usage button {
-  background-color: #4CAF50;
+  background-color: #3f4a54;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -104,7 +104,7 @@
 }
 
 .water-usage button:hover {
-  background-color: #3e8e41;
+  background-color: #3f4a54;
 }
 .bill-amount{
   margin: 20px;
@@ -126,7 +126,7 @@
 }
 
 .submitbtn button {
-  background-color: #4CAF50;
+  background-color: #3f4a54;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -135,7 +135,7 @@
 }
 
 .submitbtn button:hover {
-  background-color: #3e8e41;
+  background-color: #3f4a54;
 }
 
 .table-btn {
