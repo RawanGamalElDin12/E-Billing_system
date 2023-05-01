@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../Services/authservice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { customer } from '../classes/customer';
+import { UserdataService } from '../Services/userdata.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -71,7 +72,8 @@ export class RegisterComponent {
     private httpService: HttpServiceService,
     private router: Router,
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userDataservice: UserdataService
   ) {
     this.regForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -120,7 +122,7 @@ export class RegisterComponent {
     const password = form.get(user.password)?.value;
     const national_id = form.get(user.nationalid)?.value;
 
-    console.log('dfcjjjjjjjjjjjjjjjjjjj');
+   
     // this.authService.register(email);
     console.log(user);
     if (user != null) {
@@ -128,6 +130,7 @@ export class RegisterComponent {
         (result) => {
           console.log(`User created successfully: ${result}`);
           alert('Registered Successfully');
+          this.userDataservice.user = user;
           console.log(result.address);
           this.router.navigate(['main/home']);
         },

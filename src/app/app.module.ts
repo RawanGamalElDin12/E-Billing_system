@@ -51,6 +51,7 @@ const routes: Routes = [
       { path: 'water', component: WaterComponent },
       { path: 'home', component: HomepageComponent },
       { path: 'receipt/:id/:userId', component: ReceiptComponent },
+      { path: 'payment', component: PaymentComponent },
     ],
   },
   {

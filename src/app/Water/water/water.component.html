@@ -1,27 +1,32 @@
 <div class="header-div-two"> 
   <!-- <img class="water-icon-header" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"> -->
-  <h2 class="header-two">Current Bill</h2>
+  <p class="header-two">Current Bill</p>
 </div>
 
 <div class="current-bill">
-  <div class="water-usage">
-    <label for="water-usage-input">Enter Amount of Water Used:</label>
-    <input type="number" [(ngModel)]="waterUsage" id="water-usage-input">
-    <button (click)="calculateBill()">Calculate Bill</button>
+  <div>
+    <p class="water-bill">Water Bill-may 2023</p>
+    <p class="due-date">Due Date: 30-5-2023</p>
+    <p class="unit-price">Unit Price:1.65 EGP/ M3</p>
+  </div>
+  <div class="centers">
+    <label class="total-cubic-meters" for="water-usage-input">Enter Amount of Water Used:</label>
+    <input type="number" [(ngModel)]="waterUsage" id="water-usage-input" class="rectangle2">
+    <button class="calculate-bill" (click)="calculateBill()">Calculate Bill</button>
   </div>
   <div class="bill-amount">
-    <p>Your Bill Amount:</p>
-    <span id="bill-amount-display">{{ billAmount }}</span>
+    <p class="total-cubic-meters">Your Bill Amount:</p>
+    <span id="bill-amount-display" class="">{{ billAmount }}</span>
   </div>
   <div class="submitbtn">
-    <button (click)="submitBill()">Submit Bill</button>
+    <button (click)="submitBill()" >Submit Bill</button>
     <p style="color: red; text-transform: capitalize;" *ngIf="emptyValue">You can not add an empty bill. Please Enter a valid input. and click on calculate Bill button</p>
   </div>
 </div>
 
 <div class="header-div-two">
   <!-- <img class="water-icon-header" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"> -->
-  <h2 class="header-two">Due Bills</h2>
+  <p class="header-two">Due Bills</p>
 </div>
 <p *ngIf="flag">Loading...</p>
 
@@ -44,7 +49,7 @@
        
         <td>
           <div class="table-btn">
-            <button class="pay-btn" (click)="payBill(i)">Pay</button>
+            <button class="pay-btn" routerLink="/main/payment" (click)="payBill(i)">Pay</button>
           </div>
         </td>
       </tr>
@@ -57,7 +62,7 @@
 
 <div class="header-div-two">
   <!-- <img class="water-icon-header" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"> -->
-  <h2 class="header-two">Recent Bills Paid</h2>
+  <p class="header-two">Recent Bills Paid</p>
 </div>
 
 <div class="table-div">
@@ -76,7 +81,7 @@
         <td>{{ bill.date }}</td>
         <td>{{ bill.amount }}</td>
         <td>
-          <button class="pay-btn" (click)="viewReceipt(bill)">View Receipt</button>
+          <button class="pay-btn"  (click)="viewReceipt(bill)">View Receipt</button>
         </td>
       </tr>
       <tr *ngIf="paidNone">
