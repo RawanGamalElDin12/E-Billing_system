@@ -1,0 +1,104 @@
+.payment{
+      margin: 80px;
+      padding: 20px;
+      margin-left: 300px;
+      
+    }
+    
+    .bold {
+      font-weight: 700;
+      font-family: Arial;
+      font-size: 20px;
+      color: #8c8c8c;
+    }
+    
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #f2f2f2;
+    }
+    table {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+    }
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    td {
+      background-color: white;
+    }
+    
+    #btnDiv {
+      text-align: center;
+    }
+    .creditcard{
+     padding-top: 20px;
+     font-size: 16px;
+     padding-left: 230px;
+      width: 240px
+    }
+    .creditcard input{
+      margin: 10px;
+      height: 16px;
+    }
+    .fawry{
+      
+      padding: 30px;
+     text-align: center;
+     font-size: larger;
+    }
+    .card-select{
+      margin: 50px;
+      /* margin-left: 70px; */
+      width: 613px;
+      height: 270px;
+      background-color: #fff;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+    .select-payment{
+      padding-top: 20px;
+      color: #8c8c8c;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .form1{
+      color: #8c8c8c;
+      padding: 20px;
+      font-size: 20px;
+    }
+    .form1 input{
+      margin: 10px;
+    }
+    .button1{
+      font-weight: 900;
+      padding: 7px;
+      background-color:  #169bd5;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      width: 120px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .pay-button{
+      margin-top: 30px;
+      margin-left: 420px;
+    }
+    .confirmButton{
+      font-weight: 700;
+      padding: 7px;
+      background-color:  #169bd5;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+      width: 100px;
+      margin-left: 460px ;
+      
+      font-family: Arial, Helvetica, sans-serif;
+    }

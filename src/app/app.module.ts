@@ -36,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {
@@ -78,6 +79,7 @@ const routes: Routes = [
     ViewAndUpdateUserComponent,
     PopupDialogComponent,
     AdminAddUserComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
