@@ -102,25 +102,26 @@ export class RegisterComponent {
     });
   }
 
-  register(form: FormGroup, user: customer) {
+  register(form: FormGroup, user: customer, addr: string) {
     // const email = form.get(user.email)?.value;
     const password = form.get(user.password)?.value;
     const national_id = form.get(user.nationalid)?.value;
 
-    console.log("dfcjjjjjjjjjjjjjjjjjjj");
+    console.log('dfcjjjjjjjjjjjjjjjjjjj');
     // this.authService.register(email);
     console.log(user);
-    if (user != null ) {
+    if (user != null) {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);
-          alert("Registered Successfully");
-          console.log(user.address);
+          alert('Registered Successfully');
+          console.log(result.address);
+          console.log(addr);
           this.router.navigate(['main/home']);
         },
         (error) => {
           console.log(`Error creating user: ${error}`);
-          alert("Error in Registeration");
+          alert('Error in Registeration');
         }
       );
     }

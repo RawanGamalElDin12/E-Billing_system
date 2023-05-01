@@ -1,7 +1,10 @@
 <div class="bg">
   <div id="register" class="center">
     <h2 id="welcome-back" class="center">Register</h2>
-    <form [formGroup]="regForm" (ngSubmit)="register(regForm, user)">
+    <form
+      [formGroup]="regForm"
+      (ngSubmit)="register(regForm, user, user.address)"
+    >
       <div class="center">
         <div class="input-div">
           <label class="login-label">National ID:</label>
@@ -200,8 +203,8 @@
         <div class="input-div">
           <label class="login-label">Address:</label>
           <input
+            [(ngModel)]="user.address"
             class="login-input"
-            type="text"
             formControlName="address"
             required
           />
@@ -242,7 +245,7 @@
         </div>
       </div>
       <div class="center">
-        <button class="login-btn" type="submit" >Register</button>
+        <button class="login-btn" type="submit">Register</button>
       </div>
     </form>
     <div class="register center">
