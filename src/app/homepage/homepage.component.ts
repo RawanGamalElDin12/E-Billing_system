@@ -39,19 +39,25 @@ export class HomepageComponent {
     for (const bill of this.user1.waterBills) {
       if (bill.amount !== 0 && bill !== null) {
         this.Bills.push({ ...bill, service: 'Water' });
-        this.Dates.push(bill.date);
+       if (!this.Dates.includes(bill.date)){
+         this.Dates.push(bill.date);
+
+        }
       }
     }
     for (const eB of this.user1.electricityBills) {
       if (eB.amount !== 0 && eB !== null)
-        this.Bills.push({ ...eB, service: 'Electricity' });
-        this.Dates.push(eB.date);
+       { this.Bills.push({ ...eB, service: 'Electricity' });
+       
+       if(!this.Dates.includes( eB.date)) {
+         this.Dates.push(eB.date);}}
     }
     for (const tA of this.user1.telephoneBills) {
       if (tA.amount !== 0 && tA !== null)
-        this.Bills.push({ ...tA, service: 'Telephone' });
-        this.Dates.push(tA.date);
-    }
+      {  this.Bills.push({ ...tA, service: 'Telephone' });
+       if (!this.Dates.includes(tA.date)) {this.Dates.push(tA.date);}
+    }}
+    
     console.log(this.Bills);
     this.filteredValues = this.incomeControl.valueChanges.pipe(
       startWith(''),
