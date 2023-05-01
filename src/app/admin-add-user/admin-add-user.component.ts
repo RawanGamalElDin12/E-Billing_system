@@ -106,7 +106,7 @@ export class AdminAddUserComponent {
     const password = form.get(user.password)?.value;
     const national_id = form.get(user.nationalid)?.value;
     // this.authService.register(email);
-    if (user != null && national_id != null) {
+    if (user != null) {
       this.httpService.createUserWithId(user, user.nationalid).subscribe(
         (result) => {
           console.log(`User created successfully: ${result}`);
