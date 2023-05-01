@@ -17,9 +17,12 @@
     <div class="bill-amount">
       <p>Your Electricity Bill Amount:</p>
       <span id="electricity-bill-amount-display">{{ billAmount }}</span>
+
     </div>
     <div class="submitbtn">
       <button (click)="submitBill()">Submit Bill</button>
+      <p style="color: red; text-transform: capitalize;" *ngIf="emptyValue">You can not add an empty bill. Please Enter a valid input. and click on calculate Bill button</p>
+
     </div>
   </div>
   

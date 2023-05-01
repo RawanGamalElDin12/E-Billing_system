@@ -31,7 +31,7 @@ export class ElectricityComponent {
   flag = true;
   paidNone = false;
   DueNone = false;
-
+  emptyValue=false;
   ngOnInit() {
     this.electricityUnitPrice = this.billingservice.getElectricityPrice();
     console.log(this.electricityUnitPrice);
@@ -66,18 +66,32 @@ export class ElectricityComponent {
   }
 
   calculateBill(): void {
-    this.billAmount = this.electricityUsage * this.electricityUnitPrice;
+    
+    if (this.electricityUsage!=0)
+    {
+      this.emptyValue=false;
+      this.billAmount = this.electricityUsage * this.electricityUnitPrice;}
+      else 
+      {
+        this.emptyValue=true;
+      }
   }
 
   submitBill(): void {
-    const newBillID = this.user.electricityBills[this.user.electricityBills.length -1].billid + 1;
+    if (this.billAmount!=0){
+      this.emptyValue=false;
+      const newBillID = this.user.electricityBills[this.user.electricityBills.length -1].billid + 1;
     const today = new Date();
     const futureDate = new Date();
     futureDate.setDate(today.getDate() + 15);
     const electricity = new electricityBill(this.billAmount, newBillID, this.electricityUsage, futureDate.toDateString(), 0, "", "Due");
     this.user.electricityBills.push(electricity);
     this.http.updateUser(this.user).subscribe();
-    this.dueBills.push(electricity);
+    this.dueBills.push(electricity);}
+    else 
+    {
+      this.emptyValue=true;
+    }
   }
 
 
