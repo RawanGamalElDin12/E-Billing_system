@@ -1,47 +1,43 @@
-<div id="home">
-    <p class="bold"> Due Bills</p>
- 
-    <table>
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Amount</th>
-            <th>Due Date</th>
-            <th>Payment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let bill of DueBills">
-            <td>{{ bill.service }}</td>
-            <td>{{ bill.amount }}</td>
-            <td>{{ bill.DueDate }}</td>
-      
-            <td id="btnDiv"><button >Pay</button></td>
-          </tr>
-        </tbody>
-      </table>
-  <br> <br>
-    <p class="bold" >Recent Payment</p>
-    <table>
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>Amount</th>
-            <th>Payment Date</th>
-            <th>Payment Type</th>
-            <th>View Invoice</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let payment of CompletedBills">
-            <td>{{ payment.service }}</td>
-            <td>{{ payment.amount }}</td>
-            <td>{{ payment.paymentDate }}</td>
-            <td>{{payment.paymentType}}</td>
-            <td id="btnDiv"><button >View</button></td>
-
-          </tr>
-        </tbody>
-      </table>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <h1 style="text-align: center; text-transform: capitalize; text:bold"> Welcome, {{name}}</h1>
 </div>
 
+<div id="home">
+  <p class="bold">Bills</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Service
+          <select [(ngModel)]="filterService">
+            <option value="">All</option>
+            <option value="Water">Water</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Telephone">Telephone</option>
+          </select>
+        </th>
+        <th>Date <select [(ngModel)]="filterDueDate">
+            <option value="">All</option>
+            <option *ngFor="let date of Dates" [value]="date">{{ date | date }}</option>
+          </select></th>
+        <th>Amount </th>
+        <th>Status <select [(ngModel)]="filterStatus">
+            <option value="">All</option>
+            <option value="Due">Due</option>
+            <option value="Paid">Paid</option>
+          </select></th>
+        <th>Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of filteredBills">
+        <td>{{ bill.service }}</td>
+        <td>{{ bill.date }}</td>
+        <td>{{ bill.amount }}</td>
+        <td>{{ bill.status }}</td>
+        <td id="btnDiv"><button>Pay</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br /><br />
+</div>
