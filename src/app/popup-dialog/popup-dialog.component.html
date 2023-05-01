@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Select Users to Delete</h2>
-    <div mat-dialog-content>
-      <table mat-table [dataSource]="users" class="mat-elevation-z8">
+    <div mat-dialog-content class="table-container" scrollable>
+      <table mat-table [dataSource]="users" class="mat-elevation-z8" cdk-virtual-scroll-viewport>
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef>
             <mat-checkbox (change)="$event ? masterToggle() : null"
