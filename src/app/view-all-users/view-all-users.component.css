@@ -63,6 +63,8 @@
     margin: 15px;
     padding: 20px;
     background-color: white;
-    width: 100%;
+    width: 90%;
     height: 500px;
+    overflow: auto;
   }
+  
