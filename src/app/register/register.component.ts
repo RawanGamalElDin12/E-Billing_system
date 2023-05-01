@@ -61,9 +61,9 @@ export class RegisterComponent {
         paymentType: '',
         status: '',
         minutes: 0,
-        serviceProvider: ''
-      }
-    ]
+        serviceProvider: '',
+      },
+    ],
   };
   regForm: FormGroup;
 
@@ -115,7 +115,7 @@ export class RegisterComponent {
     });
   }
 
-  register(form: FormGroup, user: customer, addr: string) {
+  register(form: FormGroup, user: customer) {
     // const email = form.get(user.email)?.value;
     const password = form.get(user.password)?.value;
     const national_id = form.get(user.nationalid)?.value;
@@ -129,7 +129,6 @@ export class RegisterComponent {
           console.log(`User created successfully: ${result}`);
           alert('Registered Successfully');
           console.log(result.address);
-          console.log(addr);
           this.router.navigate(['main/home']);
         },
         (error) => {

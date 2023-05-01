@@ -86,6 +86,10 @@
 .login-btn:hover {
   box-shadow: none;
 }
+.login-btn:disabled {
+  color: #767e86;
+  box-shadow: none;
+}
 .bg {
   background-color: aliceblue;
   padding-top: 60px;
