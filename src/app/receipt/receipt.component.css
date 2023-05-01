@@ -1,9 +1,9 @@
 .invoice {
-  width: 55%;
-  height: 100vh;
+  width: 75%;
+  height: 100%;
   width: 547px;
-  height: 500px;
-  /* padding: 2px 2px 2px 2px; */
+  /* height: 400px; */
+  padding: 2px 2px 2px 2px;
   /* border-radius: 8px; */
   background-color: #ffffff;
   box-sizing: border-box;
@@ -14,6 +14,32 @@
 }
 .center {
   margin: auto;
-  width: 65%;
+  width: 75%;
   padding: 10px;
+}
+.invoice-title {
+  padding: 15px;
+}
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  font-family: "Arial", sans-serif;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+table {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 10px;
+  font-family: "Arial", sans-serif;
+  text-align: left;
+  margin-bottom: 20px;
+}
+td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  padding: 10px;
+  font-family: "Arial", sans-serif;
+  text-align: left;
 }
