@@ -45,7 +45,7 @@ export class WaterComponent {
     this.dueBills = [];
     this.paidBills = [];
     this.flag=false;
-    this.bills = this.user.waterBills.filter(bill => bill!==null)
+    this.bills = this.user.waterBills.filter(bill => bill !== null && bill.amount !== 0);
 
     for (let bill of this.bills) {
       
