@@ -78,8 +78,6 @@ export class ElectricityComponent {
   }
 
   submitBill(): void {
-    if (this.billAmount!=0){
-      this.emptyValue=false;
       const newBillID = this.user.electricityBills[this.user.electricityBills.length -1].billid + 1;
     const today = new Date();
     const futureDate = new Date();
@@ -87,12 +85,10 @@ export class ElectricityComponent {
     const electricity = new electricityBill(this.billAmount, newBillID, this.electricityUsage, futureDate.toDateString(), 0, "", "Due");
     this.user.electricityBills.push(electricity);
     this.http.updateUser(this.user).subscribe();
-    this.dueBills.push(electricity);}
-    else 
-    {
-      this.emptyValue=true;
-    }
-  }
+    this.dueBills.push(electricity);
+  this.DueNone= false;}
+    
+  
 
 
 }

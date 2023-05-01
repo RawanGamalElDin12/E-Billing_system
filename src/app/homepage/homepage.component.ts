@@ -25,7 +25,7 @@ export class HomepageComponent {
   user1: any;
 
   constructor(
-    private userService: UsersDataService,
+  
     private userDataService: UserdataService,
     private httpservice: HttpServiceService
   ) {}
@@ -57,7 +57,7 @@ export class HomepageComponent {
       {  this.Bills.push({ ...tA, service: 'Telephone' });
        if (!this.Dates.includes(tA.date)) {this.Dates.push(tA.date);}
     }}
-    
+
     console.log(this.Bills);
     this.filteredValues = this.incomeControl.valueChanges.pipe(
       startWith(''),
