@@ -51,6 +51,19 @@ export class RegisterComponent {
         type: '',
       },
     ],
+    telephoneBills: [
+      {
+        amount: 0,
+        billid: 0,
+        consumption: 0,
+        date: '',
+        lateFees: 0,
+        paymentType: '',
+        status: '',
+        minutes: 0,
+        serviceProvider: ''
+      }
+    ]
   };
   regForm: FormGroup;
 
