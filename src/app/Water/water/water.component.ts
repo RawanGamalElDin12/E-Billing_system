@@ -7,6 +7,7 @@ import { User } from 'src/app/classes/user';
 import { UsersDataService } from 'src/app/Services/users-data.service';
 import { customer } from 'src/app/classes/customer';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
+import { PayServiceService } from 'src/app/Services/pay-service.service';
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
@@ -17,7 +18,8 @@ export class WaterComponent {
     private billingservice: BillingServiceService,
     private waterBillService: WaterBillInfoService,
     private userdataService: UserdataService,
-    private http: HttpServiceService
+    private http: HttpServiceService,
+    private pay: PayServiceService
   ) {
     this.user = this.userdataService.user;
   }
@@ -101,8 +103,9 @@ export class WaterComponent {
 
   payBill(index: number): void {
     // Pay due bill at the given index
-    const bill = this.dueBills[index];
-    // ...
+    this.pay.billid= this.dueBills[index].billid;
+    this.pay.serviceType = 'Water';
+    
   }
 
   viewReceipt(bill: WaterBill): void {
