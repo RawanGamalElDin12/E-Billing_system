@@ -46,7 +46,6 @@ export class ViewAndUpdateUserComponent {
     this.user.email= this.userForm.get('email').value;
     this.user.address= this.userForm.get('address').value;
 
-    this.usersData.updateUserByNationalId(this.user.nationalid, this.user);
     
     console.log(this.user);
     console.log(Object.values( this.usersData.getUsers()));
@@ -56,6 +55,8 @@ export class ViewAndUpdateUserComponent {
     this.http.updateUser(this.user).subscribe(
       (result) => {
         console.log(`User updated successfully: ${result}`);
+        this.usersData.updateUserByNationalId(this.user.nationalid, this.user);
+
         alert("User Updated Successfully")
       },
       (error) => {

@@ -7,8 +7,10 @@ import {
   HttpEventType,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { customer } from '../classes/customer';
+import { ServiceProvider } from '../classes/ServiceProvider';
+import { Offer } from '../classes/Offer';
 @Injectable({
   providedIn: 'root',
 })
@@ -39,6 +41,16 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
+  createSPWithId(sp: ServiceProvider , id: string): Observable<ServiceProvider> {
+    const url = `${this.baseurl2}/ServiceProviders/${id}.json`;
+    return this.http.put<ServiceProvider>(url, JSON.stringify(sp), this.httpOptions);
+  }
+  getSPs(): Observable<ServiceProvider[]> {
+    const url = `${this.baseurl2}/ServiceProviders.json`;
+    return this.http.get<ServiceProvider[]>(url);
+  }
+
+
   deleteUserById(id: string): Observable<void> {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.delete<void>(url, this.httpOptions);
@@ -66,4 +78,18 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${user.nationalid}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
+  updateSP(sp: ServiceProvider): Observable<ServiceProvider> {
+    const url = `${this.baseurl2}/ServiceProviders/${sp.id}.json`;
+    console.log(sp);
+    return this.http.put<ServiceProvider>(url, JSON.stringify(sp), this.httpOptions);
+  }
+  updateSPOffer(sp: ServiceProvider,offer:Offer): Observable<Offer> {
+    const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
+    console.log(sp);
+    console.log(offer.offerid);
+    console.log(sp.offers[offer.offerid]);
+    return this.http.put<Offer>(url, JSON.stringify(offer), this.httpOptions);
+  }
+
+
 }

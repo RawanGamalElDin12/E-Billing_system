@@ -1,0 +1,32 @@
+<div class="header">
+    <img src="../assets/Icons/icons8-male-user-64.png">
+    <h1>All Service Providers</h1>
+  </div>
+  
+  <div id="main">
+  Find Service Provider:<input type="search" [(ngModel)]="searchTerm" placeholder="Search...">
+  <button class="add" (click)="open()"> Add Service Provider</button>
+
+  <br>
+  
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Service Provider</th>
+      <th>Tarriff</th>
+      <th>View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sp of filteredSPS">
+        <td>{{ sp.id }}</td>
+      <td>{{ sp.name | titlecase }}</td>
+      <td>{{ sp.tarriff| currency:'EGP' }} /min</td>
+      <td id="Btndiv" (click)="viewSP(sp)"><button>View</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>

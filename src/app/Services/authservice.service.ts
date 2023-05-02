@@ -8,6 +8,8 @@ import { DueBills } from '../classes/DueBills';
 import { BillingServiceService } from './billing-service.service';
 import { UsersDataService } from './users-data.service';
 import { customer } from '../classes/customer';
+import { ServiceProvider } from '../classes/ServiceProvider';
+import { ServiceProvidersDataService } from './service-providers-data.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +19,8 @@ export class AuthService {
     private http: HttpServiceService,
     private userDataSerive: UserdataService,
     private billingService: BillingServiceService,
-    private UsersData: UsersDataService
+    private UsersData: UsersDataService,
+    private SpsData: ServiceProvidersDataService
   ) {}
   isLoggedIn = false;
 
@@ -37,7 +40,19 @@ export class AuthService {
         (error: any) => {
           console.error('Error occurred while fetching users:', error);
         }
+
+  
       );
+      this.http.getSPs().subscribe(
+        (sps: ServiceProvider[]) => {
+          console.log(sps);
+          this.SpsData.setSPs(sps);
+         // this.UsersData.setUsers(users);
+         console.log(this.SpsData.getSPs());
+        },
+        (error: any) => {
+          console.error('Error occurred while fetching sps:', error);
+        });
     } else {
       this.http.getUser(nationalId).subscribe(
         (user: customer) => {

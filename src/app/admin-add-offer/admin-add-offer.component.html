@@ -1,0 +1,41 @@
+<button (click)="back()">back</button>
+
+
+<div class="header">
+    <img src="../assets/Icons/icons8-male-user-64.png">
+    <h1>Offer Info</h1>
+  </div>
+  <div id="main">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <label>
+      Offer ID:
+    </label>
+      <input type="text" formControlName="id" >
+   
+    <br>
+    <label>
+       Offer Name:
+    </label>
+        <input type="text" formControlName="name">
+      
+      <bR>
+    <label>
+      Minutes:
+    </label>
+      <input type="number" formControlName="minutes">
+    
+    <br>
+    <label>
+        Price:
+      </label>
+        <input type="number" formControlName="price">
+      
+      <br>
+  
+    
+   
+    <button id="change"   type="submit">Add</button>
+    <br><br>
+  </form>
+  </div>
+   

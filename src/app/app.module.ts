@@ -37,6 +37,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
 import { PaymentComponent } from './payment/payment.component';
+import { AdminServiceProvidersComponent } from './admin-service-providers/admin-service-providers.component';
+import { AdminViewSpComponent } from './admin-view-sp/admin-view-sp.component';
+import { AdminAddSpComponent } from './admin-add-sp/admin-add-sp.component';
+import { AdminChangeOfferComponent } from './admin-change-offer/admin-change-offer.component';
+import { AdminAddOfferComponent } from './admin-add-offer/admin-add-offer.component';
 
 const routes: Routes = [
   {
@@ -57,6 +62,12 @@ const routes: Routes = [
       { path: 'ViewUsers', component: ViewAllUsersComponent },
       { path: 'AddUser', component: AdminAddUserComponent },
       { path: 'view-user/:id', component: ViewAndUpdateUserComponent },
+      { path: 'serviceproviders', component: AdminServiceProvidersComponent },
+      { path: 'view-sp/:id1', component: AdminViewSpComponent},
+      {path:'addSP', component:AdminAddSpComponent},
+      {path:'view-sp/:id1/view-offer/:id', component:AdminChangeOfferComponent} ,
+      {path:'view-sp/:id1/add-offer', component:AdminAddOfferComponent} 
+      
     ],
   },
   { path: 'register', component: RegisterComponent },
@@ -81,6 +92,11 @@ const routes: Routes = [
     PopupDialogComponent,
     AdminAddUserComponent,
     PaymentComponent,
+    AdminServiceProvidersComponent,
+    AdminViewSpComponent,
+    AdminAddSpComponent,
+    AdminChangeOfferComponent,
+    AdminAddOfferComponent,
   ],
   imports: [
     BrowserModule,
