@@ -61,7 +61,7 @@
         <td>{{ bill.amount }}</td>
         <td>
           <div class="table-btn">
-            <button class="pay-btn" routerLink="/main/payment">Pay</button>
+            <button class="pay-btn" routerLink="/main/payment" (click)="payBill(i)">Pay</button>
           </div>
         </td>
       </tr>

@@ -5,6 +5,7 @@ import { HttpServiceService } from '../Services/http-service.service';
 import { customer } from '../classes/customer';
 import { ElectricityBill } from '../classes/bill';
 import { NavigationExtras, Router } from '@angular/router';
+import { PayServiceService } from '../Services/pay-service.service';
 
 @Component({
   selector: 'app-electricity',
@@ -16,12 +17,15 @@ export class ElectricityComponent {
     private billingservice: BillingServiceService,
     private userdataService: UserdataService,
     private http: HttpServiceService,
-    private router: Router
+    private payServ : PayServiceService,
+    private router :Router
   ) {
     this.user = this.userdataService.user;
+    this.pay= this.payServ;
   }
 
   user: customer;
+  pay : PayServiceService;
   bills: ElectricityBill[] = [];
   electricityUnitPrice = 0;
   electricityUsage = 0;
@@ -40,7 +44,7 @@ export class ElectricityComponent {
     if (this.bills.length == 0) {
       this.flag = true;
     }
-
+    
     this.view();
   }
 
@@ -97,6 +101,12 @@ export class ElectricityComponent {
     this.http.updateUser(this.user).subscribe();
     this.dueBills.push(electricity);
     this.DueNone = false;
+  }
+  payBill(index: number): void {
+    // Pay due bill at the given index
+    this.pay.billid= this.dueBills[index].billid;
+    this.pay.serviceType = 'Electricity';
+    
   }
   viewReceipt(id: number, userId: string) {
     // const navigationExtras: NavigationExtras = {

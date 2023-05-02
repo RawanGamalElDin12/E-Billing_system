@@ -24,7 +24,10 @@ export class PaymentComponent implements OnInit{
   invoice =0;
 
   ngOnInit(): void {
+    if (this.payServ.serviceType=="Water")
     this.bill = this.user.waterBills.filter(bill=> bill.billid==this.payServ.billid)[0] ;
+    else 
+    this.bill = this.user.electricityBills.filter(bill=> bill.billid==this.payServ.billid)[0] ;
         this.service= this.payServ.serviceType;
         this.invoice = this.invoiceNumber();
   }
@@ -59,18 +62,19 @@ export class PaymentComponent implements OnInit{
       this.credit = true;
       this.payType='credit';
     }
-    // console.log(this.user.waterBills[this.payServ.billid]);
-    // this.user.waterBills.push(water);
-   
-   
-    // this.user.waterBills[this.payServ.billid].status = 'Paid';
-    this.user.waterBills.filter(bill=> bill.billid==this.payServ.billid)[0].status = 'Paid';
-    // this.user.waterBills[this.payServ.billid].paymentType=this.payType;
+    
+   if (this.payServ.serviceType=='Water')
+    {this.user.waterBills.filter(bill=> bill.billid==this.payServ.billid)[0].status = 'Paid';
     this.user.waterBills.filter(bill=> bill.billid==this.payServ.billid)[0].paymentType=this.payType;
-    // console.log(this.user.waterBills[this.payServ.billid]);
-
-     this.http.updateUser(this.user).subscribe();
-    this.invoice = this.invoiceNumber();
+      this.http.updateUser(this.user).subscribe();
+    this.invoice = this.invoiceNumber();}
+    else 
+    {
+      this.user.electricityBills.filter(bill=> bill.billid==this.payServ.billid)[0].status = 'Paid';
+      this.user.electricityBills.filter(bill=> bill.billid==this.payServ.billid)[0].paymentType=this.payType;
+      this.http.updateUser(this.user).subscribe();
+      this.invoice = this.invoiceNumber();
+    }
 
   }
   paid()
