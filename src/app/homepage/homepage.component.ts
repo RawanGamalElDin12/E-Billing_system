@@ -25,8 +25,6 @@ export class HomepageComponent {
   CompletedBills: any[] = [];
   user12: any;
   user1: any;
-  latefees: number = 0;
-  lateFlag = false;
   incomeControl = new FormControl();
   filteredValues: Observable<string[]> | undefined;
 
@@ -124,6 +122,16 @@ export class HomepageComponent {
     this.router.navigate(['main/receipt', this.Bills[index].billid, id, this.Bills[index].service]);
   }
 
-
+   checkBillDueDate(billDate: string): boolean {
+    
+    const today = new Date();
+    console.log(today);
+    console.log(billDate);
+    if (new Date(billDate) > today) {
+      return true; // bill date is later than today
+    } else {
+      return false; // bill date is earlier than or equal to today
+    }
+  }
 
 }
