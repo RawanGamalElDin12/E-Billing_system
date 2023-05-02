@@ -43,6 +43,7 @@ import { AdminViewSpComponent } from './admin-view-sp/admin-view-sp.component';
 import { AdminAddSpComponent } from './admin-add-sp/admin-add-sp.component';
 import { AdminChangeOfferComponent } from './admin-change-offer/admin-change-offer.component';
 import { AdminAddOfferComponent } from './admin-add-offer/admin-add-offer.component';
+import { TelephoneComponent } from './telephone/telephone.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,7 @@ const routes: Routes = [
       { path: 'home', component: HomepageComponent },
       { path: 'receipt/:id/:userId/:service', component: ReceiptComponent },
       { path: 'payment', component: PaymentComponent },
+      {path:'telephone', component:TelephoneComponent}
     ],
   },
   {
@@ -102,6 +104,7 @@ const routes: Routes = [
     AdminAddSpComponent,
     AdminChangeOfferComponent,
     AdminAddOfferComponent,
+    TelephoneComponent,
   ],
   imports: [
     BrowserModule,
