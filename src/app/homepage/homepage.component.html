@@ -35,7 +35,8 @@
         <td>{{ bill.date }}</td>
         <td>{{ bill.amount }}</td>
         <td>{{ bill.status }}</td>
-        <td id="btnDiv" *ngIf="bill.status=='Due'" (click)="payBill(i)" routerLink="/main/payment"><button>Pay</button></td>
+        <td id="btnDiv" *ngIf="bill.status=='Due'" (click)="payBill(i)" routerLink="/main/payment"><button>Pay</button>
+        </td>
         <td id="btnDiv" *ngIf="bill.status=='Paid'"><button>View Reciept</button></td>
 
       </tr>

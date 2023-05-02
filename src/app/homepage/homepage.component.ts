@@ -6,7 +6,7 @@ import { User } from '../classes/user';
 import { DueBills } from '../classes/DueBills';
 import { HttpServiceService } from '../Services/http-service.service';
 import { FormControl } from '@angular/forms';
-import { Observable, startWith , map} from 'rxjs';
+import { Observable, startWith, map } from 'rxjs';
 import { PayServiceService } from '../Services/pay-service.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { PayServiceService } from '../Services/pay-service.service';
 })
 export class HomepageComponent {
   Bills: any[] = [];
-  name :string='';
+  name: string = '';
   filterDueDate = '';
   filterStatus = '';
   filterService = '';
@@ -26,12 +26,12 @@ export class HomepageComponent {
   user1: any;
 
   constructor(
-  
+
     private userDataService: UserdataService,
-    private httpservice: HttpServiceService, 
+    private httpservice: HttpServiceService,
     private payServ: PayServiceService
   ) {
-    
+
   }
 
   incomeControl = new FormControl();
@@ -43,24 +43,27 @@ export class HomepageComponent {
     for (const bill of this.user1.waterBills) {
       if (bill.amount !== 0 && bill !== null) {
         this.Bills.push({ ...bill, service: 'Water' });
-       if (!this.Dates.includes(bill.date)){
-         this.Dates.push(bill.date);
+        if (!this.Dates.includes(bill.date)) {
+          this.Dates.push(bill.date);
 
         }
       }
     }
     for (const eB of this.user1.electricityBills) {
-      if (eB.amount !== 0 && eB !== null)
-       { this.Bills.push({ ...eB, service: 'Electricity' });
-       
-       if(!this.Dates.includes( eB.date)) {
-         this.Dates.push(eB.date);}}
+      if (eB.amount !== 0 && eB !== null) {
+        this.Bills.push({ ...eB, service: 'Electricity' });
+
+        if (!this.Dates.includes(eB.date)) {
+          this.Dates.push(eB.date);
+        }
+      }
     }
     for (const tA of this.user1.telephoneBills) {
-      if (tA.amount !== 0 && tA !== null)
-      {  this.Bills.push({ ...tA, service: 'Telephone' });
-       if (!this.Dates.includes(tA.date)) {this.Dates.push(tA.date);}
-    }}
+      if (tA.amount !== 0 && tA !== null) {
+        this.Bills.push({ ...tA, service: 'Telephone' });
+        if (!this.Dates.includes(tA.date)) { this.Dates.push(tA.date); }
+      }
+    }
 
     console.log(this.Bills);
     this.filteredValues = this.incomeControl.valueChanges.pipe(
@@ -94,12 +97,12 @@ export class HomepageComponent {
     });
   }
 
-    payBill(index: number): void {
-      // Pay due bill at the given index
-      this.payServ.billid= this.Bills[index].billid;
-      this.payServ.serviceType =this.Bills[index].service;
-      
-    }
+  payBill(index: number): void {
+    // Pay due bill at the given index
+    this.payServ.billid = this.Bills[index].billid;
+    this.payServ.serviceType = this.Bills[index].service;
 
-  
+  }
+
+
 }
