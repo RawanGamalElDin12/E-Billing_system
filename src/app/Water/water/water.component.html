@@ -76,12 +76,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bill of paidBills">
+      <tr *ngFor="let bill of paidBills; let i=index;">
         <td><img class="water-icon" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"></td>
         <td>{{ bill.date }}</td>
         <td>{{ bill.amount }}</td>
         <td>
-          <button class="pay-btn"  (click)="viewReceipt(bill)">View Receipt</button>
+          <button class="pay-btn"   (click)="viewReceipt(bill.billid, user.nationalid)">View Receipt</button>
         </td>
       </tr>
       <tr *ngIf="paidNone">

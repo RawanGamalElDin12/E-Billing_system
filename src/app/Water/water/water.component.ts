@@ -8,6 +8,7 @@ import { UsersDataService } from 'src/app/Services/users-data.service';
 import { customer } from 'src/app/classes/customer';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
 import { PayServiceService } from 'src/app/Services/pay-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
@@ -19,7 +20,8 @@ export class WaterComponent {
     private waterBillService: WaterBillInfoService,
     private userdataService: UserdataService,
     private http: HttpServiceService,
-    private pay: PayServiceService
+    private pay: PayServiceService,
+    private router:Router
   ) {
     this.user = this.userdataService.user;
   }
@@ -108,8 +110,12 @@ export class WaterComponent {
     
   }
 
-  viewReceipt(bill: WaterBill): void {
-    // View receipt for the paid bill
-    // ...
+  viewReceipt(id: number, userId: string) {
+    // const navigationExtras: NavigationExtras = {
+    //   queryParams: { billId: id },
+    // };
+    // console.log('bill id:', id);
+    this.router.navigate(['main/receipt', id, userId,"Water"]);
+    console.log('bill id:', id, userId);
   }
 }
