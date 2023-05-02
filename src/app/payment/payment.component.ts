@@ -70,6 +70,7 @@ export class PaymentComponent implements OnInit{
     this.invoice = this.invoiceNumber();}
     else 
     {
+      console.log("HEREEEEEEEEE");
       this.user.electricityBills.filter(bill=> bill.billid==this.payServ.billid)[0].status = 'Paid';
       this.user.electricityBills.filter(bill=> bill.billid==this.payServ.billid)[0].paymentType=this.payType;
       this.http.updateUser(this.user).subscribe();
@@ -79,8 +80,7 @@ export class PaymentComponent implements OnInit{
   }
   paid()
   {
-    
-
+ 
     this.creditPaid= true;
   }
 

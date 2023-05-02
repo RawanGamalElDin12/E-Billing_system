@@ -7,6 +7,7 @@ import { DueBills } from '../classes/DueBills';
 import { HttpServiceService } from '../Services/http-service.service';
 import { FormControl } from '@angular/forms';
 import { Observable, startWith , map} from 'rxjs';
+import { PayServiceService } from '../Services/pay-service.service';
 
 @Component({
   selector: 'app-homepage',
@@ -27,8 +28,11 @@ export class HomepageComponent {
   constructor(
   
     private userDataService: UserdataService,
-    private httpservice: HttpServiceService
-  ) {}
+    private httpservice: HttpServiceService, 
+    private payServ: PayServiceService
+  ) {
+    
+  }
 
   incomeControl = new FormControl();
   filteredValues: Observable<string[]> | undefined;
@@ -89,4 +93,13 @@ export class HomepageComponent {
       return true; // keep bills that pass all filters
     });
   }
+
+    payBill(index: number): void {
+      // Pay due bill at the given index
+      this.payServ.billid= this.Bills[index].billid;
+      this.payServ.serviceType =this.Bills[index].service;
+      
+    }
+
+  
 }
