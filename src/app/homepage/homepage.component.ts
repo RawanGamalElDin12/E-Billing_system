@@ -26,6 +26,7 @@ export class HomepageComponent {
   user12: any;
   user1: any;
   latefees: number = 0;
+  lateFlag = false;
   incomeControl = new FormControl();
   filteredValues: Observable<string[]> | undefined;
 
@@ -34,8 +35,7 @@ export class HomepageComponent {
     private userDataService: UserdataService,
     private httpservice: HttpServiceService,
     private payServ: PayServiceService,
-    private router: Router) 
-  {
+    private router: Router) {
     this.user1 = this.userDataService.user;
     this.name = this.user1.firstname;
 
@@ -45,8 +45,9 @@ export class HomepageComponent {
   ngOnInit() {
     // adds both electricty bills and water bills in an array togather
     for (const bill of this.user1.waterBills) {
-      if (bill.amount !== 0 && bill !== null) 
-      {
+      if (bill.amount !== 0 && bill !== null && bill.date != '') {
+
+
         //push all bills attributes and add another one service Type
         this.Bills.push({ ...bill, service: 'Water' });
         // push dates of bills in the array 
@@ -60,6 +61,7 @@ export class HomepageComponent {
       if (eB.amount !== 0 && eB !== null) {
         this.Bills.push({ ...eB, service: 'Electricity' });
 
+
         if (!this.Dates.includes(eB.date)) {
           this.Dates.push(eB.date);
         }
@@ -68,6 +70,7 @@ export class HomepageComponent {
     for (const tA of this.user1.telephoneBills) {
       if (tA.amount !== 0 && tA !== null) {
         this.Bills.push({ ...tA, service: 'Telephone' });
+
         if (!this.Dates.includes(tA.date)) { this.Dates.push(tA.date); }
       }
     }
@@ -77,7 +80,10 @@ export class HomepageComponent {
       startWith(''),
       map((value) => this.filter(value))
     );
+
+
   }
+
 
   filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -114,10 +120,10 @@ export class HomepageComponent {
 
     var id = this.user1.nationalid;
     console.log(id);
-    
-    this.router.navigate(['main/receipt', this.Bills[index].billid, id,this.Bills[index].service]);
+
+    this.router.navigate(['main/receipt', this.Bills[index].billid, id, this.Bills[index].service]);
   }
- 
+
 
 
 }

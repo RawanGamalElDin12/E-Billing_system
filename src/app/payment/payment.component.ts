@@ -22,7 +22,6 @@ export class PaymentComponent implements OnInit {
   payType: string = '';
   creditPaid = false;
   invoice = 0;
-
   ngOnInit(): void {
     if (this.payServ.serviceType == "Water")
       this.bill = this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0];
@@ -64,9 +63,7 @@ export class PaymentComponent implements OnInit {
     }
 
     if (this.payServ.serviceType == 'Water') {
-
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees=
-      this.lateFees(new Date(), new Date(this.bill.date), this.bill.amount, 0.1);
+   
 
       this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].status = 'Paid';
       this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].paymentType = this.payType;
@@ -91,15 +88,6 @@ export class PaymentComponent implements OnInit {
     const max = 99999999999999; // 10^14 - 1
     return Math.round(Math.random() * (max - min) + min);
   }
-  lateFees(paymentDate: Date, dueDate: Date, originalAmount: number, penaltyRate: number): number
-  {
-   const daysLate = Math.floor((paymentDate.getTime() - dueDate.getTime()) / (1000 * 60 * 60 * 24));
-   if (daysLate > 0) {
-     const lateFee = originalAmount * (penaltyRate / 100) * daysLate;
-    
-     return lateFee;
-   } else {
-     return 0;
-   }
- }
+ 
+
 }
