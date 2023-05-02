@@ -69,7 +69,7 @@
                 <div>Invoice reference :{{invoice}}</div>
               </div>
             </div>
-            <button class="confirmButton" (click)="paid()"> confirm</button>
+            <button class="confirmButton" *ngIf="showConfirmButton" (click)="paid()"> confirm</button>
           </div>
          
         </div>

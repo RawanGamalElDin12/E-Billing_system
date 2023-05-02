@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./payment.component.css'],
 })
 export class PaymentComponent implements OnInit {
+  showConfirmButton = true;
+
   selectedOption: string = '';
   cash: boolean = false;
   initialize: boolean = true;
@@ -99,6 +101,7 @@ export class PaymentComponent implements OnInit {
   }
   paid() {
 
+    this.showConfirmButton = false;
     this.creditPaid = true;
   }
 
