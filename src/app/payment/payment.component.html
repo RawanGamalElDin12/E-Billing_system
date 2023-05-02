@@ -7,15 +7,17 @@
             <th>Service</th>
             <th>Date</th>
             <th>Amount</th>
+            <th *ngIf="lateFee"> Late Fee Added</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{{ bill.billid}}</td>
             <td>{{ service }}</td>
-            <td>{{ bill.date }}</td>
+            <td [ngStyle]="{'color': lateFee ? 'red' : 'black'}">{{ bill.date }}</td>
     
             <td>{{ bill.amount }}</td>
+            <td *ngIf="lateFee" [ngStyle]="{'color': lateFee ? 'red' : 'black'}"> 10%</td>
           </tr>
         </tbody>
       </table>
