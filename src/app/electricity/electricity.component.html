@@ -57,7 +57,7 @@
             alt="Electricity Image"
           />
         </td>
-        <td>{{ bill.date }}</td>
+        <td [ngStyle]="{'color': !checkLateFees.checkBillDueDate(bill.date) ? 'red' : 'black'}">{{ bill.date }}</td>
         <td>{{ bill.amount }}</td>
         <td>
           <div class="table-btn">

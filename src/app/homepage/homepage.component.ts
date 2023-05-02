@@ -9,6 +9,7 @@ import { FormControl } from '@angular/forms';
 import { Observable, startWith, map } from 'rxjs';
 import { PayServiceService } from '../Services/pay-service.service';
 import { Router } from '@angular/router';
+import { CheckLateFeesService } from '../Services/check-late-fees.service';
 
 @Component({
   selector: 'app-homepage',
@@ -26,6 +27,7 @@ export class HomepageComponent {
   user12: any;
   user1: any;
   incomeControl = new FormControl();
+  checkLateFees:any;
   filteredValues: Observable<string[]> | undefined;
 
   constructor(
@@ -33,10 +35,11 @@ export class HomepageComponent {
     private userDataService: UserdataService,
     private httpservice: HttpServiceService,
     private payServ: PayServiceService,
-    private router: Router) {
+    private router: Router,
+    private checkLate: CheckLateFeesService) {
     this.user1 = this.userDataService.user;
     this.name = this.user1.firstname;
-
+    this.checkLateFees = this.checkLate;
 
   }
 
@@ -122,16 +125,6 @@ export class HomepageComponent {
     this.router.navigate(['main/receipt', this.Bills[index].billid, id, this.Bills[index].service]);
   }
 
-   checkBillDueDate(billDate: string): boolean {
-    
-    const today = new Date();
-    console.log(today);
-    console.log(billDate);
-    if (new Date(billDate) > today) {
-      return true; // bill date is later than today
-    } else {
-      return false; // bill date is earlier than or equal to today
-    }
-  }
+
 
 }

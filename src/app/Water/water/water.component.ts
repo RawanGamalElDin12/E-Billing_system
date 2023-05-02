@@ -9,6 +9,7 @@ import { customer } from 'src/app/classes/customer';
 import { HttpServiceService } from 'src/app/Services/http-service.service';
 import { PayServiceService } from 'src/app/Services/pay-service.service';
 import { Router } from '@angular/router';
+import { CheckLateFeesService } from 'src/app/Services/check-late-fees.service';
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
@@ -21,10 +22,14 @@ export class WaterComponent {
     private userdataService: UserdataService,
     private http: HttpServiceService,
     private pay: PayServiceService,
-    private router:Router
+    private router:Router,
+    private checkLate: CheckLateFeesService
+
   ) {
     this.user = this.userdataService.user;
+    this.checkLateFees = this.checkLate;
   }
+  checkLateFees: CheckLateFeesService;
   user: customer;
   bills: WaterBill[] = [];
   waterUnitPrice = 0;

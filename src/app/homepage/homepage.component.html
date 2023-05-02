@@ -32,7 +32,7 @@
     <tbody>
       <tr *ngFor="let bill of filteredBills; let i=index;">
         <td>{{ bill.service }}</td>
-        <td [ngStyle]="{'color': !checkBillDueDate(bill.date)&& bill.status=='Due' ? 'red' : 'black'}">{{ bill.date }}</td>
+        <td [ngStyle]="{'color': !checkLateFees.checkBillDueDate(bill.date)&& bill.status=='Due' ? 'red' : 'black'}">{{ bill.date }}</td>
         <td >{{ bill.amount }}</td>
         <td>{{ bill.status }}</td>
         <td id="btnDiv" *ngIf="bill.status=='Due'" (click)="payBill(i)" routerLink="/main/payment"><button>Pay</button>

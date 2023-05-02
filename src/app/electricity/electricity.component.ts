@@ -6,6 +6,7 @@ import { customer } from '../classes/customer';
 import { ElectricityBill } from '../classes/bill';
 import { NavigationExtras, Router } from '@angular/router';
 import { PayServiceService } from '../Services/pay-service.service';
+import { CheckLateFeesService } from '../Services/check-late-fees.service';
 
 @Component({
   selector: 'app-electricity',
@@ -18,12 +19,15 @@ export class ElectricityComponent {
     private userdataService: UserdataService,
     private http: HttpServiceService,
     private payServ : PayServiceService,
-    private router :Router
+    private router :Router,
+    private checkLate: CheckLateFeesService
   ) {
     this.user = this.userdataService.user;
     this.pay= this.payServ;
-  }
+    this.checkLateFees = this.checkLate;
 
+  }
+  checkLateFees: CheckLateFeesService;
   user: customer;
   pay : PayServiceService;
   bills: ElectricityBill[] = [];
