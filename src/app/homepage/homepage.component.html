@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: center; align-items: center;">
-  <h1 style="text-align: center; text-transform: capitalize; text:bold"> Welcome, {{name}}</h1>
+  <h1 style="text-align: center; text-transform: capitalize;"> Welcome, {{name}}</h1>
 </div>
 
 <div id="home">
@@ -30,12 +30,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bill of filteredBills">
+      <tr *ngFor="let bill of filteredBills; let i=index;">
         <td>{{ bill.service }}</td>
-        <td>{{ bill.date }}</td>
-        <td>{{ bill.amount }}</td>
+        <td [ngStyle]="{'color': !checkLateFees.checkBillDueDate(bill.date)&& bill.status=='Due' ? 'red' : 'black'}">{{ bill.date }}</td>
+        <td >{{ bill.amount }}</td>
         <td>{{ bill.status }}</td>
-        <td id="btnDiv"><button>Pay</button></td>
+        <td id="btnDiv" *ngIf="bill.status=='Due'" (click)="payBill(i)" routerLink="/main/payment"><button>Pay</button>
+        </td>
+        <td id="btnDiv" *ngIf="bill.status=='Paid'"(click)="viewReceipt(i)">
+          <button>View Reciept</button></td>
+
       </tr>
     </tbody>
   </table>

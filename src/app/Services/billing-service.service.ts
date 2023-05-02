@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpServiceService } from './http-service.service';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BillingServiceService {
-
-  constructor(private http:HttpServiceService) {
+  constructor(private http: HttpServiceService) {
     this.billingServiceInitialization();
-   }
-   
+  }
+
   private electricityPrice: number = 0;
   private waterPrice: number = 0;
-
-  billingServiceInitialization()
-  {
+  billid: number | undefined;
+  billingServiceInitialization() {
     this.http.getElectricityUnitCost().subscribe(
       (cost: number) => {
         this.setElectricityPrice(cost);
@@ -21,27 +19,21 @@ export class BillingServiceService {
       (error) => {
         console.log(error);
       }
-
-      
-      
     );
     this.http.getWaterUnitCost().subscribe(
       (cost: number) => {
         this.setWaterPrice(cost);
-        
       },
       (error) => {
         console.log(error);
       }
     );
-
   }
-  updateEunit(price:number)
-  {
+  updateEunit(price: number) {
     this.http.updateElectricityUnitPrice(price).subscribe(
       (result) => {
         console.log(`updated successfully: ${result}`);
-        alert("Electricity Price Updated Successfully");
+        alert('Electricity Price Updated Successfully');
         this.setElectricityPrice(price);
       },
       (error) => {
@@ -49,12 +41,11 @@ export class BillingServiceService {
       }
     );
   }
-  updateWunit(price:number)
-  {
+  updateWunit(price: number) {
     this.http.updateWaterUnitPrice(price).subscribe(
       (result) => {
         console.log(`updated successfully: ${result}`);
-        alert("Water Price Updated Successfully");
+        alert('Water Price Updated Successfully');
         this.setWaterPrice(price);
       },
       (error) => {
@@ -78,6 +69,4 @@ export class BillingServiceService {
   getWaterPrice(): number {
     return this.waterPrice;
   }
-
-
 }

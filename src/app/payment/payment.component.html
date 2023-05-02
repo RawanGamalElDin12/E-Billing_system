@@ -3,19 +3,21 @@
       <table>
         <thead>
           <tr>
-            <th>User ID</th>
+            <th>Bill ID</th>
             <th>Service</th>
             <th>Date</th>
             <th>Amount</th>
+            <th *ngIf="lateFee"> Late Fee Added</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{{ bill }}</td>
-            <td>{{ bill }}</td>
-            <td>{{ bill }}</td>
+            <td>{{ bill.billid}}</td>
+            <td>{{ service }}</td>
+            <td [ngStyle]="{'color': lateFee ? 'red' : 'black'}">{{ bill.date }}</td>
     
-            <td>{{ bill }}</td>
+            <td>{{ bill.amount }}</td>
+            <td *ngIf="lateFee" [ngStyle]="{'color': lateFee ? 'red' : 'black'}"> 10%</td>
           </tr>
         </tbody>
       </table>
@@ -61,8 +63,15 @@
     <input placeholder="CVV" type="number" maxlength=3>
           </div>
           <div>
-            <button class="confirmButton"> confirm</button>
+            <div *ngIf="creditPaid">
+              <div class="creditpaid">
+                <p >Thank You!</p>
+                <div>Invoice reference :{{invoice}}</div>
+              </div>
+            </div>
+            <button class="confirmButton" (click)="paid()"> confirm</button>
           </div>
+         
         </div>
       </div>
     </div>

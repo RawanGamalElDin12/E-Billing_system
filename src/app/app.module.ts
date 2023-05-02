@@ -37,6 +37,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PopupDialogComponent } from './popup-dialog/popup-dialog.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 import { AdminServiceProvidersComponent } from './admin-service-providers/admin-service-providers.component';
 import { AdminViewSpComponent } from './admin-view-sp/admin-view-sp.component';
 import { AdminAddSpComponent } from './admin-add-sp/admin-add-sp.component';
@@ -48,9 +49,13 @@ const routes: Routes = [
     path: 'main',
     component: SidenavComponent,
     children: [
-      { path: 'electricity', component: ElectricityComponent },
+      {
+        path: 'electricity',
+        component: ElectricityComponent,
+      },
       { path: 'water', component: WaterComponent },
       { path: 'home', component: HomepageComponent },
+      { path: 'receipt/:id/:userId/:service', component: ReceiptComponent },
       { path: 'payment', component: PaymentComponent },
     ],
   },

@@ -1,5 +1,5 @@
-import { telephoneBills, waterBill } from './bill';
-import { electricityBill } from './bill';
+import { TelephoneBills, WaterBill } from './bill';
+import { ElectricityBill } from './bill';
 import { telephoneAccount } from './telephoneAccount';
 export class customer {
   email: string;
@@ -9,10 +9,10 @@ export class customer {
   nationalid: string;
   address: string;
   DOB: string;
-  waterBills: waterBill[];
-  electricityBills: electricityBill[];
+  waterBills: WaterBill[];
+  electricityBills: ElectricityBill[];
   telephoneAccounts: telephoneAccount[];
-  telephoneBills: telephoneBills[];
+  telephoneBills: TelephoneBills[];
 
   constructor(
     email: string,
@@ -22,10 +22,10 @@ export class customer {
     nationalid: string,
     address: string,
     DOB: string,
-    waterbills: waterBill[],
-    electricitybills: electricityBill[],
+    waterbills: WaterBill[],
+    electricitybills: ElectricityBill[],
     telephoneAccounts: telephoneAccount[],
-    telephoneBills: telephoneBills[]
+    telephoneBills: TelephoneBills[]
   ) {
     this.email = email;
     this.password = password;

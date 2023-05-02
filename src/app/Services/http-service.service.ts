@@ -9,6 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { customer } from '../classes/customer';
+import { ElectricityBill } from '../classes/bill';
 import { ServiceProvider } from '../classes/ServiceProvider';
 import { Offer } from '../classes/Offer';
 @Injectable({
@@ -55,8 +56,7 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.delete<void>(url, this.httpOptions);
   }
-  
-  
+
   getElectricityUnitCost(): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/electricity.json`;
     return this.http.get<number>(url);
@@ -77,6 +77,15 @@ export class HttpServiceService {
   updateUser(user: customer): Observable<customer> {
     const url = `${this.baseurl2}/users/${user.nationalid}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
+  }
+  getBillElect(userid: string, billid: number) {
+    const url = `${this.baseurl2}/users/${userid}/electricityBills/${billid}.json`;
+    return this.http.get<ElectricityBill>(url);
+  }
+
+  getBillWater(userid: string, billid: number) {
+    const url = `${this.baseurl2}/users/${userid}/waterBills/${billid}.json`;
+    return this.http.get<ElectricityBill>(url);
   }
   updateSP(sp: ServiceProvider): Observable<ServiceProvider> {
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}.json`;
