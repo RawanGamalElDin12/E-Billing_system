@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ElectricityBill } from '../classes/bill';
 import { HttpServiceService } from '../Services/http-service.service';
 import { customer } from '../classes/customer';
+import { BillingServiceService } from '../Services/billing-service.service';
 
 @Component({
   selector: 'app-receipt',
@@ -74,9 +75,13 @@ export class ReceiptComponent implements OnInit {
 
   service ='';
   check: any;
+  unit='';
+  price=0;
+  power=false;
   constructor(
     private route: ActivatedRoute,
-    private http: HttpServiceService
+    private http: HttpServiceService,
+    private billingService: BillingServiceService
   ) {}
 
   ngOnInit(): void {
@@ -86,7 +91,8 @@ export class ReceiptComponent implements OnInit {
     this.service = String(this.route.snapshot.paramMap.get('service'));
     if (this.service=="Electricity")
     this.http.getBillElect(userid.toString(), this.bill.billid).subscribe((data) => {
-   
+      this.price= this.billingService.getElectricityPrice();
+      this.unit="kWh"
       this.bill.amount = data.amount;
       this.bill.consumption = data.consumption;
       this.bill.date = data.date;
@@ -96,7 +102,9 @@ export class ReceiptComponent implements OnInit {
     });
     else 
     { this.http.getBillWater(userid.toString(), this.bill.billid).subscribe((data) => {
-   
+      this.power=true;
+      this.unit="m^3";
+      this.price= this.billingService.getWaterPrice();
       this.bill.amount = data.amount;
       this.bill.consumption = data.consumption;
       this.bill.date = data.date;
