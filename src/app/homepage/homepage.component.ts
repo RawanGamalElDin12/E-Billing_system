@@ -8,6 +8,7 @@ import { HttpServiceService } from '../Services/http-service.service';
 import { FormControl } from '@angular/forms';
 import { Observable, startWith, map } from 'rxjs';
 import { PayServiceService } from '../Services/pay-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -24,13 +25,17 @@ export class HomepageComponent {
   CompletedBills: any[] = [];
   user12: any;
   user1: any;
+  
 
   constructor(
 
     private userDataService: UserdataService,
     private httpservice: HttpServiceService,
-    private payServ: PayServiceService
+    private payServ: PayServiceService,
+    private router :Router
+
   ) {
+    this.user1 = this.userDataService.user;
 
   }
 
@@ -38,7 +43,6 @@ export class HomepageComponent {
   filteredValues: Observable<string[]> | undefined;
 
   ngOnInit() {
-    this.user1 = this.userDataService.user;
     this.name = this.user1.firstname;
     for (const bill of this.user1.waterBills) {
       if (bill.amount !== 0 && bill !== null) {
@@ -103,6 +107,11 @@ export class HomepageComponent {
     this.payServ.serviceType = this.Bills[index].service;
 
   }
-
+  viewReceipt(index: number) {
+    
+    var id = this.user1.nationalid;
+    console.log(id);
+    this.router.navigate(['main/receipt', this.Bills[index].billid, id]);
+  }
 
 }
