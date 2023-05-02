@@ -71,6 +71,8 @@ export class ReceiptComponent implements OnInit {
     paymentType: '',
     status: '',
   };
+
+  service ='';
   check: any;
   constructor(
     private route: ActivatedRoute,
@@ -81,9 +83,10 @@ export class ReceiptComponent implements OnInit {
     this.bill.billid = Number(this.route.snapshot.paramMap.get('id'));
     console.log(this.bill.billid);
     const userid = Number(this.route.snapshot.paramMap.get('userId'));
-    this.http.getBill(userid.toString(), this.bill.billid).subscribe((data) => {
-      console.log(data);
-
+    this.service = String(this.route.snapshot.paramMap.get('service'));
+    if (this.service=="Electricity")
+    this.http.getBillElect(userid.toString(), this.bill.billid).subscribe((data) => {
+   
       this.bill.amount = data.amount;
       this.bill.consumption = data.consumption;
       this.bill.date = data.date;
@@ -91,5 +94,15 @@ export class ReceiptComponent implements OnInit {
       this.bill.paymentType = data.paymentType;
       this.bill.status = data.status;
     });
+    else 
+    { this.http.getBillWater(userid.toString(), this.bill.billid).subscribe((data) => {
+   
+      this.bill.amount = data.amount;
+      this.bill.consumption = data.consumption;
+      this.bill.date = data.date;
+      this.bill.lateFees = data.lateFees;
+      this.bill.paymentType = data.paymentType;
+      this.bill.status = data.status;
+    });}
   }
 }

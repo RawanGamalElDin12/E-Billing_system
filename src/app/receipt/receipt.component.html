@@ -2,7 +2,7 @@
   <div class="center">
     <div class="invoice center invoice-title">
       <div class="invoice-title">
-        <h1>Electricity Invoice</h1>
+        <h1>{{service}} Invoice</h1>
         <p>Invoice Number: {{ bill.billid }}</p>
         <p>Invoice Date: {{ bill.date }}</p>
       </div>
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Electricity Usage</td>
+            <td>{{service}} Usage</td>
             <td>{{ bill.consumption }} kWh</td>
             <td>1.65 L.E./kWh</td>
             <td>{{ bill.amount }}</td>

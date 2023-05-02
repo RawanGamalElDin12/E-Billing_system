@@ -113,7 +113,7 @@ export class ElectricityComponent {
     //   queryParams: { billId: id },
     // };
     // console.log('bill id:', id);
-    this.router.navigate(['main/receipt', id, userId]);
+    this.router.navigate(['main/receipt', id, userId,"Electricity"]);
     console.log('bill id:', id, userId);
   }
 }

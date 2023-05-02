@@ -25,32 +25,35 @@ export class HomepageComponent {
   CompletedBills: any[] = [];
   user12: any;
   user1: any;
-  
+  latefees: number = 0;
+  incomeControl = new FormControl();
+  filteredValues: Observable<string[]> | undefined;
 
   constructor(
 
     private userDataService: UserdataService,
     private httpservice: HttpServiceService,
     private payServ: PayServiceService,
-    private router :Router
-
-  ) {
+    private router: Router) 
+  {
     this.user1 = this.userDataService.user;
+    this.name = this.user1.firstname;
+
 
   }
 
-  incomeControl = new FormControl();
-  filteredValues: Observable<string[]> | undefined;
-
   ngOnInit() {
-    this.name = this.user1.firstname;
+    // adds both electricty bills and water bills in an array togather
     for (const bill of this.user1.waterBills) {
-      if (bill.amount !== 0 && bill !== null) {
+      if (bill.amount !== 0 && bill !== null) 
+      {
+        //push all bills attributes and add another one service Type
         this.Bills.push({ ...bill, service: 'Water' });
+        // push dates of bills in the array 
         if (!this.Dates.includes(bill.date)) {
           this.Dates.push(bill.date);
-
         }
+
       }
     }
     for (const eB of this.user1.electricityBills) {
@@ -108,10 +111,13 @@ export class HomepageComponent {
 
   }
   viewReceipt(index: number) {
-    
+
     var id = this.user1.nationalid;
     console.log(id);
-    this.router.navigate(['main/receipt', this.Bills[index].billid, id]);
+    
+    this.router.navigate(['main/receipt', this.Bills[index].billid, id,this.Bills[index].service]);
   }
+ 
+
 
 }

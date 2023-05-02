@@ -66,8 +66,13 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${user.nationalid}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
-  getBill(userid: string, billid: number) {
+  getBillElect(userid: string, billid: number) {
     const url = `${this.baseurl2}/users/${userid}/electricityBills/${billid}.json`;
+    return this.http.get<ElectricityBill>(url);
+  }
+
+  getBillWater(userid: string, billid: number) {
+    const url = `${this.baseurl2}/users/${userid}/waterBills/${billid}.json`;
     return this.http.get<ElectricityBill>(url);
   }
 }
