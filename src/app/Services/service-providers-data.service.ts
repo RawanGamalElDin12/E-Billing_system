@@ -10,15 +10,28 @@ import { Offer } from '../classes/Offer';
 })
 export class ServiceProvidersDataService {
    SPs: ServiceProvider[] = [];
+   loggedInSp: any;
   constructor() {}
   SPsChanged = new EventEmitter<ServiceProvider[]>();
+
+  getLoggedInSP(): ServiceProvider
+  {
+   return this.loggedInSp;
+ }
+
+ setLoggedInSP(value: ServiceProvider) {
+   this.loggedInSp = value;
+ }
 
 
   getSPs() {
     console.log(JSON.stringify(this.SPs));
     return this.SPs;
   }
-
+  getloggedInSP(id:number)
+  {
+     return this.SPs[id];
+  }
   setSPs(SPs: ServiceProvider[]) {
     this.SPs = SPs;
     console.log(this.SPs);
