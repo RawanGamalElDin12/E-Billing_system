@@ -1,7 +1,7 @@
-<p>telephone works!</p>
-<h1>Your Accounts</h1>
-<button>View Service Providers</button>
-<table>
+<div class="container">
+  <h1>Your Accounts</h1>
+  <button class="button-primary">View Service Providers</button>
+  <table class="table">
     <thead>
       <tr>
         <th>Account ID</th>
@@ -17,7 +17,8 @@
         <td>{{ account.serviceProvider| titlecase }}</td>
         <td>{{ account.telephoneNo }}</td>
         <td>{{ account.type }}</td>
-        <td><button (click)="viewAccount(account)"> View</button></td>
+        <td><button class="button-secondary" (click)="viewAccount(account)"> View</button></td>
       </tr>
     </tbody>
   </table>
+</div>
