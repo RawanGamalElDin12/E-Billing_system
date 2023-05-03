@@ -1,0 +1,125 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    flex-basis: 45%;
+    margin-bottom: 2rem;
+    height: 15rem; /* set the height to a fixed value */
+    overflow: hidden; /* hide any overflow content */
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .bill-tables {
+    flex-basis: 100%;
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #e6e6e6;
+  }
+  
+  th {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  .bill-tables h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #333;
+    text-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .card p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .bill-tables {
+    flex-basis: 100%;
+    margin-top: 2rem;
+  }
+  
+  .bill-table {
+    margin-bottom: 2rem;
+  }
+  
+  .bill-table h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #e6e6e6;
+  }
+  
+  th {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+  .cards
+  {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
