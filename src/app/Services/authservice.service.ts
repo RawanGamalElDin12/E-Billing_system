@@ -91,7 +91,7 @@ export class AuthService {
         // this.SpsData.setSPs(sps);
         // this.UsersData.setUsers(users);
         console.log(this.SpsData.getSPs());
-        this.router.navigate(['']);
+        this.router.navigate(['/SpMain']);
       },
       (error: any) => {
         console.error('Error occurred while fetching sps:', error);
