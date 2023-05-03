@@ -26,7 +26,9 @@ export class AdminAddSpComponent {
         minutes: 0,
        
       },
-    ]
+     
+    ],
+    password:''
    };
    users: ServiceProvider[]= [];
   ngOnInit() {

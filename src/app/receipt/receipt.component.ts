@@ -98,7 +98,8 @@ export class ReceiptComponent implements OnInit {
     id: 0,
     name: '',
     offers: [],
-    tarriff: 0
+    tarriff: 0,
+    password:''
   
   }
   service = '';

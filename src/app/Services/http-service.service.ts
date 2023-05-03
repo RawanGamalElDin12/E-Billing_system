@@ -72,7 +72,8 @@ export class HttpServiceService {
           name: serviceProvider.name,
           offers: serviceProvider.offers,
           tarriff: serviceProvider.tarriff,
-          id: serviceProvider.id
+          id: serviceProvider.id,
+          password: serviceProvider.password
         };
   
         return newServiceProvider; // return the new ServiceProvider object
