@@ -1,0 +1,45 @@
+.header-div-two {
+  margin-top: 20px;
+  
+}
+
+.header-two {
+  width: 200px;
+  height: 32px;
+  padding: 7px 2px 2px 7px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  color: #404a53;
+  text-align: left;
+  display: inline-block;
+  margin-left: 90px;
+  /* margin-right: 680px; */
+  font-size: 16px;
+}
+
+.container {
+      padding-top: 10px;
+  padding: 40px;
+  align-self: center;
+  margin-left: 55px;
+}
+.rectangle {
+  padding: 30px;
+  display: flex;
+  width: 1050px;
+  height: 277px;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+.item {
+  justify-self: center;
+}
+.title {
+  font-size: 26px;
+  padding: 20px;
+}

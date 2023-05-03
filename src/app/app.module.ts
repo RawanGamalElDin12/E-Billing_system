@@ -46,6 +46,8 @@ import { AdminAddOfferComponent } from './admin-add-offer/admin-add-offer.compon
 import { TelephoneComponent } from './telephone/telephone.component';
 import { PrePaidAccountComponent } from './pre-paid-account/pre-paid-account.component';
 import { PostPaidAccountComponent } from './post-paid-account/post-paid-account.component';
+import { ServiceProvidersComponent } from './service-providers/service-providers.component';
+import { ServiceOfferCardComponent } from './service-offer-card/service-offer-card.component';
 
 const routes: Routes = [
   {
@@ -60,9 +62,16 @@ const routes: Routes = [
       { path: 'home', component: HomepageComponent },
       { path: 'receipt/:id/:userId/:service', component: ReceiptComponent },
       { path: 'payment', component: PaymentComponent },
-      {path:'telephone', component:TelephoneComponent},
-      {path:'pre-paid-account/:id', component:PrePaidAccountComponent},
-      {path:'post-paid-account/:id',component:PostPaidAccountComponent}
+
+      {
+        path: 'telephone',
+        component: TelephoneComponent,
+      },
+
+      { path: 'serviceproviders', component: ServiceProvidersComponent },
+
+      { path: 'pre-paid-account/:id', component: PrePaidAccountComponent },
+      { path: 'post-paid-account/:id', component: PostPaidAccountComponent },
     ],
   },
   {
@@ -74,11 +83,13 @@ const routes: Routes = [
       { path: 'AddUser', component: AdminAddUserComponent },
       { path: 'view-user/:id', component: ViewAndUpdateUserComponent },
       { path: 'serviceproviders', component: AdminServiceProvidersComponent },
-      { path: 'view-sp/:id1', component: AdminViewSpComponent},
-      {path:'addSP', component:AdminAddSpComponent},
-      {path:'view-sp/:id1/view-offer/:id', component:AdminChangeOfferComponent} ,
-      {path:'view-sp/:id1/add-offer', component:AdminAddOfferComponent} 
-      
+      { path: 'view-sp/:id1', component: AdminViewSpComponent },
+      { path: 'addSP', component: AdminAddSpComponent },
+      {
+        path: 'view-sp/:id1/view-offer/:id',
+        component: AdminChangeOfferComponent,
+      },
+      { path: 'view-sp/:id1/add-offer', component: AdminAddOfferComponent },
     ],
   },
   { path: 'register', component: RegisterComponent },
@@ -111,6 +122,8 @@ const routes: Routes = [
     TelephoneComponent,
     PrePaidAccountComponent,
     PostPaidAccountComponent,
+    ServiceProvidersComponent,
+    ServiceOfferCardComponent,
   ],
   imports: [
     BrowserModule,

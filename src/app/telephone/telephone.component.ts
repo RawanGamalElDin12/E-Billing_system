@@ -22,6 +22,10 @@ export class TelephoneComponent {
     console.log(this.accounts);
     console.log(JSON.stringify( this.user.telephoneAccounts));
   }
+  navigate(){
+    console.log("here")
+    this.router.navigate(['/main/serviceproviders']);
+    }
   viewAccount(account:telephoneAccount)
   {
     const navigationExtras: NavigationExtras = {
