@@ -12,10 +12,10 @@ export class ServiceProvider {
     id: number,
     password: string
   ) {
+    this.password = password;
     this.name = name;
     this.offers = offers;
     this.tarriff = tarriff;
     this.id = id;
-    this.password = password;
   }
 }

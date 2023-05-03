@@ -1,0 +1,15 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+      <!-- Add your navigation links here -->
+      <div><a mat-button routerLink="/SpMain/Home"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
+        Home
+      </a></div><br>
+      <div><a mat-button routerLink="/SpMain/add-offer" routerLinkActive="active-link">Add Offer</a></div><br>
+
+  
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- Add your page content here -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> 

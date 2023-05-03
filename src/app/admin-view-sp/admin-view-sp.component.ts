@@ -38,7 +38,8 @@ export class AdminViewSpComponent {
       this.userForm = this.fb.group({
         id: [this.user.id],
         name: [this.user.name],
-        tarriff: [this.user.tarriff]
+        tarriff: [this.user.tarriff],
+        password: [this.user.password]
       });
     });
   
@@ -65,7 +66,7 @@ export class AdminViewSpComponent {
     this.user.id = this.userForm.get('id').value;
     this.user.name= this.userForm.get('name').value;
     this.user.tarriff= this.userForm.get('tarriff').value;
-
+    this.user.password = this.userForm.get('password').value;
     
     this.http.updateSP(this.user).subscribe(
       (result) => {

@@ -50,6 +50,9 @@ import { ServiceProvidersComponent } from './service-providers/service-providers
 import { ServiceOfferCardComponent } from './service-offer-card/service-offer-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ServiceProviderLoginComponent } from './login/service-provider-login/service-provider-login.component';
+import { SpSidenavComponent } from './sp-sidenav/sp-sidenav.component';
+import { SpHomeComponent } from './sp-home/sp-home.component';
+import { SpAddOfferComponent } from './sp-add-offer/sp-add-offer.component';
 
 const routes: Routes = [
   {
@@ -94,11 +97,21 @@ const routes: Routes = [
       { path: 'view-sp/:id1/add-offer', component: AdminAddOfferComponent },
     ],
   },
+  { path: 'sp-login', component: ServiceProviderLoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'sp-login', component: ServiceProviderLoginComponent },
-
   { path: 'welcome', component: WelcomePageComponent },
+  {
+    path: 'SpMain',
+    component: SpSidenavComponent,
+    children: [
+      {
+        path: 'Home',
+        component: SpHomeComponent,
+      },
+      { path: 'add-offer', component: SpAddOfferComponent },
+    ],
+  },
 ];
 
 @NgModule({
@@ -131,6 +144,9 @@ const routes: Routes = [
     ServiceOfferCardComponent,
     WelcomePageComponent,
     ServiceProviderLoginComponent,
+    SpSidenavComponent,
+    SpHomeComponent,
+    SpAddOfferComponent,
   ],
   imports: [
     BrowserModule,

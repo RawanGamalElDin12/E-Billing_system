@@ -7,11 +7,18 @@
   <div id="main">
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <label>
-      ID
+      ID:
     </label>
       <input type="text" formControlName="id" readonly>
    
     <br>
+    <label>
+        Password:
+      </label>
+        <input type="text" formControlName="password" >
+     
+      <br>
+    
     <label>
         Name:
     </label>
