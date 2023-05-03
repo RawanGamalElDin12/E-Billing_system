@@ -12,11 +12,11 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{ bill.billid}}</td>
+            <td>{{ updatedBill.billid}}</td>
             <td>{{ service }}</td>
-            <td [ngStyle]="{'color': lateFee ? 'red' : 'black'}">{{ bill.date }}</td>
+            <td [ngStyle]="{'color': lateFee ? 'red' : 'black'}">{{ updatedBill.date }}</td>
     
-            <td>{{ bill.amount }}</td>
+            <td>{{ updatedBill.amount }}</td>
             <td *ngIf="lateFee" [ngStyle]="{'color': lateFee ? 'red' : 'black'}"> 10%</td>
           </tr>
         </tbody>
