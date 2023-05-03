@@ -87,12 +87,16 @@ export class AuthService {
   loginAsSp(id: number, password: string) {
     this.http.getSPWithId(id.toString()).subscribe(
       (sp: ServiceProvider) => {
-        console.log(sp);
-        // this.SpsData.setSPs(sps);
-        // this.UsersData.setUsers(users);
-        this.SpsData.setLoggedInSP(sp);
-        console.log(this.SpsData.getLoggedInSP());
-        this.router.navigate(['/SpMain/Home']);
+        if (sp != null && sp.password == password) {
+          console.log(sp);
+          // this.SpsData.setSPs(sps);
+          // this.UsersData.setUsers(users);
+          this.SpsData.setLoggedInSP(sp);
+          console.log(this.SpsData.getLoggedInSP());
+          this.router.navigate(['/SpMain/Home']);
+        } else {
+          alert('wrong id or password');
+        }
       },
       (error: any) => {
         console.error('Error occurred while fetching sps:', error);
