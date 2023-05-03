@@ -44,6 +44,8 @@ import { AdminAddSpComponent } from './admin-add-sp/admin-add-sp.component';
 import { AdminChangeOfferComponent } from './admin-change-offer/admin-change-offer.component';
 import { AdminAddOfferComponent } from './admin-add-offer/admin-add-offer.component';
 import { TelephoneComponent } from './telephone/telephone.component';
+import { PrePaidAccountComponent } from './pre-paid-account/pre-paid-account.component';
+import { PostPaidAccountComponent } from './post-paid-account/post-paid-account.component';
 
 const routes: Routes = [
   {
@@ -58,7 +60,9 @@ const routes: Routes = [
       { path: 'home', component: HomepageComponent },
       { path: 'receipt/:id/:userId/:service', component: ReceiptComponent },
       { path: 'payment', component: PaymentComponent },
-      {path:'telephone', component:TelephoneComponent}
+      {path:'telephone', component:TelephoneComponent},
+      {path:'pre-paid-account/:id', component:PrePaidAccountComponent},
+      {path:'post-paid-account/:id',component:PostPaidAccountComponent}
     ],
   },
   {
@@ -105,6 +109,8 @@ const routes: Routes = [
     AdminChangeOfferComponent,
     AdminAddOfferComponent,
     TelephoneComponent,
+    PrePaidAccountComponent,
+    PostPaidAccountComponent,
   ],
   imports: [
     BrowserModule,

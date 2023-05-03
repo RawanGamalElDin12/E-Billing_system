@@ -50,6 +50,8 @@ export class RegisterComponent {
         serviceProvider: '',
         telephoneNo: '',
         type: '',
+        accountid:0,
+        spid:0
       },
     ],
     telephoneBills: [

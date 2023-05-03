@@ -13,6 +13,7 @@ import { ElectricityBill } from '../classes/bill';
 import { ServiceProvider } from '../classes/ServiceProvider';
 import { Offer } from '../classes/Offer';
 import { Admin } from '../classes/Admin';
+import { telephoneAccount } from '../classes/telephoneAccount';
 @Injectable({
   providedIn: 'root',
 })
@@ -39,6 +40,7 @@ export class HttpServiceService {
     return this.http.get<customer[]>(url);
   }
 
+ 
   createUserWithId(user: customer, id: string): Observable<customer> {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);

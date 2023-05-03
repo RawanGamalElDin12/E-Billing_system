@@ -9,7 +9,7 @@ import { Offer } from '../classes/Offer';
   providedIn: 'root',
 })
 export class ServiceProvidersDataService {
-  private SPs: ServiceProvider[] = [];
+   SPs: ServiceProvider[] = [];
   constructor() {}
   SPsChanged = new EventEmitter<ServiceProvider[]>();
 
