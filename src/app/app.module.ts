@@ -104,6 +104,7 @@ const routes: Routes = [
   {
     path: 'SpMain',
     component: SpSidenavComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'Home',

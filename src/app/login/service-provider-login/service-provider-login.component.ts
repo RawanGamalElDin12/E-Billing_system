@@ -40,6 +40,9 @@ export class ServiceProviderLoginComponent {
     });
   }
   onLogin(form: FormGroup, id: string, password: string) {
+    this.authservice.isLoggedIn = true;
+    console.log(this.authservice.isLoggedIn);
+
     console.log(id);
     console.log(password);
     const spId = form.get(id)?.value;
