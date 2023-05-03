@@ -7,7 +7,7 @@ import {
   HttpEventType,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { customer } from '../classes/customer';
 import { ElectricityBill, TelephoneBills, WaterBill } from '../classes/bill';
 import { ServiceProvider } from '../classes/ServiceProvider';
@@ -59,9 +59,25 @@ export class HttpServiceService {
     return this.http.get<ServiceProvider[]>(url);
   }
 
-  getSP(serviceName:string): Observable<ServiceProvider> {
-    const url = `${this.baseurl2}/ServiceProviders.json?orderBy="name"&equalTo=${serviceName}`;
-    return this.http.get<ServiceProvider>(url);
+  getSPbyName(serviceName: string): Observable<ServiceProvider> {
+    const url = `${this.baseurl2}/ServiceProviders.json?orderBy="name"&equalTo="${serviceName}"`;
+    console.log(url);
+    return this.http.get(url).pipe(
+      map((data) => {
+        const serviceProviders = Object.values(data); // get an array of the service providers
+        const serviceProvider = serviceProviders[0]; // get the first service provider (assuming there is only one)
+  
+        // Create a new ServiceProvider object using the data from the JSON object
+        const newServiceProvider: ServiceProvider = {
+          name: serviceProvider.name,
+          offers: serviceProvider.offers,
+          tarriff: serviceProvider.tarriff,
+          id: serviceProvider.id
+        };
+  
+        return newServiceProvider; // return the new ServiceProvider object
+      })
+    );
   }
 
 

@@ -1,10 +1,11 @@
-<main class="container mt-4">
   <div class="center">
     <div class="invoice center invoice-title">
       <div class="invoice-title">
         <h1>{{service}} Invoice</h1>
         <p>Invoice Number: {{ bill.billid }}</p>
         <p>Invoice Date: {{ bill.date }}</p>
+        <div >{{telephoneMessage }}</div>
+
       </div>
       <table class="table">
         <thead>
@@ -19,7 +20,7 @@
           <tr>
             <td>{{service}} Usage</td>
             <td>{{ bill.consumption }} {{unit}} </td>
-            <td>{{price}} L.E./{{unit}}</td>
+            <td>{{this.price}} L.E./{{unit}}</td>
             <td>{{ bill.amount }}</td>
           </tr>
         </tbody>
@@ -43,4 +44,4 @@
       </div>
     </div>
   </div>
-</main>
+

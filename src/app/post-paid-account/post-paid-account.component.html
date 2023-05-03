@@ -13,11 +13,11 @@
     <div class="calculator">
       <h2>Calculate Bill</h2>
       <label for="minutes">Minutes Consumed:</label>
-      <input type="text" id="minutes" name="minutes">
-      <button id="calculate-btn">Calculate</button>
+      <input type="text" id="minutes" name="minutes" [(ngModel)]="this.minutes">
+      <button id="calculate-btn" (click)="calculateBill()">Calculate</button>
       <br><br>
-      <h3>Bill Amount: $<span id="bill-amount"></span></h3>
-      <button id="submit-btn">Submit Bill</button>
+      <h3>Bill Amount: <span id="bill-amount">{{billAmount}}</span></h3>
+      <button id="submit-btn" (click)="submitBill()" >Submit Bill</button>
     </div>
   </div>
     <div class="tables">
@@ -30,15 +30,15 @@
           <th></th>
         </tr>
         <tbody>
-            <tr >
-              <td>1</td>
-              <td>12</td>
-              <td>May 1, 2023</td>
+            <tr *ngFor="let bill of dueBills; let i = index">
+              <td>{{bill.billid}}</td>
+              <td>{{bill.amount}}</td>
+              <td>{{bill.date}}</td>
               <td>
-                <button class="pay-btn" >Pay</button>
+                <button class="pay-btn"  routerLink="/main/payment" (click)="payBill(i)">Pay</button>
               </td>
             </tr>
-            <tr >
+            <tr *ngIf="DueNone">
               <td colspan="4">No Bills Due</td>
             </tr>
           </tbody>      </table>
@@ -52,15 +52,15 @@
           <th></th>
         </tr>
         <tbody>
-            <tr >
-              <td>1</td>
-              <td>12</td>
-              <td>May 1, 2023</td>
+            <tr  *ngFor="let bill of paidBills; let i=index;" >
+              <td>{{bill.billid}}</td>
+              <td>{{bill.amount}}</td>
+              <td>{{bill.date}}</td>
               <td>
-                <button class="pay-btn" >View Receipt</button>
+                <button class="pay-btn"  (click)="viewReceipt(bill.billid, user.nationalid)" >View Receipt</button>
               </td>
             </tr>
-            <tr *ngIf="">
+            <tr *ngIf="paidNone">
               <td colspan="4">No Bills Paid</td>
             </tr>
           </tbody>
