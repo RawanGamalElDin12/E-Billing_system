@@ -33,7 +33,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: calc(50% - 20px);
+  width: calc(33.3% - 10px);
   height: 250px;
   margin-bottom: 20px;
   font-family: "Arial", sans-serif;
@@ -44,6 +44,7 @@ body {
   border-radius: 8px;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
   cursor: pointer;
+  margin-right: 25px;
 }
 .insideBtn {
   float: right;
