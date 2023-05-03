@@ -12,6 +12,8 @@ import { customer } from '../classes/customer';
 import { ElectricityBill } from '../classes/bill';
 import { ServiceProvider } from '../classes/ServiceProvider';
 import { Offer } from '../classes/Offer';
+import { Admin } from '../classes/Admin';
+import { telephoneAccount } from '../classes/telephoneAccount';
 @Injectable({
   providedIn: 'root',
 })
@@ -38,10 +40,16 @@ export class HttpServiceService {
     return this.http.get<customer[]>(url);
   }
 
+ 
   createUserWithId(user: customer, id: string): Observable<customer> {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
   }
+  createAdminwithid(admin: Admin, id: number): Observable<Admin> {
+    const url = `${this.baseurl2}/admins/${id}.json`;
+    return this.http.put<Admin>(url, JSON.stringify(admin), this.httpOptions);
+  }
+ 
   createSPWithId(sp: ServiceProvider , id: string): Observable<ServiceProvider> {
     const url = `${this.baseurl2}/ServiceProviders/${id}.json`;
     return this.http.put<ServiceProvider>(url, JSON.stringify(sp), this.httpOptions);

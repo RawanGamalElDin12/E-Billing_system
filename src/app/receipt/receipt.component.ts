@@ -47,6 +47,8 @@ export class ReceiptComponent implements OnInit {
         serviceProvider: '',
         telephoneNo: '',
         type: '',
+        accountid:0,
+        spid:0
       },
     ],
     telephoneBills: [

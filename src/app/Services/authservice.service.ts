@@ -72,6 +72,17 @@ export class AuthService {
           console.log(error);
         }
       );
+      this.http.getSPs().subscribe(
+        (sps: ServiceProvider[]) => {
+          console.log(sps);
+          this.SpsData.setSPs(sps);
+         // this.UsersData.setUsers(users);
+         console.log(this.SpsData.getSPs());
+        },
+        (error: any) => {
+          console.error('Error occurred while fetching sps:', error);
+        });
+
     }
     // if (email === 'admin@g' && password === '123') {
     //   this.isLoggedIn = true;

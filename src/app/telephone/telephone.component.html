@@ -1,0 +1,23 @@
+<p>telephone works!</p>
+<h1>Your Accounts</h1>
+<button>View Service Providers</button>
+<table>
+    <thead>
+      <tr>
+        <th>Account ID</th>
+        <th>Service Provider</th>
+        <th>Telephone Number</th>
+        <th>Type</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts">
+        <td>{{ account.accountid }}</td>
+        <td>{{ account.serviceProvider| titlecase }}</td>
+        <td>{{ account.telephoneNo }}</td>
+        <td>{{ account.type }}</td>
+        <td><button (click)="viewAccount(account)"> View</button></td>
+      </tr>
+    </tbody>
+  </table>

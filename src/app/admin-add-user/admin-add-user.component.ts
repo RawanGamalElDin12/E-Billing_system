@@ -48,6 +48,8 @@ export class AdminAddUserComponent {
         serviceProvider: '',
         telephoneNo: '',
         type: '',
+        accountid:0,
+        spid:0
       },
     ],
     telephoneBills: [
