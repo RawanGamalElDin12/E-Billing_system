@@ -62,7 +62,8 @@ export class AdminAddUserComponent {
         paymentType: '',
         status: '',
         minutes: 0,
-        serviceProvider: ''
+        serviceProvider: '',
+        telephoneNo: 0,
       }
     ]
   };

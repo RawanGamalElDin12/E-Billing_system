@@ -1,15 +1,69 @@
-<p>post-paid-account works!</p>
-
-<p> Account ID: {{account.accountid}}  </p>
-<p>Service Provider: {{account.serviceProvider}}</p>
-<p>Telephone No: {{account.telephoneNo}}</p>
-
-<h1>Tarriff Info</h1>
-
-<p>Tarriff {{this.tarriff}} /min</p>
-<label>Minutes Consumed</label>
-<input type = "number">
-
-<h1>di b2a nfs fkrt electricity you enter number of minutes and submit bill and the same flow </h1>
-<h1>Add 2 tables one for due bills and the other for paid bills ya isho</h1>
-
+<div class="container">
+    <div class="cards">
+    <div class="card">
+      <h1>User Information</h1>
+      <p><strong>Account ID:</strong> {{account.accountid}}</p>
+      <p><strong>Service Provider:</strong> {{account.serviceProvider}}</p>
+      <p><strong>Telephone No:</strong> {{account.telephoneNo}}</p>
+      <hr>
+      <h2>Tariff Info</h2>
+      <p><strong>Tariff:</strong> {{this.tarriff}}/min</p>
+    </div>
+  
+    <div class="calculator">
+      <h2>Calculate Bill</h2>
+      <label for="minutes">Minutes Consumed:</label>
+      <input type="text" id="minutes" name="minutes">
+      <button id="calculate-btn">Calculate</button>
+      <br><br>
+      <h3>Bill Amount: $<span id="bill-amount"></span></h3>
+      <button id="submit-btn">Submit Bill</button>
+    </div>
+  </div>
+    <div class="tables">
+        <table class="bills-table">
+            <caption>Due Bills</caption>
+        <tr>
+          <th>Bill ID</th>
+          <th>Amount</th>
+          <th>Due Date</th>
+          <th></th>
+        </tr>
+        <tbody>
+            <tr >
+              <td>1</td>
+              <td>12</td>
+              <td>May 1, 2023</td>
+              <td>
+                <button class="pay-btn" >Pay</button>
+              </td>
+            </tr>
+            <tr >
+              <td colspan="4">No Bills Due</td>
+            </tr>
+          </tbody>      </table>
+  
+          <table class="bills-table">
+            <caption>Paid Bills</caption>
+        <tr>
+          <th>Bill ID</th>
+          <th>Amount</th>
+          <th>Due Date</th>
+          <th></th>
+        </tr>
+        <tbody>
+            <tr >
+              <td>1</td>
+              <td>12</td>
+              <td>May 1, 2023</td>
+              <td>
+                <button class="pay-btn" >View Receipt</button>
+              </td>
+            </tr>
+            <tr *ngIf="">
+              <td colspan="4">No Bills Paid</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+</div>

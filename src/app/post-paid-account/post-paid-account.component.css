@@ -1,0 +1,176 @@
+.container {
+  
+    gap: 20px;
+  }
+  
+  .card {
+    border: 2px solid #ffffff;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    flex-basis: 45%;
+    margin-bottom: 2rem;
+    height: 20rem;
+    overflow: hidden;
+    max-width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .card h1 {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+  }
+  
+  .card h2 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #555;
+    text-align: center;
+  }
+  
+  .card p {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #555;
+    text-align: center;
+  }
+  
+  .calculator {
+   
+
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    flex-basis: 45%;
+    margin-bottom: 2rem;
+    height: 20rem;
+    overflow: hidden;
+   
+  }
+  
+  .calculator h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .calculator label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+    text-align: left;
+  }
+  
+  .calculator input[type="text"] {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .calculator button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .calculator button:hover {
+    background-color: #bbb;
+  }
+  
+  .calculator h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .calculator #bill-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .calculator #submit-btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 20px;
+  }
+  
+  .calculator #submit-btn:hover {
+    background-color: #bbb;
+  }
+  
+ .bills-table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.bills-table th,
+.bills-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.bills-table th {
+  background-color: #f1f1f1;
+}
+  caption {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #555;
+  }
+  
+  .tables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .cards {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }

@@ -65,6 +65,7 @@ export class RegisterComponent {
         status: '',
         minutes: 0,
         serviceProvider: '',
+        telephoneNo:0
       },
     ],
   };
