@@ -115,6 +115,7 @@ export class HomepageComponent {
     // Pay due bill at the given index
     this.payServ.billid = this.Bills[index].billid;
     this.payServ.serviceType = this.Bills[index].service;
+    this.payServ.tarriff = this.Bills[index].tarriff;
 
   }
   viewReceipt(index: number) {
