@@ -43,6 +43,7 @@ import { AdminViewSpComponent } from './admin-view-sp/admin-view-sp.component';
 import { AdminAddSpComponent } from './admin-add-sp/admin-add-sp.component';
 import { AdminChangeOfferComponent } from './admin-change-offer/admin-change-offer.component';
 import { AdminAddOfferComponent } from './admin-add-offer/admin-add-offer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -118,6 +119,7 @@ const routes: Routes = [
     MatDialogModule,
     MatTableModule,
     MatCheckboxModule,
+    FontAwesomeModule,
   ],
   providers: [UsersDataService, HttpServiceService, AuthService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],

@@ -1,21 +1,72 @@
+
 h1 {
   font-weight: 900;
 }
 .bill-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 4px 20px 2px 15px;
 }
 
 .bill-header img {
-  margin-right: 10px;
+  margin-right: 13px;
+  margin-left: 10px;
 }
 
 .bill-header h1 {
   margin: 0;
   font-family: "Poppins SemiBold", "Poppins Regular", "Poppins", sans-serif;
   font-weight: 600;
-  color: #333333;
+  color: #343C44;
 }
-div {
-  padding: 15px;
+.logo, .user_info{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  vertical-align: middle;
 }
+.user_info {
+  padding: 2px 20px 5px 15px;
+}
+
+.user_name {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 19px;
+  font-weight:normal;
+  font-family: "Poppins Regular", "Poppins", sans-serif;
+  background-color: transparent;
+  border: 0;
+  color: #343C44;
+  margin: -9px 1px -8px -80px;
+  padding:  29px 0px;
+  width: 200px;
+  height: 82px;
+  text-align: end;
+}
+.user_name fa-icon{
+  font-size: 19px;
+  color: gray;
+  margin-right: 20px;
+}
+.user_name:hover {
+  background-color: transparent;
+}
+.option {
+  padding: 10px;
+  width: 200px;
+  margin: 3px 10px;
+  border-radius: 8px;
+  background: #fff;
+}
+.option:hover {
+  background: #F2F2F2;
+}
+button fa-icon{
+  font-size: 18px;
+  margin: 0 8px;
+  color: #343C44;
+}
+

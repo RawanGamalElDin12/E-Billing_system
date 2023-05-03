@@ -1,5 +1,31 @@
 <div class="bill-header">
-  <img src="../assets/Icons/icons8-bill-64.png" />
-  <h1>My Bills</h1>
 
+  <div class="logo">
+    <img src="../assets/Icons/bill-logo-64.png" alt="My Bills"/>
+    <h1>My Bills</h1>
+  </div>
+
+ <div *ngIf="headerType==='main'" class="user_info">
+  <img class="profile_icon" src="../assets/Icons/icons8-male-user-48.png" alt=""/>
+  <button  [matMenuTriggerFor]="menu" class="user_name">
+    {{name}} 
+    <fa-icon [icon]="faChevronDown"></fa-icon>
+  </button>
+ </div>
+ 
 </div>
+
+<mat-menu class="profile-menu" #menu="matMenu">
+  <button mat-menu-item class="option">
+    <fa-icon [icon]="faUserCircle"></fa-icon>
+    Profile
+  </button>
+  <button mat-menu-item class="option">
+    <fa-icon [icon]="faGear"></fa-icon>
+    Settings
+  </button>
+  <button mat-menu-item class="option">
+    <fa-icon [icon]="faArrowRightFromBracket"></fa-icon>
+    Logout
+  </button>
+</mat-menu>

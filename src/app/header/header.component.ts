@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpServiceService } from '../Services/http-service.service';
+import { UserdataService } from '../Services/userdata.service';
+import { CheckLateFeesService } from '../Services/check-late-fees.service';
 import { User } from '../classes/user';
+import {faChevronDown, faGear, faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+import {faUserCircle} from '@fortawesome/free-regular-svg-icons'
 import { Router } from '@angular/router';
 import { AuthService } from '../Services/authservice.service';
 @Component({
@@ -11,9 +15,39 @@ import { AuthService } from '../Services/authservice.service';
 export class HeaderComponent {
   // users: User[] = [];
   // // user1: User = new User("rrrr@gmail.com",3,"rania",123);
-  constructor(private httpService: HttpServiceService, private router: Router, private auth: AuthService) {}
- 
- 
+  headerType: String = 'login';
+  name: string = 'Ahmed';
+  faChevronDown = faChevronDown;
+  faUserCircle = faUserCircle;
+  faGear = faGear; 
+  faArrowRightFromBracket = faArrowRightFromBracket;
+  constructor(
+    private httpService: HttpServiceService,
+    private userDataService: UserdataService,
+    private router: Router,
+    private auth: AuthService,) {
+     //this.name = 
+    }
+
+
+    ngOnInit(){
+      this. router.events. subscribe ((val:any)=>{
+        console.warn(val.url);
+        if (val.url.includes('main')){
+          this.headerType = 'main'
+          this.name = this.userDataService.user.firstname;
+        }
+        else{
+          this.headerType = 'login'
+          this.name = 'Ahmed';
+        }
+
+      })
+      
+    }
+
+   
+    
 
  
   // ngOnInit() {
