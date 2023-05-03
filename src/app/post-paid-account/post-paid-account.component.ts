@@ -47,16 +47,14 @@ export class PostPaidAccountComponent {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
    
+      //account id from routing 
       this.accountid = Number(params.get('id'));
       console.log(this.accountid);
-      this.account = history.state.account;
-      this.user = history.state.user;
-       console.log(this.user);
-       console.log(this.account);
-      // this.account.accountid
-  
+
+      this.account = this.user.telephoneAccounts[this.accountid];
+
       this.tarriff =  this.SPsData.SPs[this.account.spid].tarriff
-      console.log(this.tarriff);
+
       if(this.bills.length==0)
       {
         this.flag = true;
@@ -114,8 +112,7 @@ submitBill()
     const today = new Date();
     const futureDate = new Date();
     futureDate.setDate(today.getDate() + 15);
-    const telephone = new TelephoneBills(
-    this.billAmount,
+    const telephone = new TelephoneBills( this.billAmount,
     newBillID,
     0,
     futureDate.toDateString(),
@@ -132,7 +129,6 @@ submitBill()
 }
 payBill(index:number):void{
   this.pay.billid=this.dueBills[index].billid;
-  this.payServ.tarriff=this.tarriff;
   this.pay.serviceType='Telephone'
 }
 viewReceipt (id:number, userId:string)
