@@ -48,6 +48,7 @@ import { PrePaidAccountComponent } from './pre-paid-account/pre-paid-account.com
 import { PostPaidAccountComponent } from './post-paid-account/post-paid-account.component';
 import { ServiceProvidersComponent } from './service-providers/service-providers.component';
 import { ServiceOfferCardComponent } from './service-offer-card/service-offer-card.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 const routes: Routes = [
   {
@@ -94,6 +95,7 @@ const routes: Routes = [
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  {path:'welcome', component:WelcomePageComponent}
 ];
 
 @NgModule({
@@ -124,6 +126,7 @@ const routes: Routes = [
     PostPaidAccountComponent,
     ServiceProvidersComponent,
     ServiceOfferCardComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,
