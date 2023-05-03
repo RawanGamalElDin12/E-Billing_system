@@ -1,17 +1,26 @@
 <div class="header-div-two">
-      <p class="header-two">service providers offers</p>
+  <p class="header-two">service providers offers</p>
 </div>
 
-<div  >
-      <!-- *ngFor="" hot hena el ng for bel3adad ely enta 3yzo -->
+<div>
+  <!-- *ngFor="" hot hena el ng for bel3adad ely enta 3yzo -->
 
-      <div class="container">
-            <div class="title">
-                  <p>yourtitle</p>
+  <div class="container">
+    <div class="title">
+      <p>yourtitle</p>
+    </div>
+    <div class="rectangle">
+      <div class="scrollable">
+        <div class="item" *ngFor="let card of cards">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">make up the bulk of the card's content.</p>
+              <button class="button-primary">Subscribe</button>
             </div>
-            <div class="rectangle">
-                  <app-service-offer-card class="item" *ngFor="let card of cards">
-                  </app-service-offer-card>
-            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 </div>
