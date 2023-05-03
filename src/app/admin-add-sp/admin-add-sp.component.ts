@@ -39,7 +39,8 @@ export class AdminAddSpComponent {
       this.userForm = this.fb.group({
         id: ['',  [Validators.required]],
         name: ['',[Validators.required]],
-        tarriff: ['',[Validators.required]]
+        tarriff: ['',[Validators.required]],
+        password: ['',[Validators.required]]
       });
    
   
@@ -55,7 +56,7 @@ export class AdminAddSpComponent {
     this.user.id = this.userForm.get('id').value;
     this.user.name= this.userForm.get('name').value;
     this.user.tarriff= this.userForm.get('tarriff').value;
-
+    this.user.password = this.userForm.get('password').value;
     
     
     this.http.updateSP(this.user).subscribe(
