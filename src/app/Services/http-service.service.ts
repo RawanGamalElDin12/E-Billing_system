@@ -9,7 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { customer } from '../classes/customer';
-import { ElectricityBill } from '../classes/bill';
+import { ElectricityBill, TelephoneBills, WaterBill } from '../classes/bill';
 import { ServiceProvider } from '../classes/ServiceProvider';
 import { Offer } from '../classes/Offer';
 import { Admin } from '../classes/Admin';
@@ -59,6 +59,11 @@ export class HttpServiceService {
     return this.http.get<ServiceProvider[]>(url);
   }
 
+  getSP(serviceName:string): Observable<ServiceProvider> {
+    const url = `${this.baseurl2}/ServiceProviders.json?orderBy="name"&equalTo=${serviceName}`;
+    return this.http.get<ServiceProvider>(url);
+  }
+
 
   deleteUserById(id: string): Observable<void> {
     const url = `${this.baseurl2}/users/${id}.json`;
@@ -74,6 +79,7 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/UnitCosts/water.json`;
     return this.http.get<number>(url);
   }
+
   updateWaterUnitPrice(wUnit: number): Observable<number> {
     const url = `${this.baseurl2}/UnitCosts/water.json`;
     return this.http.put<number>(url, JSON.stringify(wUnit), this.httpOptions);
@@ -93,7 +99,12 @@ export class HttpServiceService {
 
   getBillWater(userid: string, billid: number) {
     const url = `${this.baseurl2}/users/${userid}/waterBills/${billid}.json`;
-    return this.http.get<ElectricityBill>(url);
+    return this.http.get<WaterBill>(url);
+  }
+  getBillTele(userid:string, billid:number)
+  {
+    const url = `${this.baseurl2}/users/${userid}/telephoneBills/${billid}.json`;
+    return this.http.get<TelephoneBills>(url);
   }
   updateSP(sp: ServiceProvider): Observable<ServiceProvider> {
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}.json`;
