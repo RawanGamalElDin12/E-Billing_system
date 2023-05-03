@@ -1,15 +1,21 @@
-import { Offer } from "./Offer";
-export class ServiceProvider
-{
-    name:string;
-    offers: Offer[];
-    tarriff: number ;
-    id: number
-    constructor(name:string, offers: Offer[],tarriff:number,id:number)
-    {
-        this.name = name;
-        this.offers = offers;
-        this.tarriff = tarriff;
-        this.id = id;
-    }
+import { Offer } from './Offer';
+export class ServiceProvider {
+  name: string;
+  offers: Offer[];
+  tarriff: number;
+  id: number;
+  password: string;
+  constructor(
+    name: string,
+    offers: Offer[],
+    tarriff: number,
+    id: number,
+    password: string
+  ) {
+    this.name = name;
+    this.offers = offers;
+    this.tarriff = tarriff;
+    this.id = id;
+    this.password = password;
+  }
 }

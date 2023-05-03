@@ -11,11 +11,12 @@ import { AuthService } from '../Services/authservice.service';
 export class HeaderComponent {
   // users: User[] = [];
   // // user1: User = new User("rrrr@gmail.com",3,"rania",123);
-  constructor(private httpService: HttpServiceService, private router: Router, private auth: AuthService) {}
- 
- 
+  constructor(
+    private httpService: HttpServiceService,
+    private router: Router,
+    private auth: AuthService
+  ) {}
 
- 
   // ngOnInit() {
   //   this.getUserData();
   //   this.httpService.getAllUsers().subscribe((users) => {

@@ -36,20 +36,24 @@ export class PaymentComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    if (this.payServ.serviceType == "Water") {
-      this.bill = this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0];
+    if (this.payServ.serviceType == 'Water') {
+      this.bill = this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'water');
       this.updatedBill = { ...this.bill, amount: lateFee };
-    }
-    else if (this.payServ.serviceType == "Electricity") {
-      this.bill = this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0];
+    } else if (this.payServ.serviceType == 'Electricity') {
+      this.bill = this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'electricity');
       this.updatedBill = { ...this.bill, amount: lateFee };
-
-    } else if (this.payServ.serviceType == "Telephone") {
-      this.bill = this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0];
+    } else if (this.payServ.serviceType == 'Telephone') {
+      this.bill = this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'telephone');
       this.updatedBill = { ...this.bill, amount: lateFee };
@@ -83,7 +87,6 @@ export class PaymentComponent implements OnInit {
       this.initialize = false;
       this.cash = true;
       this.payType = 'cash';
-
     } else if (this.selectedOption === 'credit') {
       this.initialize = false;
       this.credit = true;
@@ -91,37 +94,53 @@ export class PaymentComponent implements OnInit {
     }
 
     if (this.payServ.serviceType == 'Water') {
-
-
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].status = 'Paid';
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].paymentType = this.payType;
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].amount = this.updatedBill.amount;
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].status = 'Paid';
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].paymentType = this.payType;
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0.1;
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = this.updatedBill.amount;
+      this.http.updateUser(this.user).subscribe();
+      this.invoice = this.invoiceNumber();
+    } else if (this.payServ.serviceType == 'Electricity') {
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].status = 'Paid';
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].paymentType = this.payType;
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0.1;
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = this.updatedBill.amount;
+      this.http.updateUser(this.user).subscribe();
+      this.invoice = this.invoiceNumber();
+    } else if (this.payServ.serviceType == 'Telephone') {
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].status = 'Paid';
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].paymentType = this.payType;
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0.1;
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
     }
-    else if (this.payServ.serviceType == 'Electricity') {
-
-      this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0].status = 'Paid';
-      this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0].paymentType = this.payType;
-      this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
-      this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0].amount = this.updatedBill.amount;
-      this.http.updateUser(this.user).subscribe();
-      this.invoice = this.invoiceNumber();
-    }
-    else if (this.payServ.serviceType == 'Telephone') {
-      this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0].status = 'Paid';
-      this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0].paymentType = this.payType;
-      this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
-      this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0].amount = this.updatedBill.amount;
-      this.http.updateUser(this.user).subscribe();
-      this.invoice = this.invoiceNumber();
-
-    }
-
   }
   paid() {
-
     this.showConfirmButton = false;
     this.creditPaid = true;
   }
@@ -132,7 +151,6 @@ export class PaymentComponent implements OnInit {
     return Math.round(Math.random() * (max - min) + min);
   }
   checkBillDueDate(billDate: string): boolean {
-
     const today = new Date();
     // console.log(today);
     // console.log(billDate);
@@ -142,54 +160,57 @@ export class PaymentComponent implements OnInit {
       return false; // late
     }
   }
-  lateFees(date: string, serviceBill:string) :number{
+  lateFees(date: string, serviceBill: string): number {
     const flag = this.checkBillDueDate(date);
     if (!flag) {
-      if (serviceBill=='water')
-     { const bill = this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0];     
-      this.lateFee=true;
-    const  lateFee= bill.amount * (100 + 10) / 100;
-      return lateFee ;
+      if (serviceBill == 'water') {
+        const bill = this.user.waterBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0];
+        this.lateFee = true;
+        const lateFee = (bill.amount * (100 + 10)) / 100;
+        return lateFee;
+      } else if (serviceBill == 'electricity') {
+        const bill = this.user.electricityBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0];
+        this.lateFee = true;
+        const lateFee = (bill.amount * (100 + 10)) / 100;
+        return lateFee;
+      } else if (serviceBill == 'telephone') {
+        const bill = this.user.telephoneBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0];
 
-    
-    }
-    else if (serviceBill=='electricity')
-     { const bill = this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0];
-      this.lateFee=true;
-      const  lateFee= bill.amount * (100 + 10) / 100;
-      return lateFee ;
-    }
-    else if (serviceBill=='telephone')
-     { const bill = this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0];
-      
-      this.lateFee=true;
-      const  lateFee= bill.amount * (100 + 10) / 100;
-      return lateFee ;
+        this.lateFee = true;
+        const lateFee = (bill.amount * (100 + 10)) / 100;
+        return lateFee;
+      } else return 0;
+    } else return 0;
   }
-  else return 0;
 
+  changeUserData(serviceBill: string, lateFee: number) {
+    if (serviceBill == 'water') {
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = lateFee;
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0.1;
+    } else if (serviceBill == 'electricity') {
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = lateFee;
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0.1;
+    } else if (serviceBill == 'telephone') {
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = lateFee;
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0.1;
+    }
+  }
 }
-else return 0;
-
-  }
-
-  changeUserData(serviceBill:string,lateFee:number)
-  {
-    if (serviceBill=='water')
-    {
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].amount = lateFee;
-      this.user.waterBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
-    }
-    else if (serviceBill=='electricity')
-    {
-      this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0].amount = lateFee;
-      this.user.electricityBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
-    }
-    else if (serviceBill=='telephone')
-    {
-      this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0].amount = lateFee;
-      this.user.telephoneBills.filter(bill => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
-    }
-  }
-}
-

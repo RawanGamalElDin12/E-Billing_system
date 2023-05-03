@@ -7,42 +7,49 @@ import { ServiceProvidersDataService } from '../Services/service-providers-data.
 @Component({
   selector: 'app-telephone',
   templateUrl: './telephone.component.html',
-  styleUrls: ['./telephone.component.css']
+  styleUrls: ['./telephone.component.css'],
 })
 export class TelephoneComponent {
-
-  user:any;
+  user: any;
   accounts: telephoneAccount[] = [];
-  constructor(private userData:UserdataService, private http:HttpServiceService,private router:Router,private SPs:ServiceProvidersDataService){}
+  constructor(
+    private userData: UserdataService,
+    private http: HttpServiceService,
+    private router: Router,
+    private SPs: ServiceProvidersDataService
+  ) {}
   ngOnInit() {
     this.user = this.userData.user;
 
-    this.accounts = this.user.telephoneAccounts.filter((account: telephoneAccount) => account.accountid !== 0);
+    this.accounts = this.user.telephoneAccounts.filter(
+      (account: telephoneAccount) => account.accountid !== 0
+    );
 
     console.log(this.accounts);
-    console.log(JSON.stringify( this.user.telephoneAccounts));
+    console.log(JSON.stringify(this.user.telephoneAccounts));
   }
-  navigate(){
-    console.log("here")
+  navigate() {
+    console.log('here');
     this.router.navigate(['/main/serviceproviders']);
-    }
-  viewAccount(account:telephoneAccount)
-  {
+  }
+  viewAccount(account: telephoneAccount) {
     const navigationExtras: NavigationExtras = {
       state: {
-        user:this.user,
-        account:account
-      }
+        user: this.user,
+        account: account,
+      },
     };
 
-     if(account.type == "pre-paid")
-     {
-      
-        this.router.navigate(['main/pre-paid-account', account.accountid],navigationExtras);
-     }
-     else{
-
-      this.router.navigate(['main/post-paid-account', account.accountid],navigationExtras);
-     }
+    if (account.type == 'pre-paid') {
+      this.router.navigate(
+        ['main/pre-paid-account', account.accountid],
+        navigationExtras
+      );
+    } else {
+      this.router.navigate(
+        ['main/post-paid-account', account.accountid],
+        navigationExtras
+      );
+    }
   }
 }

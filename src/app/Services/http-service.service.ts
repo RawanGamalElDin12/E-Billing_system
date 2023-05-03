@@ -40,7 +40,6 @@ export class HttpServiceService {
     return this.http.get<customer[]>(url);
   }
 
- 
   createUserWithId(user: customer, id: string): Observable<customer> {
     const url = `${this.baseurl2}/users/${id}.json`;
     return this.http.put<customer>(url, JSON.stringify(user), this.httpOptions);
@@ -49,14 +48,22 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/admins/${id}.json`;
     return this.http.put<Admin>(url, JSON.stringify(admin), this.httpOptions);
   }
- 
-  createSPWithId(sp: ServiceProvider , id: string): Observable<ServiceProvider> {
+
+  createSPWithId(sp: ServiceProvider, id: string): Observable<ServiceProvider> {
     const url = `${this.baseurl2}/ServiceProviders/${id}.json`;
-    return this.http.put<ServiceProvider>(url, JSON.stringify(sp), this.httpOptions);
+    return this.http.put<ServiceProvider>(
+      url,
+      JSON.stringify(sp),
+      this.httpOptions
+    );
   }
   getSPs(): Observable<ServiceProvider[]> {
     const url = `${this.baseurl2}/ServiceProviders.json`;
     return this.http.get<ServiceProvider[]>(url);
+  }
+  getSPWithId(id: string): Observable<ServiceProvider> {
+    const url = `${this.baseurl2}/ServiceProviders/${id}.json`;
+    return this.http.get<ServiceProvider>(url);
   }
 
   getSPbyName(serviceName: string): Observable<ServiceProvider> {
@@ -66,20 +73,20 @@ export class HttpServiceService {
       map((data) => {
         const serviceProviders = Object.values(data); // get an array of the service providers
         const serviceProvider = serviceProviders[0]; // get the first service provider (assuming there is only one)
-  
+
         // Create a new ServiceProvider object using the data from the JSON object
         const newServiceProvider: ServiceProvider = {
           name: serviceProvider.name,
           offers: serviceProvider.offers,
           tarriff: serviceProvider.tarriff,
-          id: serviceProvider.id
+          id: serviceProvider.id,
+          password: serviceProvider.password,
         };
-  
+
         return newServiceProvider; // return the new ServiceProvider object
       })
     );
   }
-
 
   deleteUserById(id: string): Observable<void> {
     const url = `${this.baseurl2}/users/${id}.json`;
@@ -117,23 +124,24 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/users/${userid}/waterBills/${billid}.json`;
     return this.http.get<WaterBill>(url);
   }
-  getBillTele(userid:string, billid:number)
-  {
+  getBillTele(userid: string, billid: number) {
     const url = `${this.baseurl2}/users/${userid}/telephoneBills/${billid}.json`;
     return this.http.get<TelephoneBills>(url);
   }
   updateSP(sp: ServiceProvider): Observable<ServiceProvider> {
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}.json`;
     console.log(sp);
-    return this.http.put<ServiceProvider>(url, JSON.stringify(sp), this.httpOptions);
+    return this.http.put<ServiceProvider>(
+      url,
+      JSON.stringify(sp),
+      this.httpOptions
+    );
   }
-  updateSPOffer(sp: ServiceProvider,offer:Offer): Observable<Offer> {
+  updateSPOffer(sp: ServiceProvider, offer: Offer): Observable<Offer> {
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
     console.log(sp);
     console.log(offer.offerid);
     console.log(sp.offers[offer.offerid]);
     return this.http.put<Offer>(url, JSON.stringify(offer), this.httpOptions);
   }
-
-
 }

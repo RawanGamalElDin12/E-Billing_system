@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Your Accounts</h1>
-  <button class="button-primary" (click)="navigate()">View Service Providers</button>
+  <button class="button-primary" (click)="navigate()">
+    View Service Providers
+  </button>
   <table class="table">
     <thead>
       <tr>
@@ -14,10 +16,14 @@
     <tbody>
       <tr *ngFor="let account of accounts">
         <td>{{ account.accountid }}</td>
-        <td>{{ account.serviceProvider| titlecase }}</td>
+        <td>{{ account.serviceProvider | titlecase }}</td>
         <td>{{ account.telephoneNo }}</td>
         <td>{{ account.type }}</td>
-        <td><button class="button-secondary" (click)="viewAccount(account)"> View</button></td>
+        <td>
+          <button class="button-secondary" (click)="viewAccount(account)">
+            View
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

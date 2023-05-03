@@ -4,21 +4,18 @@ import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-welcome-page',
   templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+  styleUrls: ['./welcome-page.component.css'],
 })
 export class WelcomePageComponent {
+  constructor(private router: Router) {}
 
-  constructor(private router:Router){}
-  openLoginUser()
-  {
+  openLoginUser() {
     this.router.navigate(['/login']);
-
-
   }
-  openLoginSP()
-  {
+  openLoginSP() {
+    this.router.navigate(['/sp-login']);
+  }
+  openLoginAdmin() {
     this.router.navigate(['/login']);
-
-
   }
 }

@@ -50,8 +50,8 @@ export class RegisterComponent {
         serviceProvider: '',
         telephoneNo: '',
         type: '',
-        accountid:0,
-        spid:0
+        accountid: 0,
+        spid: 0,
       },
     ],
     telephoneBills: [
@@ -65,7 +65,7 @@ export class RegisterComponent {
         status: '',
         minutes: 0,
         serviceProvider: '',
-        telephoneNo:0
+        telephoneNo: 0,
       },
     ],
   };
@@ -125,7 +125,6 @@ export class RegisterComponent {
     const password = form.get(user.password)?.value;
     const national_id = form.get(user.nationalid)?.value;
 
-   
     // this.authService.register(email);
     console.log(user);
     if (user != null) {

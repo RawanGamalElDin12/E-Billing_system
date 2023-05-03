@@ -1,70 +1,92 @@
 <div class="container">
-    <div class="cards">
+  <div class="cards">
     <div class="card">
       <h1>User Information</h1>
-      <p><strong>Account ID:</strong> {{account.accountid}}</p>
-      <p><strong>Service Provider:</strong> {{account.serviceProvider}}</p>
-      <p><strong>Telephone No:</strong> {{account.telephoneNo}}</p>
-      <hr>
+      <p><strong>Account ID:</strong> {{ account.accountid }}</p>
+      <p><strong>Service Provider:</strong> {{ account.serviceProvider }}</p>
+      <p><strong>Telephone No:</strong> {{ account.telephoneNo }}</p>
+      <hr />
       <h2>Tariff Info</h2>
-      <p><strong>Tariff:</strong> {{this.tarriff}}/min</p>
+      <p><strong>Tariff:</strong> {{ this.tarriff }}/min</p>
     </div>
-  
+
     <div class="calculator">
       <h2>Calculate Bill</h2>
       <label for="minutes">Minutes Consumed:</label>
-      <input type="text" id="minutes" name="minutes" [(ngModel)]="this.minutes">
+      <input
+        type="text"
+        id="minutes"
+        name="minutes"
+        [(ngModel)]="this.minutes"
+      />
       <button id="calculate-btn" (click)="calculateBill()">Calculate</button>
-      <br><br>
-      <h3>Bill Amount: <span id="bill-amount">{{billAmount}}</span></h3>
-      <button id="submit-btn" (click)="submitBill()" >Submit Bill</button>
+      <br /><br />
+      <h3>
+        Bill Amount: <span id="bill-amount">{{ billAmount }}</span>
+      </h3>
+      <button id="submit-btn" (click)="submitBill()">Submit Bill</button>
     </div>
   </div>
-    <div class="tables">
-        <table class="bills-table">
-            <caption>Due Bills</caption>
-        <tr>
-          <th>Bill ID</th>
-          <th>Amount</th>
-          <th>Due Date</th>
-          <th></th>
+  <div class="tables">
+    <table class="bills-table">
+      <caption>
+        Due Bills
+      </caption>
+      <tr>
+        <th>Bill ID</th>
+        <th>Amount</th>
+        <th>Due Date</th>
+        <th></th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let bill of dueBills; let i = index">
+          <td>{{ bill.billid }}</td>
+          <td>{{ bill.amount }}</td>
+          <td>{{ bill.date }}</td>
+          <td>
+            <button
+              class="pay-btn"
+              routerLink="/main/payment"
+              (click)="payBill(i)"
+            >
+              Pay
+            </button>
+          </td>
         </tr>
-        <tbody>
-            <tr *ngFor="let bill of dueBills; let i = index">
-              <td>{{bill.billid}}</td>
-              <td>{{bill.amount}}</td>
-              <td>{{bill.date}}</td>
-              <td>
-                <button class="pay-btn"  routerLink="/main/payment" (click)="payBill(i)">Pay</button>
-              </td>
-            </tr>
-            <tr *ngIf="DueNone">
-              <td colspan="4">No Bills Due</td>
-            </tr>
-          </tbody>    
-          </table>
-  
-          <table class="bills-table">
-            <caption>Paid Bills</caption>
-        <tr>
-          <th>Bill ID</th>
-          <th>Amount</th>
-          <th>Due Date</th>
-          <th></th>
+        <tr *ngIf="DueNone">
+          <td colspan="4">No Bills Due</td>
         </tr>
-        <tbody>
-            <tr  *ngFor="let bill of paidBills; let i=index;" >
-              <td>{{bill.billid}}</td>
-              <td>{{bill.amount}}</td>
-              <td>{{bill.date}}</td>
-              <td>
-                <button class="pay-btn"  (click)="viewReceipt(bill.billid, user.nationalid)" >View Receipt</button>
-              </td>
-            </tr>
-            <tr *ngIf="paidNone">
-              <td colspan="4">No Bills Paid</td>
-            </tr>
-          </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
+
+    <table class="bills-table">
+      <caption>
+        Paid Bills
+      </caption>
+      <tr>
+        <th>Bill ID</th>
+        <th>Amount</th>
+        <th>Due Date</th>
+        <th></th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let bill of paidBills; let i = index">
+          <td>{{ bill.billid }}</td>
+          <td>{{ bill.amount }}</td>
+          <td>{{ bill.date }}</td>
+          <td>
+            <button
+              class="pay-btn"
+              (click)="viewReceipt(bill.billid, user.nationalid)"
+            >
+              View Receipt
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="paidNone">
+          <td colspan="4">No Bills Paid</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

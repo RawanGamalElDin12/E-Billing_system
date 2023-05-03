@@ -1,0 +1,72 @@
+<div class="bg">
+  <div class="center" id="login">
+    <h2 id="welcome-back" class="center">Login</h2>
+    <form
+      [formGroup]="loginForm"
+      #f="ngForm"
+      (ngSubmit)="onLogin(loginForm, 'id', 'password')"
+    >
+      <div class="center">
+        <div class="input-div">
+          <label class="login-label">Id</label>
+          <input class="login-input" formControlName="id" [(ngModel)]="sp.id" />
+          <div
+            *ngIf="
+              loginForm.get('id')?.invalid &&
+              (loginForm.get('id')?.dirty || loginForm.get('id')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="loginForm.get('id')?.errors?.['required']"
+            >
+              ID is required
+            </span>
+            <!-- <span
+              class="warning"
+              *ngIf="loginForm.get('nationalId')?.errors?.['pattern']"
+            >
+              National ID should be 14 digits
+            </span> -->
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Password</label>
+          <input
+            class="login-input"
+            type="password"
+            formControlName="password"
+            [(ngModel)]="sp.password"
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              (loginForm.get('password')?.dirty ||
+                loginForm.get('password')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="loginForm.get('password')?.errors?.['required']"
+            >
+              Password is required
+            </span>
+            <!-- <div
+              class="warning"
+              *ngIf="loginForm.get('password')?.errors?.['pattern']"
+            >
+              Password must be at least 8 characters and contain at least 1
+              number and special character
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <button class="login-btn" type="submit" [disabled]="loginForm.invalid">
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

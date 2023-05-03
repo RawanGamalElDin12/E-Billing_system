@@ -48,8 +48,8 @@ export class AdminAddUserComponent {
         serviceProvider: '',
         telephoneNo: '',
         type: '',
-        accountid:0,
-        spid:0
+        accountid: 0,
+        spid: 0,
       },
     ],
     telephoneBills: [
@@ -64,8 +64,8 @@ export class AdminAddUserComponent {
         minutes: 0,
         serviceProvider: '',
         telephoneNo: 0,
-      }
-    ]
+      },
+    ],
   };
   regForm: FormGroup;
 
