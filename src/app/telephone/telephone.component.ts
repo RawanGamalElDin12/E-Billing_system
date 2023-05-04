@@ -12,6 +12,7 @@ import { ServiceProvidersDataService } from '../Services/service-providers-data.
 export class TelephoneComponent {
   user: any;
   accounts: telephoneAccount[] = [];
+  flagOfEmptyAccounts=false;
   constructor(
     private userData: UserdataService,
     private http: HttpServiceService,
@@ -22,8 +23,12 @@ export class TelephoneComponent {
     this.user = this.userData.user;
 
     this.accounts = this.user.telephoneAccounts.filter(
-      (account: telephoneAccount) => account.accountid !== 0
-    );
+      (account: telephoneAccount) => account.accountid != 0 && account.telephoneNo != '');
+    
+    if (this.accounts.length == 0)
+    {
+      this.flagOfEmptyAccounts=true;
+    }
 
     console.log(this.accounts);
     console.log(JSON.stringify(this.user.telephoneAccounts));
