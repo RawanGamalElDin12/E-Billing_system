@@ -1,0 +1,97 @@
+.header-div-two {
+    margin-top: 20px;
+  }
+  
+  .header-two {
+    width: fit-content;
+    height: 32px;
+    padding: 7px 2px 2px 7px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.35);
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+    color: #404a53;
+    text-align: left;
+    display: inline-block;
+    margin-left: 90px;
+    /* margin-right: 680px; */
+    font-size: 16px;
+  }
+  
+  .container {
+    padding-top: 10px;
+    padding: 40px;
+    align-self: center;
+    margin-left: 55px;
+  }
+  .rectangle {
+    padding: 30px;
+    display: flex;
+    width: 1050px;
+    height: 277px;
+    justify-content: center;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.35);
+  }
+  .scrollable {
+    display: flex;
+    overflow-x: auto;
+    height: fit-content;
+  }
+  .item {
+    justify-self: center;
+  }
+  .title {
+    font-size: 26px;
+    padding: 20px;
+  }
+  .card {
+    background-color: #f5f6cb;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    /* box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); */
+    padding: 1rem;
+    margin: 10px;
+    width: 300px;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  .button-primary {
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 90%;
+    display: inline-block;
+    /* background-color: #007bff; */
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    /* margin-bottom: 2rem; */
+    transition: background-color 0.1s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .button-primary:hover {
+    background-color: #373737;
+  }
+  
