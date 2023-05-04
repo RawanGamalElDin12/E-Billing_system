@@ -59,6 +59,8 @@ export class LoginComponent {
     });
   }
   onLogin(form: FormGroup, nationalId: string, password: string) {
+    this.authservice.isLoggedIn = true;
+
     const nationaID = form.get(nationalId)?.value;
 
     const Password = form.get(password)?.value;
