@@ -138,10 +138,15 @@ export class HttpServiceService {
     );
   }
   updateSPOffer(sp: ServiceProvider, offer: Offer): Observable<Offer> {
-    const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
+    const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers.json`;
     console.log(sp);
     console.log(offer.offerid);
     console.log(sp.offers[offer.offerid]);
-    return this.http.put<Offer>(url, JSON.stringify(offer), this.httpOptions);
+    const obs = this.http.post<Offer>(
+      url,
+      JSON.stringify(offer),
+      this.httpOptions
+    );
+    return obs;
   }
 }
