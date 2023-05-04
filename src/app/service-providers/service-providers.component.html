@@ -11,13 +11,13 @@
     </div>
     <div class="rectangle">
       <div class="scrollable">
-        <div class="item" *ngFor="let offer of SP.offers ; let offerID = index" >
+        <div class="item" *ngFor="let offer of SP.offers ; " >
           <div class="card ">
             <div class="card-body">
               <h5 class="card-title">{{offer.category}}</h5>
               <p class="card-text">{{offer.minutes + ' minutes'}}</p>
               <p class="card-text">{{offer.price + ' EGP'}}</p>
-              <button class="button-primary" (click)="subscribe(SP.id, offerID)" >Subscribe</button>
+              <button class="button-primary" (click)="subscribe(SP.id, offer.offerid)" >Subscribe</button>
             </div>
           </div>
         </div>
