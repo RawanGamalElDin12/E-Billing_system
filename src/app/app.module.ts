@@ -53,6 +53,7 @@ import { ServiceProviderLoginComponent } from './login/service-provider-login/se
 import { SpSidenavComponent } from './sp-sidenav/sp-sidenav.component';
 import { SpHomeComponent } from './sp-home/sp-home.component';
 import { SpAddOfferComponent } from './sp-add-offer/sp-add-offer.component';
+import { SpChangeOfferComponent } from './sp-change-offer/sp-change-offer.component';
 
 const routes: Routes = [
   {
@@ -111,6 +112,7 @@ const routes: Routes = [
         component: SpHomeComponent,
       },
       { path: 'add-offer', component: SpAddOfferComponent },
+      {path:'view-offer/:id', component:SpChangeOfferComponent}
     ],
   },
 ];
@@ -148,6 +150,7 @@ const routes: Routes = [
     SpSidenavComponent,
     SpHomeComponent,
     SpAddOfferComponent,
+    SpChangeOfferComponent,
   ],
   imports: [
     BrowserModule,
