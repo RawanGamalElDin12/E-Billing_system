@@ -197,6 +197,7 @@
   padding-top: 8px;
 }
 .due-date {
+  width: fit-content;
   height: 22px;
   background-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
@@ -206,6 +207,7 @@
   text-align: center;
   line-height: normal;
   padding-left: 798px;
+  color: red;
 }
 
 
