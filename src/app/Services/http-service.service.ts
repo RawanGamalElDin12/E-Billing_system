@@ -176,7 +176,6 @@ export class HttpServiceService {
     } while (usedIds.includes(id)); // Regenerate ID if it has already been used
 
     usedIds.push(id);
-    // offer.offerid = id;
 
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
     console.log(sp);

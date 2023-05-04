@@ -39,6 +39,7 @@ export class SpAddOfferComponent {
         (result) => {
           console.log(`offer created: ${result}`);
           alert('Offer Added');
+          this.spService.UpdateLoggedInSPOfferwithID(this.offer);
         },
         (error) => {
           console.log(`Error creating user: ${error}`);
