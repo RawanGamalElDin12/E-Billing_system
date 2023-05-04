@@ -62,13 +62,16 @@
       </div>
     </div>
     <div *ngIf="credit">
-      <div class="creditcard">
-        <p>enter your credit card details</p>
-        <input placeholder="card number" type="number" />
-        <input placeholder=" name on card" type="text" />
-        <input placeholder="expiry date (mm/dd/yyyy)" />
-        <input placeholder="CVV" type="number" maxlength="3" />
-      </div>
+      <form [formGroup]="creditForm">
+
+        <div class="creditcard">
+          <p>enter your credit card details</p>
+          <input placeholder="card number" formControlName="cardnumber" type="number"  />
+          <input placeholder=" name on card" formControlName="cardname" type="text" />
+          <input placeholder="expiry date (mm/dd/yyyy)" formControlName="carddate" />
+          <input placeholder="CVV" type="number" formControlName="cardcvv"  />
+        </div>
+      </form>
       <div>
         <div *ngIf="creditPaid">
           <div class="creditpaid">
@@ -80,6 +83,7 @@
           class="confirmButton"
           *ngIf="showConfirmButton"
           (click)="paid()"
+          [disabled]="creditForm.invalid"
         >
           confirm
         </button>

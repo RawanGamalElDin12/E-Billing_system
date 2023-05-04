@@ -26,14 +26,7 @@ export class SubscribeComponent implements OnInit {
     private payServ :PayServiceService, private router:Router) {
     this.user= userServ.user;
   }
-    generatePhoneNumber()
-    {
-      //generate a random phone number starting with 01 and ending with 9 digits
-      const firstPart = '01';
-      const secondPart = Math.floor(Math.random() * 1000000000).toString().padStart(9, '0');
-      return firstPart + secondPart;
-      
-  }
+   
   ngOnInit() {
     
     for (let number of this.user.telephoneAccounts)
@@ -72,8 +65,8 @@ export class SubscribeComponent implements OnInit {
           3. Update the user object with the new bill id 
           4. Update the users telephone Account the telephone account based on his selection*/
   
-  this.subscribe();
-  let id= this.createANewBill();
+  this.payServ.subscribeGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+  let id= this.payServ.createANewBill(this.offer,this.serviceProviderName,this.selectedPhoneNumber);
   this.payServ.billid= id;
   this.payServ.serviceType= 'Telephone'
   this.router.navigate (['/main/payment']);
@@ -81,55 +74,6 @@ export class SubscribeComponent implements OnInit {
   
   }
 
-  createANewBill() 
-  {
-    const newBillID =
-    this.user.telephoneBills[this.user.telephoneBills.length - 1].billid + 1;
-  const today = new Date();
-  const futureDate = new Date();
-  futureDate.setDate(today.getDate() + 15);
-  const telephone = new TelephoneBills(
-    this.offer.price,
-    newBillID,
-    this.offer.minutes,
-   futureDate.toDateString(),
-    0,
-    '',
-    'Due',
-    this.serviceProviderName,
-    this.offer.minutes,
-    Number(this.selectedPhoneNumber)
-  );
-  this.user.telephoneBills.push(telephone);
-  this.http.updateUser(this.user).subscribe();
-  return newBillID;
-  }
-  subscribe (){
-    if (this.selectedPhoneNumber!="Generate")
-    {
-       const newAccountID =this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid + 1;
-      this.selectedPhoneNumber= this.generatePhoneNumber();
-      const TelephoneAccount =new telephoneAccount(
-            newAccountID,
-       this.OfferID,
-        this.serviceProviderName,
-        this.selectedPhoneNumber,
-         'Pre-Paid',
-       this.SPID);
-
-      this.user.telephoneAccounts.push(TelephoneAccount);
-      
-    }
-    else 
-    {
-      this.selectedPhoneNumber= this.generatePhoneNumber();
-      const TelephoneAccount =this.user.telephoneAccounts.filter(no=> no.telephoneNo==this.selectedPhoneNumber)[0];
-      TelephoneAccount.offerid=this.OfferID;
-      TelephoneAccount.serviceProvider=this.serviceProviderName;
-      TelephoneAccount.spid=this.SPID;
-      TelephoneAccount.type='Pre-Paid';
-      this.user.telephoneAccounts.filter(no=> no.telephoneNo==this.selectedPhoneNumber)[0]= TelephoneAccount;
-      
-    }
-  }
 }
+
+

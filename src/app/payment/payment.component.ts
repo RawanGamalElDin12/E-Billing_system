@@ -7,7 +7,8 @@ import { customer } from '../classes/customer';
 import { WaterBill } from '../classes/bill';
 import { PayServiceService } from '../Services/pay-service.service';
 import { Router } from '@angular/router';
-
+import { FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -15,7 +16,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentComponent implements OnInit {
   showConfirmButton = true;
-
+  creditForm: FormGroup;
+  // formBuilder: FormBuilder;
   selectedOption: string = '';
   cash: boolean = false;
   initialize: boolean = true;
@@ -42,30 +44,24 @@ export class PaymentComponent implements OnInit {
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'water');
-      if(lateFee!=0)
-      this.updatedBill = { ...this.bill, amount: lateFee };
-      else 
-      this.updatedBill = { ...this.bill};    } else if (this.payServ.serviceType == 'Electricity') {
+      if (lateFee != 0) this.updatedBill = { ...this.bill, amount: lateFee };
+      else this.updatedBill = { ...this.bill };
+    } else if (this.payServ.serviceType == 'Electricity') {
       this.bill = this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'electricity');
-      if(lateFee!=0)
-      this.updatedBill = { ...this.bill, amount: lateFee };
-      else 
-      this.updatedBill = { ...this.bill};
-
+      if (lateFee != 0) this.updatedBill = { ...this.bill, amount: lateFee };
+      else this.updatedBill = { ...this.bill };
     } else if (this.payServ.serviceType == 'Telephone') {
       this.bill = this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'telephone');
-      if(lateFee!=0)
-      this.updatedBill = { ...this.bill, amount: lateFee };
-      else 
-      this.updatedBill = { ...this.bill};
+      if (lateFee != 0) this.updatedBill = { ...this.bill, amount: lateFee };
+      else this.updatedBill = { ...this.bill };
     }
 
     this.service = this.payServ.serviceType;
@@ -76,9 +72,26 @@ export class PaymentComponent implements OnInit {
     private userdataService: UserdataService,
     private http: HttpServiceService,
     private payServ: PayServiceService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
     this.user = this.userdataService.user;
+    this.creditForm = this.formBuilder.group({
+      cardnumber: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(16),
+          Validators.minLength(16),
+        ],
+      ],
+      cardname: ['', [Validators.required]],
+      carddate: ['', [Validators.required]],
+      cardcvv: [
+        '',
+        [Validators.required, Validators.maxLength(3), Validators.minLength(3)],
+      ],
+    });
   }
   user: customer;
   bill: WaterBill = {
@@ -132,8 +145,6 @@ export class PaymentComponent implements OnInit {
       )[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
-
-
     } else if (this.payServ.serviceType == 'Telephone') {
       this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
