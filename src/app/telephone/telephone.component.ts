@@ -37,6 +37,11 @@ export class TelephoneComponent {
     console.log('here');
     this.router.navigate(['/main/serviceproviders']);
   }
+  navigate1()
+  {
+    this.router.navigate(['/main/sp-postpaid']);
+
+  }
   viewAccount(account: telephoneAccount) {
     const navigationExtras: NavigationExtras = {
       state: {

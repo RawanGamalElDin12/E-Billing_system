@@ -54,6 +54,7 @@ import { SpHomeComponent } from './sp-home/sp-home.component';
 import { SpAddOfferComponent } from './sp-add-offer/sp-add-offer.component';
 import { SpChangeOfferComponent } from './sp-change-offer/sp-change-offer.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
+import { ServiceprovidersPostPaidComponent } from './serviceproviders-post-paid/serviceproviders-post-paid.component';
 
 const routes: Routes = [
   {
@@ -76,6 +77,7 @@ const routes: Routes = [
 
       { path: 'serviceproviders', component: ServiceProvidersComponent },
 
+      {path:'sp-postpaid', component:ServiceprovidersPostPaidComponent},
       { path: 'pre-paid-account/:id', component: PrePaidAccountComponent },
       { path: 'post-paid-account/:id', component: PostPaidAccountComponent },
       {path:'subscribe/:SpID/:offerID', component:SubscribeComponent}
@@ -153,6 +155,7 @@ const routes: Routes = [
     SpAddOfferComponent,
     SpChangeOfferComponent,
     SubscribeComponent,
+    ServiceprovidersPostPaidComponent,
   ],
   imports: [
     BrowserModule,
