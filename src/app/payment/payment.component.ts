@@ -42,21 +42,30 @@ export class PaymentComponent implements OnInit {
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'water');
+      if(lateFee!=0)
       this.updatedBill = { ...this.bill, amount: lateFee };
-    } else if (this.payServ.serviceType == 'Electricity') {
+      else 
+      this.updatedBill = { ...this.bill};    } else if (this.payServ.serviceType == 'Electricity') {
       this.bill = this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'electricity');
+      if(lateFee!=0)
       this.updatedBill = { ...this.bill, amount: lateFee };
+      else 
+      this.updatedBill = { ...this.bill};
+
     } else if (this.payServ.serviceType == 'Telephone') {
       this.bill = this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'telephone');
+      if(lateFee!=0)
       this.updatedBill = { ...this.bill, amount: lateFee };
+      else 
+      this.updatedBill = { ...this.bill};
     }
 
     this.service = this.payServ.serviceType;
@@ -123,6 +132,8 @@ export class PaymentComponent implements OnInit {
       )[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
+
+
     } else if (this.payServ.serviceType == 'Telephone') {
       this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
