@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../Services/authservice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserdataService } from '../Services/userdata.service';
+import { ServiceProvidersDataService } from '../Services/service-providers-data.service';
 
 @Component({
   selector: 'app-sp-add-offer',
@@ -21,17 +22,29 @@ export class SpAddOfferComponent {
     private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private userDataservice: UserdataService
+    private spService: ServiceProvidersDataService
   ) {
     this.regForm = this.formBuilder.group({
       category: ['', Validators.required],
+      price: ['', Validators.required],
+      minutes: ['', Validators.required],
     });
   }
 
   add(form: FormGroup, offer: Offer) {
     console.log(offer);
+    const sp = this.spService.getLoggedInSP();
     if (offer != null) {
-      // this.http.updateSPOffer(1,)
+      this.http.updateSPOffer(sp, offer).subscribe(
+        (result) => {
+          console.log(`offer created: ${result}`);
+          alert('Offer Added');
+        },
+        (error) => {
+          console.log(`Error creating user: ${error}`);
+          alert('Error in Registeration');
+        }
+      );
     }
   }
 }

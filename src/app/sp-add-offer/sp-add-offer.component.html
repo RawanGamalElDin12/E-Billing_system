@@ -26,6 +26,52 @@
             </span>
           </div>
         </div>
+
+        <div class="input-div">
+          <label class="login-label">Price:</label>
+          <input
+            class="login-input"
+            [(ngModel)]="offer.price"
+            formControlName="price"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('price')?.invalid &&
+              (regForm.get('price')?.dirty || regForm.get('price')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('price')?.errors?.['required']"
+            >
+              Price is required
+            </span>
+          </div>
+        </div>
+
+        <div class="input-div">
+          <label class="login-label">Minutes:</label>
+          <input
+            class="login-input"
+            [(ngModel)]="offer.minutes"
+            formControlName="minutes"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('minutes')?.invalid &&
+              (regForm.get('minutes')?.dirty || regForm.get('minutes')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('minutes')?.errors?.['required']"
+            >
+              Minutes is required
+            </span>
+          </div>
+        </div>
       </div>
       <div class="center">
         <button class="login-btn" type="submit" [disabled]="regForm.invalid">
