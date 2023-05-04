@@ -1,0 +1,50 @@
+.subscription-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .subscription-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .subscription-page h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .subscription-page .offer-details {
+    margin-bottom: 30px;
+  }
+  
+  .subscription-page .offer-details p {
+    margin-bottom: 5px;
+  }
+  
+  .subscription-page .offer-details span {
+    font-weight: bold;
+  }
+  
+  .subscription-page select {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .subscription-page input {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .subscription-page .pay-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
