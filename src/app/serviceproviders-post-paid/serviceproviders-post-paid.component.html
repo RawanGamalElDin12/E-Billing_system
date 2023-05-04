@@ -14,7 +14,7 @@
           <div class="item" *ngFor="let sp of this.SPs ; " >
             <div class="card ">
               <div class="card-body">
-                <h5 class="card-title">{{sp.name}}</h5>
+                <h5 class="card-title">{{sp.name | titlecase}}</h5>
                 <p class="card-text">{{sp.tarriff + ' /min'}}</p>
                
                 <button class="button-primary"  >Subscribe</button>
