@@ -60,7 +60,7 @@ export class AuthService {
             this.userDataSerive.user = user;
             console.log(this.userDataSerive.user);
 
-            alert('Welcome Back!');
+            //alert('Welcome Back!');
             this.router.navigate(['main/home']);
           } else {
             alert('Wrong National ID or Password');
