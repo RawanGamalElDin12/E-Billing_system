@@ -75,13 +75,6 @@ export class AdminDashboardComponent {
     this.showUsers = false;
   }
 
-  showUsersDiv() {
-    this.showElectricity = false;
-    this.showWater = false;
-    this.showUsers = true;
-    //this.route.navigate(['AdminMain/ViewUsers']);
-
-  }
   updateEprice(price: number)
   {
     this.billingService.updateEunit(price);

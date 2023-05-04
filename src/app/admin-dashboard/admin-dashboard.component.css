@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: calc(33.33% - 10px);
+    width: calc(50% - 10px);
     height: 250px;
     margin-bottom: 20px;
     font-family: 'Arial', sans-serif;

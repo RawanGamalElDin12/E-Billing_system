@@ -12,11 +12,7 @@
           <br>
           Water Unit Cost
         </button>
-        <button class="card" (click)="showUsersDiv()">
-          <img src="../assets/Icons/icons8-male-user-64.png">
-          <br>
-          Add Admin
-        </button>
+       
       </div>
       <div *ngIf="showElectricity">
         <!-- Content for the electricity div -->
@@ -38,28 +34,6 @@
         </h2> 
           <button class="insideBtn" (click)="updateWprice(wUnitCost)">Change</button>
 
-      </div>
-      <div *ngIf="showUsers">
-        <img src="../assets/Icons/icons8-male-user-64.png">
-        <h1 >Add Admin</h1>
-        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-          <label>
-            ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-          </label>
-            <input type="text" formControlName="id" required>
-         
-          <br>
-          <label>
-              Password:
-          </label>
-              <input type="text" formControlName="password" required>
-            
-            <bR>
-         
-          <br><br>
-          <button type="submit" class="add" >Add</button>
-       <br><br>
-          </form>
       </div>
     </div>
   </div>
