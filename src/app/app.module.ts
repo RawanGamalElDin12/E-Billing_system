@@ -47,7 +47,6 @@ import { TelephoneComponent } from './telephone/telephone.component';
 import { PrePaidAccountComponent } from './pre-paid-account/pre-paid-account.component';
 import { PostPaidAccountComponent } from './post-paid-account/post-paid-account.component';
 import { ServiceProvidersComponent } from './service-providers/service-providers.component';
-import { ServiceOfferCardComponent } from './service-offer-card/service-offer-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ServiceProviderLoginComponent } from './login/service-provider-login/service-provider-login.component';
 import { SpSidenavComponent } from './sp-sidenav/sp-sidenav.component';
@@ -144,7 +143,6 @@ const routes: Routes = [
     PrePaidAccountComponent,
     PostPaidAccountComponent,
     ServiceProvidersComponent,
-    ServiceOfferCardComponent,
     WelcomePageComponent,
     ServiceProviderLoginComponent,
     SpSidenavComponent,
