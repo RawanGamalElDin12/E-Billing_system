@@ -176,6 +176,27 @@ export class HttpServiceService {
     } while (usedIds.includes(id)); // Regenerate ID if it has already been used
 
     usedIds.push(id);
+    // offer.offerid = id;
+
+    const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
+    console.log(sp);
+    console.log(offer.offerid);
+    console.log(sp.offers[offer.offerid]);
+
+    return this.http.put<Offer>(url, JSON.stringify(offer), this.httpOptions);
+  }
+  addSPOffer(sp: ServiceProvider, offer: Offer): Observable<Offer> {
+    // const id = Math.floor(Math.random() * 50) + 1;
+    // offer.offerid=id;
+
+    const usedIds: number[] = []; // Array to store used IDs
+    let id: number;
+
+    do {
+      id = Math.floor(Math.random() * 50) + 1; // Generate random ID between 1 and 50
+    } while (usedIds.includes(id)); // Regenerate ID if it has already been used
+
+    usedIds.push(id);
     offer.offerid = id;
 
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;

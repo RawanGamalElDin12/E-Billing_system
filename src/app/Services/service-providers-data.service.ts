@@ -49,7 +49,9 @@ export class ServiceProvidersDataService {
   UpdateSPOfferwithID(spid: number, offer: Offer) {
     const index = offer.offerid;
     // update the user with the new data
+    const sp = this.SPs[spid];
 
+    console.log('in UpdateSPOfferwithID, sp:', sp);
     console.log(spid);
     console.log(index);
     console.log(this.SPs[spid].offers);
