@@ -1,5 +1,4 @@
-
-import { Injectable , EventEmitter} from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { User } from '../classes/user';
 import { customer } from '../classes/customer';
 import { ServiceProvider } from '../classes/ServiceProvider';
@@ -9,36 +8,32 @@ import { Offer } from '../classes/Offer';
   providedIn: 'root',
 })
 export class ServiceProvidersDataService {
-   SPs: ServiceProvider[] = [];
-   loggedInSp: any;
+  SPs: ServiceProvider[] = [];
+  loggedInSp: any;
   constructor() {}
   SPsChanged = new EventEmitter<ServiceProvider[]>();
 
-  getLoggedInSP(): ServiceProvider
-  {
-   return this.loggedInSp;
- }
+  getLoggedInSP(): ServiceProvider {
+    return this.loggedInSp;
+  }
 
- setLoggedInSP(value: ServiceProvider) {
-   this.loggedInSp = value;
- }
- UpdateLoggedInSPOfferwithID(offer: Offer) {
-  const index = offer.offerid;
-  // update the user with the new data
-  this.loggedInSp.offers[index].category =offer.category;
-  this.loggedInSp.offers[index].minutes =offer.minutes;
-  this.loggedInSp.offers[index].price =offer.price;
-  
-}
-
+  setLoggedInSP(value: ServiceProvider) {
+    this.loggedInSp = value;
+  }
+  UpdateLoggedInSPOfferwithID(offer: Offer) {
+    const index = offer.offerid;
+    // update the user with the new data
+    this.loggedInSp.offers[index].category = offer.category;
+    this.loggedInSp.offers[index].minutes = offer.minutes;
+    this.loggedInSp.offers[index].price = offer.price;
+  }
 
   getSPs() {
     console.log(JSON.stringify(this.SPs));
     return this.SPs;
   }
-  getloggedInSP(id:number)
-  {
-     return this.SPs[id];
+  getloggedInSP(id: number) {
+    return this.SPs[id];
   }
   setSPs(SPs: ServiceProvider[]) {
     this.SPs = SPs;
@@ -50,7 +45,6 @@ export class ServiceProvidersDataService {
 
     this.SPs[index].name = updatedSP.name;
     this.SPs[index].tarriff = updatedSP.tarriff;
-    
   }
   UpdateSPOfferwithID(spid: number, offer: Offer) {
     const index = offer.offerid;
@@ -59,23 +53,21 @@ export class ServiceProvidersDataService {
     console.log(spid);
     console.log(index);
     console.log(this.SPs[spid].offers);
-    this.SPs[spid].offers[index].category =offer.category;
-    this.SPs[spid].offers[index].minutes =offer.minutes;
-    this.SPs[spid].offers[index].price =offer.price;
-    
+    this.SPs[spid].offers[index].category = offer.category;
+    this.SPs[spid].offers[index].minutes = offer.minutes;
+    this.SPs[spid].offers[index].price = offer.price;
   }
   addOfferById(spid: number, offer: Offer) {
     // Find the service provider with the specified ID.
     const sp = this.SPs[spid];
-  
+
     // If the service provider is found, add the offer to their list of offers.
     if (sp) {
-      console.log("-----hello from add offer by ID -----------------");
+      console.log('-----hello from add offer by ID -----------------');
       sp.offers[offer.offerid] = offer;
       console.log(this.SPs[spid].offers);
     }
   }
-  
 
   // deleteUserByNationalId(nationalId: string): void {
   //   if (this.SPs.hasOwnProperty(nationalId)) {
@@ -85,6 +77,4 @@ export class ServiceProvidersDataService {
 
   //   }
   // }
-  
 }
-
