@@ -45,7 +45,7 @@ export class TelephoneComponent {
       },
     };
 
-    if (account.type == 'pre-paid') {
+    if (account.type == 'Pre-Paid') {
       this.router.navigate(
         ['main/pre-paid-account', account.accountid],
         navigationExtras
