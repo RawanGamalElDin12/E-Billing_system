@@ -53,7 +53,7 @@ export class AdminAddSpComponent {
     this.user.tarriff = this.userForm.get('tarriff').value;
     this.user.password = this.userForm.get('password').value;
 
-    this.http.addSP(this.user).subscribe(
+    this.http.updateSP(this.user).subscribe(
       (result) => {
         console.log(`SP Added successfully: ${result}`);
         alert('Service Provider Added Successfully');
