@@ -7,6 +7,7 @@ import { customer } from '../classes/customer';
 import { TelephoneBills } from '../classes/bill';
 import { PayServiceService } from '../Services/pay-service.service';
 import { CheckLateFeesService } from '../Services/check-late-fees.service';
+import { telephoneAccount } from '../classes/telephoneAccount';
 
 @Component({
   selector: 'app-post-paid-account',
@@ -65,9 +66,9 @@ export class PostPaidAccountComponent {
     this.dueBills = [];
     this.paidBills = [];
     this.flag = false;
+    
     this.bills = this.user.telephoneBills.filter(
-      (bill) => bill !== null && bill.amount !== 0
-    );
+      (bill) => bill !== null && bill.amount !== 0 && bill.telephoneNo == this.account.telephoneNo);
 
     for (let bill of this.bills) {
       if (bill.status == 'Paid') {
