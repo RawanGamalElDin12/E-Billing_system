@@ -22,6 +22,14 @@ export class ServiceProvidersDataService {
  setLoggedInSP(value: ServiceProvider) {
    this.loggedInSp = value;
  }
+ UpdateLoggedInSPOfferwithID(offer: Offer) {
+  const index = offer.offerid;
+  // update the user with the new data
+  this.loggedInSp.offers[index].category =offer.category;
+  this.loggedInSp.offers[index].minutes =offer.minutes;
+  this.loggedInSp.offers[index].price =offer.price;
+  
+}
 
 
   getSPs() {
@@ -48,6 +56,9 @@ export class ServiceProvidersDataService {
     const index = offer.offerid;
     // update the user with the new data
 
+    console.log(spid);
+    console.log(index);
+    console.log(this.SPs[spid].offers);
     this.SPs[spid].offers[index].category =offer.category;
     this.SPs[spid].offers[index].minutes =offer.minutes;
     this.SPs[spid].offers[index].price =offer.price;

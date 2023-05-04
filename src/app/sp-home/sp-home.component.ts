@@ -61,11 +61,11 @@ export class SpHomeComponent {
      const navigationExtras: NavigationExtras = {
        state: {
          offer: offer,
-         user:this.user
+         user: this.user
        }
      };
    console.log("djbcjxbf");
    console.log(this.user);
-   //  this.router.navigate(['AdminMain/view-sp', this.user.id,'view-offer',offer.offerid],navigationExtras);
+    this.router.navigate(['SpMain/view-offer', offer.offerid],navigationExtras);
    }
 }
