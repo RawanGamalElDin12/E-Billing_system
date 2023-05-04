@@ -35,7 +35,7 @@ export class SpAddOfferComponent {
     console.log(offer);
     const sp = this.spService.getLoggedInSP();
     if (offer != null) {
-      this.http.updateSPOffer(sp, offer).subscribe(
+      this.http.addSPOffer(sp, offer).subscribe(
         (result) => {
           console.log(`offer created: ${result}`);
           alert('Offer Added');
