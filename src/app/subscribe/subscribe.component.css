@@ -1,50 +1,91 @@
 .subscription-page {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  
-  .subscription-page h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .subscription-page h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .subscription-page .offer-details {
-    margin-bottom: 30px;
-  }
-  
-  .subscription-page .offer-details p {
-    margin-bottom: 5px;
-  }
-  
-  .subscription-page .offer-details span {
-    font-weight: bold;
-  }
-  
-  .subscription-page select {
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .subscription-page input {
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .subscription-page .pay-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
+  max-width:700px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f5f7fb;
+}
+
+.subscription-page h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.subscription-page h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.subscription-page .offer-details {
+  margin-bottom: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.subscription-page .offer-details p {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.subscription-page .offer-details span {
+  font-weight: bold;
+}
+
+.subscription-page select {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.subscription-page input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.subscription-page .phone-numbers {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.subscription-page .phone-numbers p {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.subscription-page .phone-numbers button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.subscription-page .pay-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
