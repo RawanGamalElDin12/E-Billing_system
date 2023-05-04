@@ -1,42 +1,25 @@
-
 <button (click)="back()">back</button>
 <div class="header">
-    <img src="../assets/Icons/icons8-male-user-64.png">
-    <h1>Add Service Provider</h1>
-  </div>
-  <div id="main">
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-    <label>
-      ID:
-    </label>
-      <input type="text" formControlName="id" >
-   
-    <br>
-    <label>
-        Password:
-      </label>
-        <input type="text" formControlName="password" >
-     
-      <br>
-    <label>
-        Name:
-    </label>
-        <input type="text" formControlName="name">
-      
-      <bR>
-    <label>
-      Tarriff
-    </label>
-      <input type="number" formControlName="tarriff">
-    
-    <br>
-    
-   
-    <button id="change"   type="submit">Add</button>
-    <br><br>
+  <img src="../assets/Icons/icons8-male-user-64.png" />
+  <h1>Add Service Provider</h1>
+</div>
+<div id="main">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <label> Name: </label>
+    <input type="text" formControlName="name" />
+
+    <br />
+    <label> Password: </label>
+    <input type="text" formControlName="password" />
+
+    <br />
+    <label> Tarriff </label>
+    <input type="number" formControlName="tarriff" />
+
+    <br />
+
+    <button id="change" type="submit">Add</button>
+    <br /><br />
   </form>
-  <br><br>
- 
-  
-  
-  </div>
+  <br /><br />
+</div>

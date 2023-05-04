@@ -137,6 +137,33 @@ export class HttpServiceService {
       this.httpOptions
     );
   }
+  addSP(sp: ServiceProvider): Observable<ServiceProvider> {
+    const spIDs: number[] = [];
+
+    this.getSPs().subscribe((sp) => {
+      for (let i = 0; i < sp.length; i++) {
+        spIDs.push(i);
+      }
+    });
+    console.log(spIDs);
+    // const usedIds: number[] = [];
+    let id: number;
+
+    do {
+      id = Math.floor(Math.random() * 50) + 1;
+    } while (spIDs.includes(id)); // Regenerate ID if it has already been used
+
+    spIDs.push(id);
+    console.log(spIDs);
+
+    const url = `${this.baseurl2}/ServiceProviders/${id}.json`;
+    console.log(sp);
+    return this.http.put<ServiceProvider>(
+      url,
+      JSON.stringify(sp),
+      this.httpOptions
+    );
+  }
   updateSPOffer(sp: ServiceProvider, offer: Offer): Observable<Offer> {
     // const id = Math.floor(Math.random() * 50) + 1;
     // offer.offerid=id;
