@@ -5,17 +5,18 @@
 <div>
   <!-- *ngFor="" hot hena el ng for bel3adad ely enta 3yzo -->
 
-  <div class="container">
+  <div class="container" *ngFor="let SP of cards">
     <div class="title">
-      <p>yourtitle</p>
+      <p>{{SP.name | uppercase }}</p>
     </div>
     <div class="rectangle">
       <div class="scrollable">
-        <div class="item" *ngFor="let card of cards">
-          <div class="card">
+        <div class="item" *ngFor="let offer of SP.offers " >
+          <div class="card ">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">make up the bulk of the card's content.</p>
+              <h5 class="card-title">{{offer.category}}</h5>
+              <p class="card-text">{{offer.minutes + ' minutes'}}</p>
+              <p class="card-text">{{offer.price + ' EGP'}}</p>
               <button class="button-primary">Subscribe</button>
             </div>
           </div>
