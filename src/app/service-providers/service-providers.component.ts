@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceProvider } from '../classes/ServiceProvider';
 import { HttpServiceService } from '../Services/http-service.service';
 import { Offer } from '../classes/Offer';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-service-providers',
@@ -20,8 +20,8 @@ export class ServiceProvidersComponent implements OnInit {
    );
    
    constructor( private http: HttpServiceService
-    , private router: Router) {
-     
+    , private router: Router
+  ){
    }
    ngOnInit() {
      this.http.getSPs().subscribe(data => {
@@ -51,8 +51,10 @@ export class ServiceProvidersComponent implements OnInit {
     
     }
 
-    subscribe ()
+    subscribe (SpID: number, offerID: number)
     {
+      this.router.navigate(['/main/subscribe',SpID,offerID]);
+
       
     }
 
