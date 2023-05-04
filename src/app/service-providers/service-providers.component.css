@@ -4,7 +4,7 @@
 }
 
 .header-two {
-  width: 200px;
+  width: fit-content;
   height: 32px;
   padding: 7px 2px 2px 7px;
   border-radius: 8px;
