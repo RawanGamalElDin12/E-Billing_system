@@ -1,1 +1,37 @@
-<p>sp-add-offer works!</p>
+<div class="bg">
+  <div id="register" class="center">
+    <h2 id="welcome-back" class="center">Add Offer</h2>
+    <form [formGroup]="regForm" (ngSubmit)="add(regForm, offer)">
+      <div class="center">
+        <div class="input-div">
+          <label class="login-label">Category:</label>
+          <input
+            class="login-input"
+            [(ngModel)]="offer.category"
+            formControlName="category"
+            required
+          />
+          <div
+            *ngIf="
+              regForm.get('category')?.invalid &&
+              (regForm.get('category')?.dirty ||
+                regForm.get('category')?.touched)
+            "
+          >
+            <span
+              class="warning"
+              *ngIf="regForm.get('category')?.errors?.['required']"
+            >
+              Category is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <button class="login-btn" type="submit" [disabled]="regForm.invalid">
+          Add Offer
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

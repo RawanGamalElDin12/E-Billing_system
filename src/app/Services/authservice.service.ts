@@ -95,7 +95,7 @@ export class AuthService {
           console.log(this.SpsData.getLoggedInSP());
           this.router.navigate(['/SpMain/Home']);
         } else {
-          alert('wrong id or password');
+          alert('wrong id or password please try again');
         }
       },
       (error: any) => {
