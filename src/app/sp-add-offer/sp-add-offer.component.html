@@ -4,7 +4,7 @@
     <form [formGroup]="regForm" (ngSubmit)="add(regForm, offer)">
       <div class="center">
         <div class="input-div">
-          <label class="login-label">Category:</label>
+          <label class="login-label">Offer Name:</label>
           <input
             class="login-input"
             [(ngModel)]="offer.category"
@@ -22,7 +22,7 @@
               class="warning"
               *ngIf="regForm.get('category')?.errors?.['required']"
             >
-              Category is required
+              Offer Name is required
             </span>
           </div>
         </div>
