@@ -77,20 +77,10 @@ export class PaymentComponent implements OnInit {
   ) {
     this.user = this.userdataService.user;
     this.creditForm = this.formBuilder.group({
-      cardnumber: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(16),
-          Validators.minLength(16),
-        ],
-      ],
+      cardnumber: ['', [Validators.required, Validators.pattern(/^\d{16}$/)]],
       cardname: ['', [Validators.required]],
       carddate: ['', [Validators.required]],
-      cardcvv: [
-        '',
-        [Validators.required, Validators.maxLength(3), Validators.minLength(3)],
-      ],
+      cardcvv: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]],
     });
   }
   user: customer;
@@ -122,14 +112,14 @@ export class PaymentComponent implements OnInit {
       this.user.waterBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].paymentType = this.payType;
-     if (this.lateFee)
-      this.user.waterBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0.1;
+      if (this.lateFee)
+        this.user.waterBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0].lateFees = 0.1;
       else
-      this.user.waterBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0;
+        this.user.waterBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0].lateFees = 0;
       this.user.waterBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].amount = this.updatedBill.amount;
@@ -142,23 +132,21 @@ export class PaymentComponent implements OnInit {
       this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].paymentType = this.payType;
-      if(this.lateFee)
-      this.user.electricityBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0.1;
+      if (this.lateFee)
+        this.user.electricityBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0].lateFees = 0.1;
       else
-      this.user.electricityBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0;
+        this.user.electricityBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0].lateFees = 0;
 
       this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
-    } 
-    else if (this.payServ.serviceType == 'Telephone') 
-    {
+    } else if (this.payServ.serviceType == 'Telephone') {
       this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].status = 'Paid';
@@ -167,11 +155,17 @@ export class PaymentComponent implements OnInit {
       )[0].paymentType = this.payType;
 
       if (this.lateFee)
-       this.user.telephoneBills.filter((bill) => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
+        this.user.telephoneBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0].lateFees = 0.1;
       else
-        this.user.telephoneBills.filter((bill) => bill.billid == this.payServ.billid)[0].lateFees = 0
+        this.user.telephoneBills.filter(
+          (bill) => bill.billid == this.payServ.billid
+        )[0].lateFees = 0;
 
-      this.user.telephoneBills.filter((bill) => bill.billid == this.payServ.billid)[0].amount = this.updatedBill.amount;
+      this.user.telephoneBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
     }
@@ -224,6 +218,4 @@ export class PaymentComponent implements OnInit {
       } else return 0;
     } else return 0;
   }
-
-
 }
