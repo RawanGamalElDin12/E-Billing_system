@@ -109,7 +109,7 @@ export class PostPaidAccountComponent {
       'Due',
       this.user.telephoneAccounts[this.accountid].serviceProvider,
       this.minutes,
-      Number(this.user.telephoneAccounts[this.accountid].telephoneNo)
+    this.user.telephoneAccounts[this.accountid].telephoneNo
     );
     this.user.telephoneBills.push(telephone);
     this.http.updateUser(this.user).subscribe();

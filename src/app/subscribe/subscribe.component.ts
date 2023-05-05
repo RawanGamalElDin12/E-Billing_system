@@ -64,7 +64,7 @@ export class SubscribeComponent implements OnInit {
     
   if (this.selectedPhoneNumber=='Gen'&& this.OfferID!=-1)
   {
-    this.payServ.subscribeGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+   this.selectedPhoneNumber= this.payServ.subscribeGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
   }
   else if (this.selectedPhoneNumber!='Gen' && this.OfferID!=-1)
   {
@@ -76,7 +76,7 @@ export class SubscribeComponent implements OnInit {
   }
   else if (this.selectedPhoneNumber=='Gen' && this.OfferID==-1)
   {
-    this.payServ.subscribePostPaidGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+    this.selectedPhoneNumber=  this.payServ.subscribePostPaidGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
   }
   
 

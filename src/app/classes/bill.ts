@@ -69,7 +69,7 @@ export class TelephoneBills implements bill {
   serviceProvider: string;
   paymentType: string;
   status: string;
-  telephoneNo: number;
+  telephoneNo: string;
   lateFees: number;
   constructor(
     amount: number,
@@ -81,7 +81,7 @@ export class TelephoneBills implements bill {
     status: string,
     serviceProvider: string,
     minutes: number,
-    telephoneNo: number
+    telephoneNo: string
   ) {
     this.amount = amount;
     this.billid = billid;

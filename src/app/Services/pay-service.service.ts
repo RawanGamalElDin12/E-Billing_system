@@ -41,8 +41,8 @@ this.user = this.userdataService.user;
     '',
     'Due',
     serviceProviderName,
-    offer.minutes,
-    Number(selectedPhoneNumber)
+    offer.minutes
+    ,selectedPhoneNumber
   );
   console.log(telephone);
   this.user.telephoneBills.push(telephone);
@@ -85,6 +85,7 @@ this.user = this.userdataService.user;
        SPID);
 
       this.user.telephoneAccounts.push(TelephoneAccount);
+      return selectedPhoneNumber;
       
     
   }
@@ -122,6 +123,8 @@ this.user = this.userdataService.user;
       SPID);
 
       this.user.telephoneAccounts.push(TelephoneAccount);
+      return selectedPhoneNumber;
+
     }
 
  
