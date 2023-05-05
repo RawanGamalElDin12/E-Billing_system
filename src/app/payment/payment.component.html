@@ -1,4 +1,4 @@
-<div class="payment">
+<div class="center">
   <p class="bold">Payment Details</p>
   <table>
     <thead>
@@ -25,7 +25,7 @@
       </tr>
     </tbody>
   </table>
-  <div class="card-select">
+  <div class="payment">
     <div *ngIf="initialize">
       <div class="select-payment">
         <label>Select Payment Method</label>
@@ -47,8 +47,8 @@
           [(ngModel)]="selectedOption"
         />
         <label for="option2">Credit</label><br />
-        <div class="pay-button">
-          <button class="button1" (click)="onClick()">Pay</button>
+        <div class="center">
+          <button class="btn" (click)="onClick()">Pay</button>
         </div>
       </form>
     </div>
@@ -61,15 +61,116 @@
         <div>payment reference :2039454627723</div>
       </div>
     </div>
-    <div *ngIf="credit">
-      <form [formGroup]="creditForm">
+    <div *ngIf="credit" class="center">
+      <form [formGroup]="creditForm" class="creditcard">
+        <div>
+          <h2>Enter your credit card details</h2>
 
-        <div class="creditcard">
-          <p>enter your credit card details</p>
-          <input placeholder="card number" formControlName="cardnumber" type="number"  />
-          <input placeholder=" name on card" formControlName="cardname" type="text" />
-          <input placeholder="expiry date (mm/dd/yyyy)" formControlName="carddate" />
-          <input placeholder="CVV" type="number" formControlName="cardcvv"  />
+          <div class="input-div">
+            <input
+              placeholder="card number"
+              formControlName="cardnumber"
+              type="number"
+              class="input"
+            />
+            <div
+              *ngIf="
+                creditForm.get('cardnumber')?.invalid &&
+                (creditForm.get('cardnumber')?.dirty ||
+                  creditForm.get('cardnumber')?.touched)
+              "
+            >
+              <span
+                class="warning"
+                *ngIf="creditForm.get('cardnumber')?.errors?.['required']"
+              >
+                Card Number is required
+              </span>
+              <span
+                class="warning"
+                *ngIf="creditForm.get('cardnumber')?.errors?.['pattern']"
+              >
+                Card Number should be exactly 16 digits
+              </span>
+            </div>
+          </div>
+          <div class="input-div">
+            <input
+              placeholder="name on card"
+              formControlName="cardname"
+              type="text"
+              class="input"
+            />
+            <div
+              *ngIf="
+                creditForm.get('cardname')?.invalid &&
+                (creditForm.get('cardname')?.dirty ||
+                  creditForm.get('cardname')?.touched)
+              "
+            >
+              <span
+                class="warning"
+                *ngIf="creditForm.get('cardname')?.errors?.['required']"
+              >
+                Card Name is required
+              </span>
+            </div>
+          </div>
+          <div class="input-div">
+            <input class="input" formControlName="carddate" type="date" />
+            <div
+              *ngIf="
+                creditForm.get('carddate')?.invalid &&
+                (creditForm.get('carddate')?.dirty ||
+                  creditForm.get('carddate')?.touched)
+              "
+            >
+              <span
+                class="warning"
+                *ngIf="creditForm.get('carddate')?.errors?.['required']"
+              >
+                Card Date is required
+              </span>
+            </div>
+          </div>
+          <div class="input-div">
+            <input
+              class="input"
+              placeholder="CVV"
+              type="number"
+              formControlName="cardcvv"
+            />
+            <div
+              *ngIf="
+                creditForm.get('cardcvv')?.invalid &&
+                (creditForm.get('cardcvv')?.dirty ||
+                  creditForm.get('cardcvv')?.touched)
+              "
+            >
+              <span
+                class="warning"
+                *ngIf="creditForm.get('cardcvv')?.errors?.['required']"
+              >
+                Card CVV is required
+              </span>
+              <span
+                class="warning"
+                *ngIf="creditForm.get('cardcvv')?.errors?.['pattern']"
+              >
+                Card CVV should be exactly 3 digits
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="center">
+          <button
+            class="btn"
+            *ngIf="showConfirmButton"
+            (click)="paid()"
+            [disabled]="creditForm.invalid"
+          >
+            confirm
+          </button>
         </div>
       </form>
       <div>
@@ -79,14 +180,6 @@
             <div>Invoice reference :{{ invoice }}</div>
           </div>
         </div>
-        <button
-          class="confirmButton"
-          *ngIf="showConfirmButton"
-          (click)="paid()"
-          [disabled]="creditForm.invalid"
-        >
-          confirm
-        </button>
       </div>
     </div>
   </div>

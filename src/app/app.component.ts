@@ -12,5 +12,6 @@ export class AppComponent {
   ngOnInit() {
     // Redirect to login page
     this.router.navigate(['/welcome']);
+    // this.router.navigate(['/main/payment']);
   }
 }
