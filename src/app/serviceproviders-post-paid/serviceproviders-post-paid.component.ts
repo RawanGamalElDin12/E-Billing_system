@@ -40,7 +40,7 @@ export class ServiceprovidersPostPaidComponent {
          tarriff: data[key].tarriff,
          offers:[]
        };
-       
+        
          this.cards.push(SP);
 
        }}
