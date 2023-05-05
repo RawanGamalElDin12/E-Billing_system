@@ -55,6 +55,7 @@ import { SpAddOfferComponent } from './sp-add-offer/sp-add-offer.component';
 import { SpChangeOfferComponent } from './sp-change-offer/sp-change-offer.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { ServiceprovidersPostPaidComponent } from './serviceproviders-post-paid/serviceproviders-post-paid.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -172,6 +173,7 @@ const routes: Routes = [
     MatDialogModule,
     MatTableModule,
     MatCheckboxModule,
+    FontAwesomeModule,
   ],
   providers: [UsersDataService, HttpServiceService, AuthService],
   exports: [MatSidenavModule, MatIconModule, MatButtonModule, RouterModule],

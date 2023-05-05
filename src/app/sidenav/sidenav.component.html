@@ -1,89 +1,44 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened>
     <!-- Add your navigation links here -->
-    <div>
-      <a
-        mat-button
-        routerLink="/main/home"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
+    <div class="div-button">
+      <a mat-button routerLink="/main/home"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
+        <fa-icon [icon]="faHouse" style="margin-right: 15px; margin-left: -60px;"></fa-icon>
         Home
       </a>
     </div>
-    <br />
-    <div>
-      <a
-        mat-button
-        routerLink="/main/electricity"
-        routerLinkActive="active-link"
-        >Electricity</a
-      >
-    </div>
-    <br />
-    <div>
-      <a mat-button routerLink="/main/water" routerLinkActive="active-link"
-        >Water</a
-      >
-    </div>
-    <br />
-    <div>
-      <a mat-button routerLink="/main/telephone" routerLinkActive="active-link"
-        >Telephone</a
-      >
-    </div>
-    <br />
 
-    <div>
-      <a
-        id="logout"
-        mat-button
-        routerLink="/welcome"
-        routerLinkActive="active-link"
-        >Logout</a
-      >
+    <div class="div-button">
+      <a mat-button routerLink="/main/electricity" routerLinkActive="active-link">
+        <fa-icon [icon]="faBoltLightning" style="margin-right: 20px; margin-left: -10px;"></fa-icon>
+        Electricity
+      </a>
     </div>
-    <br />
+
+    <div class="div-button">
+      <a mat-button routerLink="/main/water" routerLinkActive="active-link">
+        <fa-icon [icon]="faDroplet" style="margin-right: 20px; margin-left: -55px;"></fa-icon>
+        Water
+      </a>
+    </div>
+
+    <div class="div-button">
+      <a mat-button  routerLink="/main/telephone" routerLinkActive="active-link">
+        <fa-icon [icon]="faPhone" style="margin-right: 20px; margin-left: -10px;"></fa-icon>
+        Telephone
+      </a>
+    </div>
+
+    <div class="sub-button" *ngIf="currentTap==='telephone'">
+      <a mat-button  routerLink="/main/serviceproviders" routerLinkActive="active-link">
+        <fa-icon [icon]="faSimCard" style="margin-right: 10px; margin-left: -7px;"></fa-icon>
+        Service Providers
+      </a>
+    </div>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- Add your page content here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container>
-
-<!--<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened>
-      <div><a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a></div><br>
-      <mat-expansion-panel #submenu>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Electricity</mat-panel-title>
-        </mat-expansion-panel-header>
-        <div><a mat-menu-item routerLink="/electricity/billing">Billing</a></div>
-        <div><a mat-menu-item routerLink="/electricity/payments">Payments</a></div>
-      </mat-expansion-panel>
-      <div><a mat-button routerLink="/contact" routerLinkActive="active-link">Water</a></div><br>
-      <mat-menu #menu="matMenu" class="menuu">
-        <div><a mat-menu-item routerLink="/">Home</a></div>
-        <div><a mat-menu-item routerLink="/about">About</a></div>
-        <div><a mat-menu-item routerLink="/contact">Contact</a></div>
-      </mat-menu>
-      <div><button id="menu" mat-button [matMenuTriggerFor]="menu">Telephone</button></div>
-      <mat-menu #menu="matMenu" class="menuu">
-        <div> <a mat-menu-item routerLink="/">Home</a></div>
-        <div> <a mat-menu-item routerLink="/about">About</a></div>
-         <div><a mat-menu-item routerLink="/contact">Contact</a></div>
-       </mat-menu>
-       <div ><button id="menu" mat-button [matMenuTriggerFor]="menu">Telephone</button></div>
-       <div>
-        <button mat-button [matMenuTriggerFor]="submenu">Electricity</button>
-        <mat-menu #submenu="matMenu">
-          <a mat-menu-item routerLink="/electricity/billing">Billing</a>
-          <a mat-menu-item routerLink="/electricity/payments">Payments</a>
-        </mat-menu>
-      </div><br>
-    </mat-sidenav>
-    <mat-sidenav-content>
-
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container> -->
+</mat-sidenav-container> 
