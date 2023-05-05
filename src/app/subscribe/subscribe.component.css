@@ -15,7 +15,6 @@
   text-align: center;
   text-transform: capitalize;
 }
-
 .subscription-page h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -69,7 +68,7 @@
 }
 
 .subscription-page .phone-numbers button {
-  background-color: #007bff;
+  background-color: #3F4A54;
   color: #fff;
   padding: 0.5rem 2rem;
   font-size: 1.2rem;
@@ -80,7 +79,7 @@
 }
 
 .subscription-page .pay-button {
-  background-color: #007bff;
+  background-color: #3F4A54;
   color: #fff;
   padding: 1rem 2rem;
   font-size: 1.2rem;
