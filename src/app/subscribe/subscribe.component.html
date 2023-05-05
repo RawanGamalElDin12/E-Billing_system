@@ -1,10 +1,14 @@
 <div class="subscription-page">
     <h1>{{ serviceProviderName  + " Subscription"  }} </h1>
-    <div class="offer-details">
+    <div class="offer-details" *ngIf="this.OfferID!=-1">
       <h2>Offer Details</h2>
       <p>Offer Name: <span>{{offer.category}}</span></p>
       <p>Offer Price: <span>{{offer.price}}</span></p>
       <p>Offer Minutes: <span>{{offer.minutes}}</span></p>
+    </div>
+    <div class="offer-details" *ngIf="this.OfferID==-1">
+      <h2>Tarriff Details</h2>
+      <p>Tarrif Per Minutes: <span>{{this.tarriff}}</span></p>
     </div>
     <div class="phone-numbers">
       <h2>Phone Numbers</h2>

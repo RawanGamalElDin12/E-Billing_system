@@ -22,15 +22,16 @@ export class PayServiceService {
 this.user = this.userdataService.user;
      }
 
-  createANewBill(offer:Offer, serviceProviderName:string, selectedPhoneNumber:string) 
+  createANewBill(offer:Offer, serviceProviderName:string, selectedPhoneNumber:string, tarriff:number) 
   {
     const newBillID =
     this.user.telephoneBills[this.user.telephoneBills.length - 1].billid + 1;
   const today = new Date();
   const futureDate = new Date();
   futureDate.setDate(today.getDate() + 15);
+ 
   const telephone = new TelephoneBills(
-    offer.price,
+     offer.offerid==0? tarriff : offer.price,
     newBillID,
     offer.minutes,
    futureDate.toDateString(),
@@ -41,6 +42,7 @@ this.user = this.userdataService.user;
     offer.minutes,
     Number(selectedPhoneNumber)
   );
+  console.log(telephone);
   this.user.telephoneBills.push(telephone);
   this.http.updateUser(this.user).subscribe();
   return newBillID;
@@ -83,4 +85,39 @@ this.user = this.userdataService.user;
       
     
   }
+
+  subscribePostPaid(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
+  {
+    const TelephoneAccount:telephoneAccount =this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0];
+    TelephoneAccount.offerid=0;
+    TelephoneAccount.serviceProvider=serviceProviderName;
+    TelephoneAccount.spid=SPID;
+    TelephoneAccount.type='Post-Paid';
+    this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0]= TelephoneAccount;
+
+      this.user.telephoneAccounts.push(TelephoneAccount);
+      
+    
+    
+      
+    
+  }
+  subscribePostPaidGenerate(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
+  {
+    
+
+    const newAccountID =this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid + 1;
+    selectedPhoneNumber= this.generatePhoneNumber();
+    const TelephoneAccount =new telephoneAccount(
+          newAccountID,
+     0,
+      serviceProviderName,
+      selectedPhoneNumber,
+       'Post-Paid',
+     SPID);
+
+    this.user.telephoneAccounts.push(TelephoneAccount);
+  }
+
+ 
 }

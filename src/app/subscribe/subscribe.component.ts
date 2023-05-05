@@ -22,6 +22,7 @@ export class SubscribeComponent implements OnInit {
   serviceProviderName='';
   user:customer;
   phoneNumbers:string[]=[];
+  tarriff:number=0;
   constructor(private route:ActivatedRoute, private http: HttpServiceService, private userServ:UserdataService,
     private payServ :PayServiceService, private router:Router) {
     this.user= userServ.user;
@@ -36,10 +37,13 @@ export class SubscribeComponent implements OnInit {
     }
     this.SPID= Number(this.route.snapshot.paramMap.get('SpID'));
     this.OfferID= Number(this.route.snapshot.paramMap.get('offerID'));
-    console.log("SP"+this.SPID + "OFFER"+ this.OfferID);
+    console.log("SP"+ this.SPID + "OFFER"+ this.OfferID);
     this.http.getSPWithId(this.SPID.toString()).subscribe(data => {
+      if (data==null)
+      console.log ("Wrong SP ID")
       console.log(data);
       this.serviceProviderName=data.name;
+      this.tarriff=data.tarriff;
       for (let key in data.offers)
       { if (data.offers.hasOwnProperty(key))
         {
@@ -56,17 +60,27 @@ export class SubscribeComponent implements OnInit {
   }
 
   pay(){
-
-  /* TODO: Create a new telephone Bill
-  STEPS: 1. Create a new bill id for the new bill 
-  ----> this new bill will be pushed in the Due Bill first and sent to payment so that he can pay for it
-          2. Push the new bill inside the telephone bills array
-          2. Push Said Bill Inside the telephone bills array 
-          3. Update the user object with the new bill id 
-          4. Update the users telephone Account the telephone account based on his selection*/
   
-  this.payServ.subscribeGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
-  let id= this.payServ.createANewBill(this.offer,this.serviceProviderName,this.selectedPhoneNumber);
+    
+  if (this.selectedPhoneNumber=='Gen'&& this.OfferID!=-1)
+  {
+    this.payServ.subscribeGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+  }
+  else if (this.selectedPhoneNumber!='Gen' && this.OfferID!=-1)
+  {
+    this.payServ.subscribe(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+  }
+  else if (this.selectedPhoneNumber!='Gen' && this.OfferID==-1)
+  {
+    this.payServ.subscribePostPaid(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+  }
+  else if (this.selectedPhoneNumber=='Gen' && this.OfferID==-1)
+  {
+    this.payServ.subscribePostPaidGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
+  }
+
+  console.log ("TARRIFF="+ this.tarriff);
+  let id= this.payServ.createANewBill(this.offer,this.serviceProviderName,this.selectedPhoneNumber,this.tarriff);
   this.payServ.billid= id;
   this.payServ.serviceType= 'Telephone'
   this.router.navigate (['/main/payment']);

@@ -38,7 +38,7 @@ pay(){
 
   const phoneNumber :string= this.account.telephoneNo;
   this.payServ.subscribe(phoneNumber, this.offer.offerid, this.account.serviceProvider, this.account.spid);
-  let id= this.payServ.createANewBill(this.offer,this.account.serviceProvider,phoneNumber);
+  let id= this.payServ.createANewBill(this.offer,this.account.serviceProvider,phoneNumber,0);
   this.payServ.billid= id;
   this.payServ.serviceType= 'Telephone'
   this.router.navigate (['/main/payment']);
