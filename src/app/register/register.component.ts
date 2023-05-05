@@ -137,7 +137,7 @@ export class RegisterComponent {
         (result) => {
           console.log(`User created successfully: ${result}`);
           alert('Registered Successfully');
-          this.userDataservice.user = user;
+          this.userDataservice.user = result;
           
           console.log(result.address);
           this.router.navigate(['main/home']);
