@@ -8,25 +8,51 @@
   }
   .mat-sidenav {
     width: 300px;
+    padding-top: 30px;
   }
   .mat-sidenav {
     font-size: 18px; /* set the font size for the sidenav */
-  }
-  
-  .mat-sidenav a, #menu {
-    font-size: 20px; /* set the font size for the links */
-    width: 100%;
-  }
-  .active-link {
-    color: white !important;
-    background-color: #3F4A54; /* set the background color for the active link */
     
   }
+  fa-icon {
+    color: #343C44;
+  }
+  .mat-sidenav a, #menu {
+    font-size: 20px; /* set the font size for the links */
+    width: 92%;
+    height: 50px;
+    margin: 11px;
+  }
+
+  .active-link {
+    color: white !important;
+    background-color: #343C44; /* set the background color for the active link */
+    
+  }
+  .active-link fa-icon {
+    color: white;
+  }
+
+  .sub-button {
+    width: 80%;
+    margin-left: 55px;
+    margin-top: -8px;
+  }
+  .sub-button a {
+    font-size: 16px;
+  }
+  .sub-button .active-link {
+    color: #343C44 !important;
+    background-color: #F5F7FB;
+  }
+
+  .sub-button .active-link fa-icon {
+    color: #343C44;
+  }
+
   .menuu
   {
     float: right;
-    
-
   }
   #logout
   {

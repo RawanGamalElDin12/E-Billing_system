@@ -1,16 +1,43 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" opened>
       <!-- Add your navigation links here -->
-      <div><a mat-button routerLink="/main/home"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
-        Home
-      </a></div><br>
-      <div><a mat-button routerLink="/main/electricity" routerLinkActive="active-link">Electricity</a></div><br>
-      <div><a mat-button routerLink="/main/water" routerLinkActive="active-link">Water</a></div><br>
-      <div><a mat-button  routerLink="/main/telephone" routerLinkActive="active-link">Telephone</a></div><br>
-     
-           
+      <div class="div-button">
+        <a mat-button routerLink="/main/home"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
+          <fa-icon [icon]="faHouse" style="margin-right: 15px; margin-left: -60px;"></fa-icon>
+          Home
+        </a>
+      </div>
 
-        <div><a id= "logout" mat-button routerLink="/login" routerLinkActive="active-link">Logout</a></div><br>
+      <div class="div-button">
+        <a mat-button routerLink="/main/electricity" routerLinkActive="active-link">
+          <fa-icon [icon]="faBoltLightning" style="margin-right: 20px; margin-left: -10px;"></fa-icon>
+          Electricity
+        </a>
+      </div>
+
+      <div class="div-button">
+        <a mat-button routerLink="/main/water" routerLinkActive="active-link">
+          <fa-icon [icon]="faDroplet" style="margin-right: 20px; margin-left: -55px;"></fa-icon>
+          Water
+        </a>
+      </div>
+
+      <div class="div-button">
+        <a mat-button  routerLink="/main/telephone" routerLinkActive="active-link">
+          <fa-icon [icon]="faPhone" style="margin-right: 20px; margin-left: -10px;"></fa-icon>
+          Telephone
+        </a>
+      </div>
+
+      <div class="sub-button" *ngIf="currentTap==='telephone'">
+        <a mat-button  routerLink="/main/telephone" routerLinkActive="active-link">
+          <fa-icon [icon]="faSimCard" style="margin-right: 10px; margin-left: -10px;"></fa-icon>
+          Service Providers
+        </a>
+      </div>
+  
+
+      <div><a id= "logout" mat-button routerLink="/login" routerLinkActive="active-link">Logout</a></div><br>
 
 
       
