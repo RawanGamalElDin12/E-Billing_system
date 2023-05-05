@@ -48,7 +48,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let bill of dueBills; let i = index">
-        <td><img class="water-icon" src="https://th.bing.com/th/id/R.1571f109c7a005d02e305641e8ffd3e3?rik=QPjnLGfVuY%2fuiw&pid=ImgRaw&r=0" alt="Bill Image"></td>
+        <td><img class="water-icon" src="../assets/Icons/icons8-electricity-64-blue.png" alt="Bill Image"></td>
         <td [ngStyle]="{'color': !checkLateFees.checkBillDueDate(bill.date) ? 'red' : 'black'}">{{ bill.date }}</td>
         <td>{{ bill.amount }}</td>
        

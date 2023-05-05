@@ -1,16 +1,41 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav mode="side" opened>
       <!-- Add your navigation links here -->
-      <div><a mat-button routerLink="/AdminMain/Dashboard"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
-        Dashboard
-      </a></div><br>
-      <div><a mat-button routerLink="/AdminMain/ViewUsers" routerLinkActive="active-link">View Users</a></div><br>
-      <div><a mat-button routerLink="/AdminMain/AddUser" routerLinkActive="active-link">Add User</a></div><br>
 
-      <div><a  mat-button routerLink="/AdminMain/serviceproviders" routerLinkActive="active-link">Service Providers</a></div><br>
+      <div class="div-button">
+        <a mat-button routerLink="/AdminMain/Dashboard"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
+          <fa-icon [icon]="faHouse" style="margin-right: 11px; margin-left: -44px;"></fa-icon>
+          Dashboard
+        </a>
+      </div>
+  
+      <div class="div-button">
+        <a mat-button routerLink="/AdminMain/ViewUsers" routerLinkActive="active-link">
+          <fa-icon [icon]="faUsers" style="margin-right: 11px; margin-left: -39px;"></fa-icon>
+          View Users
+        </a>
+      </div>
 
-      <div><a id= "logout" mat-button routerLink="/welcome" routerLinkActive="active-link">Logout</a></div><br>
+      <div class="div-button">
+        <a mat-button routerLink="/AdminMain/AddUser" routerLinkActive="active-link">
+          <fa-icon [icon]="faUserPlus" style="margin-right: 11px; margin-left: -53px;"></fa-icon>
+          Add User
+        </a>
+      </div>
 
+      <div class="div-button">
+        <a mat-button routerLink="/AdminMain/serviceproviders" routerLinkActive="active-link" style="font-size: 18px;">
+          <fa-icon [icon]="faSimCard" style="margin-right: 13px; margin-left: 12px; font-size: 21px;"></fa-icon>
+          Service Providers
+        </a>
+      </div>
+
+      <div class="div-button">
+        <a id="logout" mat-button routerLink="/welcome" routerLinkActive="active-link">
+          <fa-icon [icon]="faRightFromBracket" style="margin-right: 12px; margin-left: -20px;"></fa-icon>
+          Logout
+        </a>
+      </div>
   
     </mat-sidenav>
     <mat-sidenav-content>

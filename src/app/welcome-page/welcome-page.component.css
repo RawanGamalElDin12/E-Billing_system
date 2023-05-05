@@ -38,6 +38,7 @@
   background-color: #f5f7fb;
   padding-top: 60px;
   padding-bottom: 60px;
+  height: 72.5%;
 }
 
 .button-container {
@@ -82,7 +83,6 @@
 }
 .add {
   float: right;
-
   width: 140px;
   height: 40px;
   padding: 2px 2px 2px 2px;

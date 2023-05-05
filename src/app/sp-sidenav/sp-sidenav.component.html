@@ -1,37 +1,28 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened>
     <!-- Add your navigation links here -->
-    <div>
-      <a
-        mat-button
-        routerLink="/SpMain/Home"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
+    <div class="div-button">
+      <a mat-button routerLink="/SpMain/Home"  routerLinkActive="active-link"  [routerLinkActiveOptions]="{ exact: true }" >  
+        <fa-icon [icon]="faHouse" style="margin-right: 15px; margin-left: -50px;"></fa-icon>
         Home
       </a>
     </div>
-    <br />
-    <div>
-      <a
-        mat-button
-        routerLink="/SpMain/add-offer"
-        routerLinkActive="active-link"
-        >Add Offer</a
-      >
-    </div>
-    <br />
 
-    <div>
-      <a
-        id="logout"
-        mat-button
-        (click)="onLogout()"
-        routerLinkActive="active-link"
-        >Logout</a
-      >
+    <div class="div-button">
+      <a mat-button routerLink="/SpMain/add-offer" routerLinkActive="active-link">
+        <fa-icon [icon]="faPlus" style="margin-right: 20px; margin-left: -10px;"></fa-icon>
+        Add Offer
+      </a>
     </div>
-    <br />
+
+
+    <div class="div-button">
+      <a id="logout" mat-button (click)="onLogout()" routerLinkActive="active-link">
+        <fa-icon [icon]="faRightFromBracket" style="margin-right: 20px; margin-left: -30px;"></fa-icon>
+        Logout
+      </a>
+    </div>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- Add your page content here -->
