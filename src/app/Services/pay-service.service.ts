@@ -6,6 +6,7 @@ import { customer } from '../classes/customer';
 import { TelephoneBills } from '../classes/bill';
 import { Offer } from '../classes/Offer';
 import { telephoneAccount } from '../classes/telephoneAccount';
+import { concatWith } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,9 @@ this.user = this.userdataService.user;
 
   createANewBill(offer:Offer, serviceProviderName:string, selectedPhoneNumber:string, tarriff:number) 
   {
-    const newBillID =
-    this.user.telephoneBills[this.user.telephoneBills.length - 1].billid + 1;
+    const newBillID = this.user.telephoneBills[this.user.telephoneBills.length - 1].billid + 1;
+    console.log(newBillID);
+
   const today = new Date();
   const futureDate = new Date();
   futureDate.setDate(today.getDate() + 15);
@@ -71,7 +73,11 @@ this.user = this.userdataService.user;
   subscribeGenerate(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
   {
     
-       const newAccountID =this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid + 1;
+       let newAccountID = this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid  + 1;
+       if (newAccountID==0 || Number.isNaN(newAccountID))
+       {
+         newAccountID=1;
+       }
       selectedPhoneNumber= this.generatePhoneNumber();
       const TelephoneAccount =new telephoneAccount(
             newAccountID,
@@ -95,7 +101,7 @@ this.user = this.userdataService.user;
     TelephoneAccount.type='Post-Paid';
     this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0]= TelephoneAccount;
 
-      this.user.telephoneAccounts.push(TelephoneAccount);
+    this.user.telephoneAccounts.push(TelephoneAccount);
       
     
     
@@ -106,7 +112,12 @@ this.user = this.userdataService.user;
   {
     
 
-    const newAccountID =this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid + 1;
+    let newAccountID = this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid  + 1;
+    if (newAccountID==0 || Number.isNaN(newAccountID))
+    {
+      newAccountID=1;
+    }
+    
     selectedPhoneNumber= this.generatePhoneNumber();
     const TelephoneAccount =new telephoneAccount(
           newAccountID,

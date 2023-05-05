@@ -122,9 +122,14 @@ export class PaymentComponent implements OnInit {
       this.user.waterBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].paymentType = this.payType;
+     if (this.lateFee)
       this.user.waterBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].lateFees = 0.1;
+      else
+      this.user.waterBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0;
       this.user.waterBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].amount = this.updatedBill.amount;
@@ -137,27 +142,36 @@ export class PaymentComponent implements OnInit {
       this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].paymentType = this.payType;
+      if(this.lateFee)
       this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].lateFees = 0.1;
+      else
+      this.user.electricityBills.filter(
+        (bill) => bill.billid == this.payServ.billid
+      )[0].lateFees = 0;
+
       this.user.electricityBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
-    } else if (this.payServ.serviceType == 'Telephone') {
+    } 
+    else if (this.payServ.serviceType == 'Telephone') 
+    {
       this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].status = 'Paid';
       this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].paymentType = this.payType;
-      this.user.telephoneBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0.1;
-      this.user.telephoneBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].amount = this.updatedBill.amount;
+
+      if (this.lateFee)
+       this.user.telephoneBills.filter((bill) => bill.billid == this.payServ.billid)[0].lateFees = 0.1;
+      else
+        this.user.telephoneBills.filter((bill) => bill.billid == this.payServ.billid)[0].lateFees = 0
+
+      this.user.telephoneBills.filter((bill) => bill.billid == this.payServ.billid)[0].amount = this.updatedBill.amount;
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
     }
@@ -174,8 +188,8 @@ export class PaymentComponent implements OnInit {
   }
   checkBillDueDate(billDate: string): boolean {
     const today = new Date();
-    // console.log(today);
-    // console.log(billDate);
+    console.log(today);
+    console.log(billDate);
     if (new Date(billDate) > today) {
       return true; //early
     } else {
@@ -211,28 +225,5 @@ export class PaymentComponent implements OnInit {
     } else return 0;
   }
 
-  changeUserData(serviceBill: string, lateFee: number) {
-    if (serviceBill == 'water') {
-      this.user.waterBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].amount = lateFee;
-      this.user.waterBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0.1;
-    } else if (serviceBill == 'electricity') {
-      this.user.electricityBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].amount = lateFee;
-      this.user.electricityBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0.1;
-    } else if (serviceBill == 'telephone') {
-      this.user.telephoneBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].amount = lateFee;
-      this.user.telephoneBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0].lateFees = 0.1;
-    }
-  }
+
 }

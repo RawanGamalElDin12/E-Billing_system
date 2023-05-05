@@ -78,10 +78,12 @@ export class SubscribeComponent implements OnInit {
   {
     this.payServ.subscribePostPaidGenerate(this.selectedPhoneNumber, this.OfferID, this.serviceProviderName, this.SPID);
   }
+  
 
   console.log ("TARRIFF="+ this.tarriff);
   let id= this.payServ.createANewBill(this.offer,this.serviceProviderName,this.selectedPhoneNumber,this.tarriff);
   this.payServ.billid= id;
+  console.log(this.payServ.billid);
   this.payServ.serviceType= 'Telephone'
   this.router.navigate (['/main/payment']);
   

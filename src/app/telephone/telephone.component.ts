@@ -49,14 +49,15 @@ export class TelephoneComponent {
         account: account,
       },
     };
+    console.log(account);
 
     if (account.type === 'Pre-Paid') {
-      console.log(account.type);
+      console.log(account.accountid);
       this.router.navigate(
         ['main/pre-paid-account', account.accountid],
         navigationExtras
       );
-    } else {
+    } else if (account.type === 'Post-Paid') {
       this.router.navigate(
         ['main/post-paid-account', account.accountid],
         navigationExtras
