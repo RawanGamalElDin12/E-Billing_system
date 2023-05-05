@@ -63,7 +63,7 @@ export class AdminAddUserComponent {
         status: '',
         minutes: 0,
         serviceProvider: '',
-        telephoneNo: 0,
+        telephoneNo: '',
       },
     ],
   };

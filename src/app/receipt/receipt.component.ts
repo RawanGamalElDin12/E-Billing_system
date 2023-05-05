@@ -68,7 +68,7 @@ export class ReceiptComponent implements OnInit {
         status: '',
         minutes: 0,
         serviceProvider: '',
-        telephoneNo: 0,
+        telephoneNo: '',
       },
     ],
   };
@@ -93,7 +93,7 @@ export class ReceiptComponent implements OnInit {
     status: '',
     minutes: 0,
     serviceProvider: '',
-    telephoneNo: 0,
+    telephoneNo: '',
   };
   serv: ServiceProvider = {
     id: 0,
