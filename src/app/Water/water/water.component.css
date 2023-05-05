@@ -29,7 +29,21 @@
 .table-div {
   margin-top: 20px;
   margin-bottom: 50px;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;   
+  height: 30%;
+  overflow: auto;
 }
+.table-div-pay {
+  margin-top: 20px;
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;   
+  height: 30%;
+  overflow: auto;
+}
+
 
 .bills-table {
   width: 100%;
@@ -45,6 +59,9 @@
 
 .bills-table th {
   background-color: #f1f1f1;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .water-icon,
