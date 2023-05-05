@@ -7,6 +7,9 @@ import { AuthService } from '../Services/authservice.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { customer } from '../classes/customer';
 import { UserdataService } from '../Services/userdata.service';
+import { ServiceProvidersDataService } from '../Services/service-providers-data.service';
+import { BillingServiceService } from '../Services/billing-service.service';
+import { ServiceProvider } from '../classes/ServiceProvider';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -76,7 +79,9 @@ export class RegisterComponent {
     private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private userDataservice: UserdataService
+    private userDataservice: UserdataService,
+    private serviceProviders: ServiceProvidersDataService,
+    private billing: BillingServiceService
   ) {
     this.regForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -133,6 +138,7 @@ export class RegisterComponent {
           console.log(`User created successfully: ${result}`);
           alert('Registered Successfully');
           this.userDataservice.user = user;
+          
           console.log(result.address);
           this.router.navigate(['main/home']);
         },
@@ -142,7 +148,21 @@ export class RegisterComponent {
         }
       );
     }
+    this.httpService.getSPs().subscribe(
+      (sps: ServiceProvider[]) => {
+        console.log(sps);
+        this.serviceProviders.setSPs(sps);
+        // this.UsersData.setUsers(users);
+        console.log(this.serviceProviders.getSPs());
+      },
+      (error: any) => {
+        console.error('Error occurred while fetching sps:', error);
+      }
+    );
+    this.billing.billingServiceInitialization();
+    
   }
+
   login() {
     this.router.navigate(['/login']);
   }
