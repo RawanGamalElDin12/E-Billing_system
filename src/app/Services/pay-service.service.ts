@@ -59,8 +59,7 @@ this.user = this.userdataService.user;
 }
   subscribe (selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number){
 
-      console.log(selectedPhoneNumber);
-      
+    console.log("inside subscribe");
       const TelephoneAccount:telephoneAccount =this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0];
       TelephoneAccount.offerid=OfferID;
       TelephoneAccount.serviceProvider=serviceProviderName;
@@ -73,11 +72,9 @@ this.user = this.userdataService.user;
   subscribeGenerate(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
   {
     
+    
+    console.log("inside generate");
        let newAccountID = this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid  + 1;
-       if (newAccountID==0 || Number.isNaN(newAccountID))
-       {
-         newAccountID=1;
-       }
       selectedPhoneNumber= this.generatePhoneNumber();
       const TelephoneAccount =new telephoneAccount(
             newAccountID,
@@ -94,6 +91,8 @@ this.user = this.userdataService.user;
 
   subscribePostPaid(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
   {
+    
+    console.log("inside post paid");
     const TelephoneAccount:telephoneAccount =this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0];
     TelephoneAccount.offerid=0;
     TelephoneAccount.serviceProvider=serviceProviderName;
@@ -101,7 +100,7 @@ this.user = this.userdataService.user;
     TelephoneAccount.type='Post-Paid';
     this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0]= TelephoneAccount;
 
-    this.user.telephoneAccounts.push(TelephoneAccount);
+    this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0]= TelephoneAccount;
       
     
     
@@ -110,25 +109,20 @@ this.user = this.userdataService.user;
   }
   subscribePostPaidGenerate(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
   {
-    
+    console.log("inside post paid generate");
 
-    let newAccountID = this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid  + 1;
-    if (newAccountID==0 || Number.isNaN(newAccountID))
-    {
-      newAccountID=1;
+      let newAccountID = this.user.telephoneAccounts[this.user.telephoneAccounts.length - 1].accountid  + 1;   
+      selectedPhoneNumber= this.generatePhoneNumber();
+      const TelephoneAccount =new telephoneAccount(
+            newAccountID,
+         -1  ,
+        serviceProviderName,
+        selectedPhoneNumber,
+        'Post-Paid',
+      SPID);
+
+      this.user.telephoneAccounts.push(TelephoneAccount);
     }
-    
-    selectedPhoneNumber= this.generatePhoneNumber();
-    const TelephoneAccount =new telephoneAccount(
-          newAccountID,
-     0,
-      serviceProviderName,
-      selectedPhoneNumber,
-       'Post-Paid',
-     SPID);
-
-    this.user.telephoneAccounts.push(TelephoneAccount);
-  }
 
  
 }
