@@ -109,6 +109,7 @@ export class ReceiptComponent implements OnInit {
   power = false;
   spName = '';
   telephoneMessage = '';
+  total: number = 0;
   constructor(
     private route: ActivatedRoute,
     private http: HttpServiceService,
@@ -125,12 +126,13 @@ export class ReceiptComponent implements OnInit {
       this.http
         .getBillElect(userid.toString(), this.bill.billid)
         .subscribe((data) => {
+          this.total = data.lateFees * data.amount + data.amount;
           this.price = this.billingService.getElectricityPrice();
           this.unit = 'kWh';
           this.bill.amount = data.amount;
           this.bill.consumption = data.consumption;
           this.bill.date = data.date;
-          this.bill.lateFees = data.lateFees;
+          this.bill.lateFees = data.lateFees * data.amount;
           this.bill.paymentType = data.paymentType;
           this.bill.status = data.status;
         });
@@ -138,13 +140,14 @@ export class ReceiptComponent implements OnInit {
       this.http
         .getBillWater(userid.toString(), this.bill.billid)
         .subscribe((data) => {
+          this.total = data.lateFees * data.amount + data.amount;
           this.power = true;
           this.unit = 'm^3';
           this.price = this.billingService.getWaterPrice();
           this.bill.amount = data.amount;
           this.bill.consumption = data.consumption;
           this.bill.date = data.date;
-          this.bill.lateFees = data.lateFees;
+          this.bill.lateFees = data.lateFees * data.amount;
           this.bill.paymentType = data.paymentType;
           this.bill.status = data.status;
         });
