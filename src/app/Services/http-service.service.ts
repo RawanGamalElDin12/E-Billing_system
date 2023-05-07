@@ -201,6 +201,7 @@ export class HttpServiceService {
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
     console.log(sp);
     console.log(offer.offerid);
+    sp.offers[offer.offerid] = offer;
     console.log(sp.offers[offer.offerid]);
 
     return this.http.put<Offer>(url, JSON.stringify(offer), this.httpOptions);
