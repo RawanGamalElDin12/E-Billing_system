@@ -25,7 +25,7 @@ this.user = this.userdataService.user;
 
   createANewBill(offer:Offer, serviceProviderName:string, selectedPhoneNumber:string, tarriff:number) 
   {
-    const newBillID = this.user.telephoneBills[this.user.telephoneBills.length - 1].billid + 1;
+    const newBillID = this.user.telephoneBills[this.user.telephoneBills.length - 1].billid +1;
     console.log(newBillID);
 
   const today = new Date();
@@ -45,8 +45,9 @@ this.user = this.userdataService.user;
     ,selectedPhoneNumber
   );
   console.log(telephone);
-  this.user.telephoneBills.push(telephone);
+ 
   this.http.updateUser(this.user).subscribe();
+  this.user.telephoneBills.push(telephone);
   return newBillID;
   }
   generatePhoneNumber()
@@ -84,7 +85,8 @@ this.user = this.userdataService.user;
          'Pre-Paid',
        SPID);
 
-      this.user.telephoneAccounts.push(TelephoneAccount);
+       this.user.telephoneAccounts.push(TelephoneAccount);
+      this.http.updateUser(this.user).subscribe();
       return selectedPhoneNumber;
       
     
@@ -100,12 +102,6 @@ this.user = this.userdataService.user;
     TelephoneAccount.spid=SPID;
     TelephoneAccount.type='Post-Paid';
     this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0]= TelephoneAccount;
-
-    this.user.telephoneAccounts.filter(no=> no.telephoneNo==selectedPhoneNumber)[0]= TelephoneAccount;
-      
-    
-    
-      
     
   }
   subscribePostPaidGenerate(selectedPhoneNumber:string, OfferID:number, serviceProviderName:string, SPID:number)
@@ -123,6 +119,7 @@ this.user = this.userdataService.user;
       SPID);
 
       this.user.telephoneAccounts.push(TelephoneAccount);
+      this.http.updateUser(this.user).subscribe();
       return selectedPhoneNumber;
 
     }

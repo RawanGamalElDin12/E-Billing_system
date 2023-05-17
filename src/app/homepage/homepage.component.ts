@@ -29,8 +29,6 @@ export class HomepageComponent {
   incomeControl = new FormControl(); // a form control for the income filter input
   checkLateFees:any; // a variable to store the CheckLateFeesService
 
-  filteredValues: Observable<string[]> | undefined; // an observable to store the filtered values for the income filter
-
   constructor(
     private userDataService: UserdataService, // a service to get the user data
     private httpservice: HttpServiceService, // an HTTP service to make requests to the backend
@@ -73,18 +71,10 @@ export class HomepageComponent {
     }
 
     console.log(this.Bills); // log the bills array to the console
-    this.filteredValues = this.incomeControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this.filter(value)) // map the filtered values using the filter method
-    );
+  
   }
 
-  filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.Bills.filter((income) =>
-      income.toLowerCase().includes(filterValue)
-    ); // filter the bills based on the income filter value
-  }
+ 
 
   get filteredBills() {
     return this.Bills.filter((bill) => {

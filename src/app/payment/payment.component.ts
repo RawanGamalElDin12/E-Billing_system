@@ -39,8 +39,7 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.payServ.serviceType == 'Water') {
-      this.bill = this.user.waterBills.filter(
-        (bill) => bill.billid == this.payServ.billid
+      this.bill = this.user.waterBills.filter((bill) => bill.billid == this.payServ.billid
       )[0];
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'water');
@@ -56,8 +55,11 @@ export class PaymentComponent implements OnInit {
       else this.updatedBill = { ...this.bill };
     } else if (this.payServ.serviceType == 'Telephone') {
       this.bill = this.user.telephoneBills.filter(
-        (bill) => bill.billid == this.payServ.billid
-      )[0];
+        (bill) => bill.billid == this.payServ.billid )[0];
+      console.log (this.user.telephoneBills);
+      console.log ("PAYSERV ID"+this.payServ.billid)
+      console.log ("BILL ID "+this.bill.billid);
+      console.log(this.bill);
       const date = this.bill.date;
       const lateFee = this.lateFees(date, 'telephone');
       if (lateFee != 0) this.updatedBill = { ...this.bill, amount: lateFee };
@@ -166,6 +168,7 @@ export class PaymentComponent implements OnInit {
       this.user.telephoneBills.filter(
         (bill) => bill.billid == this.payServ.billid
       )[0].amount = this.updatedBill.amount;
+     
       this.http.updateUser(this.user).subscribe();
       this.invoice = this.invoiceNumber();
     }
