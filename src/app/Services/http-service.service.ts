@@ -19,6 +19,8 @@ import { telephoneAccount } from '../classes/telephoneAccount';
 })
 export class HttpServiceService {
   users: User[] = [];
+  usedIds: number[] = []; // Array to store used IDs
+
   baseurl2 = 'https://billing-sys2-default-rtdb.firebaseio.com/';
   constructor(private http: HttpClient) {}
   httpOptions = {
@@ -64,28 +66,6 @@ export class HttpServiceService {
   getSPWithId(id: string): Observable<ServiceProvider> {
     const url = `${this.baseurl2}/ServiceProviders/${id}.json`;
     return this.http.get<ServiceProvider>(url);
-  }
-
-  getSPbyName(serviceName: string): Observable<ServiceProvider> {
-    const url = `${this.baseurl2}/ServiceProviders.json?orderBy="name"&equalTo="${serviceName}"`;
-    console.log(url);
-    return this.http.get(url).pipe(
-      map((data) => {
-        const serviceProviders = Object.values(data); // get an array of the service providers
-        const serviceProvider = serviceProviders[0]; // get the first service provider (assuming there is only one)
-
-        // Create a new ServiceProvider object using the data from the JSON object
-        const newServiceProvider: ServiceProvider = {
-          name: serviceProvider.name,
-          offers: serviceProvider.offers,
-          tarriff: serviceProvider.tarriff,
-          id: serviceProvider.id,
-          password: serviceProvider.password,
-        };
-
-        return newServiceProvider; // return the new ServiceProvider object
-      })
-    );
   }
 
   deleteUserById(id: string): Observable<void> {
@@ -188,14 +168,13 @@ export class HttpServiceService {
     // const id = Math.floor(Math.random() * 50) + 1;
     // offer.offerid=id;
 
-    const usedIds: number[] = []; // Array to store used IDs
     let id: number;
 
     do {
       id = Math.floor(Math.random() * 50) + 1; // Generate random ID between 1 and 50
-    } while (usedIds.includes(id)); // Regenerate ID if it has already been used
+    } while (this.usedIds.includes(id)); // Regenerate ID if it has already been used
 
-    usedIds.push(id);
+    this.usedIds.push(id);
     offer.offerid = id;
 
     const url = `${this.baseurl2}/ServiceProviders/${sp.id}/offers/${offer.offerid}.json`;
@@ -203,7 +182,29 @@ export class HttpServiceService {
     console.log(offer.offerid);
     sp.offers[offer.offerid] = offer;
     console.log(sp.offers[offer.offerid]);
-
+    console.log(this.usedIds);
     return this.http.put<Offer>(url, JSON.stringify(offer), this.httpOptions);
+  }
+
+  getSPbyName(serviceName: string): Observable<ServiceProvider> {
+    const url = `${this.baseurl2}/ServiceProviders.json?orderBy="name"&equalTo="${serviceName}"`;
+    console.log(url);
+    return this.http.get(url).pipe(
+      map((data) => {
+        const serviceProviders = Object.values(data); // get an array of the service providers
+        const serviceProvider = serviceProviders[0]; // get the first service provider (assuming there is only one)
+
+        // Create a new ServiceProvider object using the data from the JSON object
+        const newServiceProvider: ServiceProvider = {
+          name: serviceProvider.name,
+          offers: serviceProvider.offers,
+          tarriff: serviceProvider.tarriff,
+          id: serviceProvider.id,
+          password: serviceProvider.password,
+        };
+
+        return newServiceProvider; // return the new ServiceProvider object
+      })
+    );
   }
 }
